@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sublime_Text on 卜平社</title>
+    <link>https://kevintus.github.io/tags/sublime_text/</link>
+    <description>Recent content in Sublime_Text on 卜平社</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://kevintus.github.io/tags/sublime_text/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ubuntu 18.04 全局代理和 Sublime Text 3 设置</title>
+      <link>https://kevintus.github.io/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://kevintus.github.io/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/</guid>
+      <description>背景条件 基于Sublime Text 3 官网指南，在Ubuntu 18.04 上进行安装，显示gpg下载错误。 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - 把管道命令拆开，单独使用 Curl 命令下载</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="欢迎来到卜平社" />
-    <meta property="og:title" content="欢迎来到卜平社" />
-    <meta property="twitter:title" content="欢迎来到卜平社" />
+    <meta name="title" content="Ubuntu 18.04 全局代理和 Sublime Text 3 设置" />
+    <meta property="og:title" content="Ubuntu 18.04 全局代理和 Sublime Text 3 设置" />
+    <meta property="twitter:title" content="Ubuntu 18.04 全局代理和 Sublime Text 3 设置" />
     
 
     
-    <meta name="description" content="">
-    <meta property="og:description" content="" />
-    <meta property="twitter:description" content="" />
+    <meta name="description" content="利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件">
+    <meta property="og:description" content="利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件" />
+    <meta property="twitter:description" content="利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>欢迎来到卜平社-卜平社</title>
+    <title>Ubuntu 18.04 全局代理和 Sublime Text 3 设置-卜平社</title>
 
-    <link rel="canonical" href="/2019/06/08/hello-world/">
+    <link rel="canonical" href="/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -154,13 +154,21 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                        <a class="tag" href="/tags/ubuntu" title="Ubuntu">
+                            Ubuntu
+                        </a>
+                        
+                        <a class="tag" href="/tags/sublime_text" title="Sublime_Text">
+                            Sublime_Text
+                        </a>
+                        
                     </div>
-                    <h1>欢迎来到卜平社</h1>
-                    <h2 class="subheading">Hello World, Hello Pupin</h2>
+                    <h1>Ubuntu 18.04 全局代理和 Sublime Text 3 设置</h1>
+                    <h2 class="subheading"></h2>
                     <span class="meta">
 			Posted by 
 			
-			    Pupin
+			        &#34;Kevin L&#34;
 			 
 			on 
 			Saturday, June 8, 2019
@@ -191,20 +199,49 @@
                 </header>
                 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li><a href="#hello-world">Hello World!</a></li>
-</ul></li>
+<li><a href="#背景条件">背景条件</a></li>
+<li><a href="#利用privoxy实现终端下全局代理">利用Privoxy实现终端下全局代理</a></li>
 </ul>
 </nav>
                 
                 
 
-<blockquote>
-<p>欢迎来到卜平社，这是一个测试</p>
-</blockquote>
+<h1 id="背景条件">背景条件</h1>
 
-<h2 id="hello-world">Hello World!</h2>
+<p>基于Sublime Text 3 官网指南，在Ubuntu 18.04 上进行安装，显示gpg下载错误。</p>
+
+<pre><code>wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+</code></pre>
+
+<p>把管道命令拆开，单独使用 Curl 命令下载gpg，发现连接不上。(Connection timeout)</p>
+
+<pre><code>curl https://download.sublimetext.com/sublimehq-pub.gpg 
+</code></pre>
+
+<p>以为是DNS污染问题，设置ufw规则对所有443接口和 <a href="https://download.sublimetext.com/">https://download.sublimetext.com/</a> 通过，然并卵</p>
+
+<pre><code>sudo ufw status numbered #查看现有ufw规则
+sudo ufw allow tcp/443   #允许443接口
+sudo ufw allow from 104.236.0.104 #允许 download.sublimetext.com 的IP
+</code></pre>
+
+<p>换一种思路，在chrome里面单独下载gpg key，发现网页连接不上。查看SwitchyOmega插件信息，发现failed resource，添加到SS的proxy规则后，下载成功。说明问题出在proxy：sublime text的服务器被墙了？</p>
+
+<h1 id="利用privoxy实现终端下全局代理">利用Privoxy实现终端下全局代理</h1>
+
+<p>因为之前ss+chrome SwitchyOmega 运行正常，所以这里只需要使终端下全局代理即可。主要参考了这篇文章（<a href="https://einverne.github.io/post/2018/03/privoxy-forward-socks-to-http.html）">https://einverne.github.io/post/2018/03/privoxy-forward-socks-to-http.html）</a></p>
+
+<p>要注意的是在以下部分：</p>
+
+<pre><code>&gt;# 把本地 HTTP 流量转发到本地 1080 SOCKS5 代理
+&gt; forward-socks5t / 127.0.0.1:1080 .
+&gt;# 可选，默认监听本地连接
+&gt; listen-address 127.0.0.1:8118
+</code></pre>
+
+<p>只需要设置forward那列即可，不需要添加监听本地链接，因为原文件里面已经有了。</p>
+
+<p>一切顺利，测试<code>curl ip.gs</code>和<code>curl www.google.com</code>输出正常，全局代理设置完毕。</p>
 
 
                 
@@ -253,15 +290,10 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/readme/" data-toggle="tooltip" data-placement="top" title="Clean White Theme for Hugo">&larr;
+                        <a href="/2019/06/08/hello-world/" data-toggle="tooltip" data-placement="top" title="欢迎来到卜平社">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/" data-toggle="tooltip" data-placement="top" title="Ubuntu 18.04 全局代理和 Sublime Text 3 设置">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
