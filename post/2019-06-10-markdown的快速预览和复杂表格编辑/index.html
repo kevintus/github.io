@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Ubuntu 18.04 全局代理和 Sublime Text 3 设置" />
-    <meta property="og:title" content="Ubuntu 18.04 全局代理和 Sublime Text 3 设置" />
-    <meta property="twitter:title" content="Ubuntu 18.04 全局代理和 Sublime Text 3 设置" />
+    <meta name="title" content="2019 06 10 Markdown的快速预览和复杂表格编辑" />
+    <meta property="og:title" content="2019 06 10 Markdown的快速预览和复杂表格编辑" />
+    <meta property="twitter:title" content="2019 06 10 Markdown的快速预览和复杂表格编辑" />
     
 
     
-    <meta name="description" content="利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件">
-    <meta property="og:description" content="利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件" />
-    <meta property="twitter:description" content="利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件" />
+    <meta name="description" content="Sublime Text 3利用 Markdown Preview 插件实现快速预览；同时利用 EXCEL 下的 HTML 格式实现复杂表格编辑">
+    <meta property="og:description" content="Sublime Text 3利用 Markdown Preview 插件实现快速预览；同时利用 EXCEL 下的 HTML 格式实现复杂表格编辑" />
+    <meta property="twitter:description" content="Sublime Text 3利用 Markdown Preview 插件实现快速预览；同时利用 EXCEL 下的 HTML 格式实现复杂表格编辑" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Ubuntu 18.04 全局代理和 Sublime Text 3 设置-卜平社</title>
+    <title>2019 06 10 Markdown的快速预览和复杂表格编辑-卜平社</title>
 
-    <link rel="canonical" href="/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/">
+    <link rel="canonical" href="/post/2019-06-10-markdown%E7%9A%84%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88%E5%92%8C%E5%A4%8D%E6%9D%82%E8%A1%A8%E6%A0%BC%E7%BC%96%E8%BE%91/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -154,8 +154,8 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/ubuntu" title="Ubuntu">
-                            Ubuntu
+                        <a class="tag" href="/tags/markdown" title="Markdown">
+                            Markdown
                         </a>
                         
                         <a class="tag" href="/tags/sublime_text" title="Sublime_Text">
@@ -163,7 +163,7 @@
                         </a>
                         
                     </div>
-                    <h1>Ubuntu 18.04 全局代理和 Sublime Text 3 设置</h1>
+                    <h1>2019 06 10 Markdown的快速预览和复杂表格编辑</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
 			Posted by 
@@ -171,7 +171,7 @@
 			        &#34;Kevin L&#34;
 			 
 			on 
-			Saturday, June 8, 2019
+			Monday, June 10, 2019
                         
                     </span>
                 </div>
@@ -199,49 +199,117 @@
                 </header>
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#背景条件">背景条件</a></li>
-<li><a href="#利用privoxy实现终端下全局代理">利用Privoxy实现终端下全局代理</a></li>
+<li>
+<ul>
+<li><a href="#markdown的快速预览">Markdown的快速预览</a></li>
+<li><a href="#利用excel下的-html-格式实现复杂表格编辑">利用Excel下的 HTML 格式实现复杂表格编辑</a></li>
+</ul></li>
 </ul>
 </nav>
                 
                 
 
-<h1 id="背景条件">背景条件</h1>
+<h2 id="markdown的快速预览">Markdown的快速预览</h2>
 
-<p>基于Sublime Text 3 官网指南，在Ubuntu 18.04 上进行安装，显示gpg下载错误。</p>
+<p>在 Sublime Text 3 里面利用 <code>ctrl + shift + p</code> 呼出菜单，输入 <code>Install</code> 查找到 <code>Markdown Preview</code> 进行安装；之后选择 <code>Preference -&gt; Key Bindings</code>，在 user 配置文件内添加快捷键 <code>Alt + m</code>来实现快速预览，预览文件会在 <code>/tmp</code> 文件夹内</p>
 
-<pre><code>wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+<pre><code>    { &quot;keys&quot;: [&quot;alt+m&quot;], &quot;command&quot;: &quot;markdown_preview&quot;, &quot;args&quot;: {&quot;target&quot;: &quot;browser&quot;, &quot;parser&quot;:&quot;markdown&quot;}  }
 </code></pre>
 
-<p>把管道命令拆开，单独使用 Curl 命令下载gpg，发现连接不上。(Connection timeout)</p>
+<p>如需要生成最终HTML文件，快捷键是 <code>Ctrl + b</code>。</p>
 
-<pre><code>curl https://download.sublimetext.com/sublimehq-pub.gpg 
+<h2 id="利用excel下的-html-格式实现复杂表格编辑">利用Excel下的 HTML 格式实现复杂表格编辑</h2>
+
+<p>原生命令太烦人了，还不支持复杂表格，直接把excel另存为html文件，然后用 gedit 或其他文本编辑软件打开，选取 <code>&lt;table&gt;  &lt;\table&gt;</code> 中间部分，粘贴到 <code>md</code>文件里面对应位置即可。
+示例如下：</p>
+
+<table cellspacing="0" border="0">
+    <colgroup width="189"></colgroup>
+    <colgroup width="195"></colgroup>
+    <colgroup width="360"></colgroup>
+    <colgroup width="92"></colgroup>
+    <colgroup width="74"></colgroup>
+    <tr>
+        <td height="19" align="left"><b><font face="Noto Sans CJK SC Regular">导流渠道 </font></b></td>
+        <td align="left"><b><font face="Noto Sans CJK SC Regular"> 子渠道 </font></b></td>
+        <td align="left"><b><font face="Noto Sans CJK SC Regular"> 主要方式</font></b></td>
+        <td align="left"><b><font face="Noto Sans CJK SC Regular"> 基础转化率 </font></b></td>
+        <td align="left"><b><font face="Noto Sans CJK SC Regular"> 适用场景</font></b></td>
+    </tr>
+    <tr>
+        <td rowspan=2 height="37" align="left"><font face="Noto Sans CJK SC Regular">电商（京东、天猫、淘宝）</font></td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 历史订单 </font></td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 短信、主动添加 </font></td>
+        <td align="right"> xx% </td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 冷启动</font></td>
+    </tr>
+    <tr>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 销售过程 </font></td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 礼券，页面引导，客服引导，物流信息提醒等 </font></td>
+        <td align="right" sdval="0.3" sdnum="1033;0;0%">xx%</td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 持续积累</font></td>
+    </tr>
+    <tr>
+        <td height="24" align="left"><font face="Noto Sans CJK SC Regular">线下导购 </font></td>
+        <td align="left"> </td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 门店位置（门口，收银台，POP等），销售服务过程 </font></td>
+        <td align="right" sdval="0.4" sdnum="1033;0;0%">xx%</td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 持续积累</font></td>
+    </tr>
+    <tr>
+        <td height="19" align="left"><font face="Noto Sans CJK SC Regular">社交媒体 </font></td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 快手，抖音，小红书，微博 </font></td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 页面引导，内容引导，口播引导等 </font></td>
+        <td align="right"> TBD </td>
+        <td align="left"><font face="Noto Sans CJK SC Regular"> 持续积累</font></td>
+    </tr>
+</table>
+
+<p>代码部分如下：
+&gt;</p>
+
+<pre><code class="language-html">&lt;table cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;
+    &lt;colgroup width=&quot;189&quot;&gt;&lt;/colgroup&gt;
+    &lt;colgroup width=&quot;195&quot;&gt;&lt;/colgroup&gt;
+    &lt;colgroup width=&quot;360&quot;&gt;&lt;/colgroup&gt;
+    &lt;colgroup width=&quot;92&quot;&gt;&lt;/colgroup&gt;
+    &lt;colgroup width=&quot;74&quot;&gt;&lt;/colgroup&gt;
+    &lt;tr&gt;
+        &lt;td height=&quot;19&quot; align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt;导流渠道 &lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 子渠道 &lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 主要方式&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 基础转化率 &lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 适用场景&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td rowspan=2 height=&quot;37&quot; align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt;电商（京东、天猫、淘宝）&lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 历史订单 &lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 短信、主动添加 &lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;right&quot;&gt; xx% &lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 冷启动&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 销售过程 &lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 礼券，页面引导，客服引导，物流信息提醒等 &lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;right&quot; sdval=&quot;0.3&quot; sdnum=&quot;1033;0;0%&quot;&gt;xx%&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 持续积累&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td height=&quot;24&quot; align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt;线下导购 &lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt; &lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 门店位置（门口，收银台，POP等），销售服务过程 &lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;right&quot; sdval=&quot;0.4&quot; sdnum=&quot;1033;0;0%&quot;&gt;xx%&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 持续积累&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td height=&quot;19&quot; align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt;社交媒体 &lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 快手，抖音，小红书，微博 &lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 页面引导，内容引导，口播引导等 &lt;/font&gt;&lt;/td&gt;
+        &lt;td align=&quot;right&quot;&gt; TBD &lt;/td&gt;
+        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 持续积累&lt;/font&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
 </code></pre>
-
-<p>以为是DNS污染问题，设置ufw规则对所有443接口和 <a href="https://download.sublimetext.com/">https://download.sublimetext.com/</a> 通过，然并卵</p>
-
-<pre><code>sudo ufw status numbered #查看现有ufw规则
-sudo ufw allow tcp/443   #允许443接口
-sudo ufw allow from 104.236.0.104 #允许 download.sublimetext.com 的IP
-</code></pre>
-
-<p>换一种思路，在chrome里面单独下载gpg key，发现网页连接不上。查看SwitchyOmega插件信息，发现failed resource，添加到SS的proxy规则后，下载成功。说明问题出在proxy：sublime text的服务器被墙了？</p>
-
-<h1 id="利用privoxy实现终端下全局代理">利用Privoxy实现终端下全局代理</h1>
-
-<p>因为之前ss+chrome SwitchyOmega 运行正常，所以这里只需要使终端下全局代理即可。主要参考了这篇文章（<a href="https://einverne.github.io/post/2018/03/privoxy-forward-socks-to-http.html）">https://einverne.github.io/post/2018/03/privoxy-forward-socks-to-http.html）</a></p>
-
-<p>要注意的是在以下部分：</p>
-
-<pre><code>&gt;# 把本地 HTTP 流量转发到本地 1080 SOCKS5 代理
-&gt; forward-socks5t / 127.0.0.1:1080 .
-&gt;# 可选，默认监听本地连接
-&gt; listen-address 127.0.0.1:8118
-</code></pre>
-
-<p>只需要设置forward那列即可，不需要添加监听本地链接，因为原文件里面已经有了。</p>
-
-<p>一切顺利，测试<code>curl ip.gs</code>和<code>curl www.google.com</code>输出正常，全局代理设置完毕。</p>
 
 
                 
@@ -250,15 +318,10 @@ sudo ufw allow from 104.236.0.104 #允许 download.sublimetext.com 的IP
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2019/06/08/hello-world/" data-toggle="tooltip" data-placement="top" title="欢迎来到卜平社">&larr;
+                        <a href="/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/" data-toggle="tooltip" data-placement="top" title="Ubuntu 18.04 全局代理和 Sublime Text 3 设置">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/2019-06-10-markdown%E7%9A%84%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88%E5%92%8C%E5%A4%8D%E6%9D%82%E8%A1%A8%E6%A0%BC%E7%BC%96%E8%BE%91/" data-toggle="tooltip" data-placement="top" title="2019 06 10 Markdown的快速预览和复杂表格编辑">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
