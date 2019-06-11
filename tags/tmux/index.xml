@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tmux on 卜平社</title>
+    <link>https://kevintus.github.io/tags/tmux/</link>
+    <description>Recent content in Tmux on 卜平社</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Jun 2019 19:19:36 +0800</lastBuildDate>
+    
+	<atom:link href="https://kevintus.github.io/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>开始使用Tmux</title>
+      <link>https://kevintus.github.io/post/2019-6-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</link>
+      <pubDate>Tue, 11 Jun 2019 19:19:36 +0800</pubDate>
+      
+      <guid>https://kevintus.github.io/post/2019-6-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</guid>
+      <description>Tmux 的安装和设置 基本学习以下教程 [优雅地使用命令行：Tmux 终端复用] https://harttle.land/2015/11/06/tmux-startup.html [十分钟学会 tmux] https://www.jianshu.com/p/c217318a9380 [tmux简洁教程及config关键配置] https://www.jianshu.com/p/fd3bbdba9dc9 贴出来我的</description>
+    </item>
+    
+  </channel>
+</rss>
