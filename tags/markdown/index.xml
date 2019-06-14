@@ -6,10 +6,19 @@
     <description>Recent content in Markdown on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Jun 2019 15:05:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2019 15:06:55 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>安装配置reveal.js&#43;Markdown实现网页ppt</title>
+      <link>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</link>
+      <pubDate>Thu, 13 Jun 2019 15:06:55 +0800</pubDate>
+      
+      <guid>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</guid>
+      <description>关于PPT 因为之前从事管理战略咨询的缘故，PPT 是必备技能。thinkcell+键盘快捷键玩到飞起，巅峰时刻一晚大几十页PPT没有任何问题 -</description>
+    </item>
     
     <item>
       <title>Markdown的快速预览和复杂表格编辑</title>

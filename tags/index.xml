@@ -6,7 +6,7 @@
     <description>Recent content in Tags on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Jun 2019 15:05:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2019 15:06:55 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Markdown</title>
       <link>https://kevintus.github.io/tags/markdown/</link>
-      <pubDate>Mon, 10 Jun 2019 15:05:24 +0800</pubDate>
+      <pubDate>Thu, 13 Jun 2019 15:06:55 +0800</pubDate>
       
       <guid>https://kevintus.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reveal.js</title>
+      <link>https://kevintus.github.io/tags/reveal.js/</link>
+      <pubDate>Thu, 13 Jun 2019 15:06:55 +0800</pubDate>
+      
+      <guid>https://kevintus.github.io/tags/reveal.js/</guid>
       <description></description>
     </item>
     

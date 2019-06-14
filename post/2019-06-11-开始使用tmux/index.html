@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="开始使用Tmux" />
+    <meta property="og:title" content="开始使用Tmux" />
+    <meta property="twitter:title" content="开始使用Tmux" />
     
 
     
-    <meta name="description" content="">
-    <meta property="og:description" content="" />
-    <meta property="twitter:description" content="" />
+    <meta name="description" content="给Tmux做一些基础配置">
+    <meta property="og:description" content="给Tmux做一些基础配置" />
+    <meta property="twitter:description" content="给Tmux做一些基础配置" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Sublime_Text-卜平社</title>
+    <title>开始使用Tmux-卜平社</title>
 
-    <link rel="canonical" href="/tags/sublime_text/">
+    <link rel="canonical" href="/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -141,14 +141,39 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>卜平社 </h1>
-                    
-		    <span class="subheading"></span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/zsh" title="Zsh">
+                            Zsh
+                        </a>
+                        
+                        <a class="tag" href="/tags/tmux" title="Tmux">
+                            Tmux
+                        </a>
+                        
+                    </div>
+                    <h1>开始使用Tmux</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+			Posted by 
+			
+			        &#34;Kevin L&#34;
+			 
+			on 
+			Tuesday, June 11, 2019
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -157,155 +182,167 @@
 
 
 
-  
-<div class="container">
-    <div class="row">
-        
-        
-   	    <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
-            
 
-<div class="post-preview">
-    <a href="https://kevintus.github.io/post/2019-06-10-markdown%E7%9A%84%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88%E5%92%8C%E5%A4%8D%E6%9D%82%E8%A1%A8%E6%A0%BC%E7%BC%96%E8%BE%91/">
-        <h2 class="post-title">
-            Markdown的快速预览和复杂表格编辑
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Sublime Text 3利用 Markdown Preview 插件实现快速预览；同时利用 EXCEL 下的 HTML 格式实现复杂表格编辑
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by     &#34;Kevin L&#34; Monday, June 10, 2019
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://kevintus.github.io/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/">
-        <h2 class="post-title">
-            Ubuntu 18.04 全局代理和 Sublime Text 3 设置
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by     &#34;Kevin L&#34; Saturday, June 8, 2019
-    </p>
-</div>
-<hr>
-
+<article>
+    <div class="container">
+        <div class="row">
 
             
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-
-
-       	</div>
-        
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-             
-            
                 
-                    <a href="/tags/markdown" title="Markdown">
-                        Markdown
-                    </a>
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#tmux-的安装和设置">Tmux 的安装和设置</a>
+<ul>
+<li><a href="#基本学习以下教程">基本学习以下教程</a></li>
+<li><a href="#贴出来我的-tmux-conf">贴出来我的<code>~/.tmux.conf</code></a></li>
+<li><a href="#关于-copy-mode-还是比较复杂-操作如下">关于<code>copy mode</code>，还是比较复杂，操作如下：</a></li>
+<li><a href="#跟系统剪贴板打通">跟系统剪贴板打通</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
                 
-            
                 
-                    <a href="/tags/sublime_text" title="Sublime_Text">
-                        Sublime_Text
-                    </a>
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-        </div>
-    </section>
-    
 
-    
-	
-    <section class="visible-md visible-lg">
-	<hr><h5><a href="/top/about">ABOUT ME</a></h5>
-        <div class="short-about">
-            
-            
-                <p>金融学/经济学/工业工程，咨询顾问，互联网公司创业者</p>
-            
-           
-           <ul class="list-inline"> 
-               
-               <li>
-                   <a href="https://kevintus.github.io/tags/sublime_text/index.xml" rel="alternate" type="application/rss+xml" title="卜平社" >
-                       <span class="fa-stack fa-lg">
-                           <i class="fa fa-circle fa-stack-2x"></i>
-                           <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/kevintus">
-                       <span class="fa-stack fa-lg">
-                           <i class="fa fa-circle fa-stack-2x"></i>
-                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
+<h2 id="tmux-的安装和设置">Tmux 的安装和设置</h2>
+
+<h3 id="基本学习以下教程">基本学习以下教程</h3>
+
+<blockquote>
+<p>[优雅地使用命令行：Tmux 终端复用] <a href="https://harttle.land/2015/11/06/tmux-startup.html">https://harttle.land/2015/11/06/tmux-startup.html</a></p>
+
+<p>[十分钟学会 tmux] <a href="https://www.jianshu.com/p/c217318a9380">https://www.jianshu.com/p/c217318a9380</a></p>
+
+<p>[tmux简洁教程及config关键配置] <a href="https://www.jianshu.com/p/fd3bbdba9dc9">https://www.jianshu.com/p/fd3bbdba9dc9</a></p>
+</blockquote>
+
+<h3 id="贴出来我的-tmux-conf">贴出来我的<code>~/.tmux.conf</code></h3>
+
+<blockquote>
+<p>~/.tmux.conf</p>
+</blockquote>
+
+<pre><code class="language-bash"># 更改Prefix 键为 ctrl + x
+set-option -g prefix C-x
+unbind-key C-x
+bind-key  C-x send-prefix
+ 
+# 开启鼠标模式
+set-option -g mouse on
+
+# 不用按prefix，直接用 alt + 箭头 方式在pane之间切换
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# Set easier window split keys
+bind-key v split-window -h
+bind-key h split-window -v
+
+# 如果对 vim 比较熟悉，可以将 copy mode 的快捷键换成 vi 模式
+set-window-option -g mode-keys vi
+bind Escape copy-mode # 绑定esc键为进入复制模式
+bind -T copy-mode-vi v send-keys -X begin-selection
+bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+bind p pasteb # 绑定p键为粘贴文本（p键默认用于进入上一个窗口，不建议覆盖）
+</code></pre>
+
+<h3 id="关于-copy-mode-还是比较复杂-操作如下">关于<code>copy mode</code>，还是比较复杂，操作如下：</h3>
+
+<ol>
+<li><code>Ctrl + x</code> <code>[</code> 进入复制模式</li>
+<li>可以选择<code>v</code> 键进入vim的visual模式，或可用vim的搜索功能&rdquo;/&ldquo;,&rdquo;?&rdquo;</li>
+<li>使用vim的<code>y</code>键进行复制</li>
+<li>在<code>copy mode</code>里面用 <code>p</code>键可以选择粘贴；如果不在<code>copy mode</code>里面，那么用 <code>Ctrl + x</code> <code>」</code>进行粘贴</li>
+</ol>
+
+<h3 id="跟系统剪贴板打通">跟系统剪贴板打通</h3>
+
+<ul>
+<li>按住 <code>shift</code>，鼠标左键选择文本，<code>Ctrl + c</code>复制</li>
+<li>注意全程按住 <code>shift</code></li>
+</ul>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2019-06-10-markdown%E7%9A%84%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88%E5%92%8C%E5%A4%8D%E6%9D%82%E8%A1%A8%E6%A0%BC%E7%BC%96%E8%BE%91/" data-toggle="tooltip" data-placement="top" title="Markdown的快速预览和复杂表格编辑">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/" data-toggle="tooltip" data-placement="top" title="安装配置reveal.js&#43;Markdown实现网页ppt">Next
+                            Post &rarr;</a>
+                    </li>
+                    
                 </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
             </div>
-    </section>
-	
-    
-    
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-    
-    
-</div>
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/markdown" title="Markdown">
+                            Markdown
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/sublime_text" title="Sublime_Text">
+                            Sublime_Text
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
 
-	</div>
-</div>
-
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
 
 
 
@@ -317,7 +354,7 @@
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href="https://kevintus.github.io/tags/sublime_text/index.xml" rel="alternate" type="application/rss+xml" title="卜平社" >
+                       <a href="" rel="alternate" type="application/rss+xml" title="卜平社" >
                            <span class="fa-stack fa-lg">
                                <i class="fa fa-circle fa-stack-2x"></i>
                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

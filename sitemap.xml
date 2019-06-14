@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kevintus.github.io/post/2019-6-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</loc>
+    <loc>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</loc>
+    <lastmod>2019-06-13T15:06:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</loc>
     <lastmod>2019-06-11T19:19:36+08:00</lastmod>
   </url>
   
@@ -42,13 +47,19 @@
   
   <url>
     <loc>https://kevintus.github.io/tags/markdown/</loc>
-    <lastmod>2019-06-10T15:05:24+08:00</lastmod>
+    <lastmod>2019-06-13T15:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kevintus.github.io/post/</loc>
-    <lastmod>2019-06-11T19:19:36+08:00</lastmod>
+    <lastmod>2019-06-13T15:06:55+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevintus.github.io/tags/reveal.js/</loc>
+    <lastmod>2019-06-13T15:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -65,7 +76,7 @@
   
   <url>
     <loc>https://kevintus.github.io/tags/</loc>
-    <lastmod>2019-06-10T15:05:24+08:00</lastmod>
+    <lastmod>2019-06-13T15:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -94,7 +105,7 @@
   
   <url>
     <loc>https://kevintus.github.io/</loc>
-    <lastmod>2019-06-11T19:19:36+08:00</lastmod>
+    <lastmod>2019-06-13T15:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
