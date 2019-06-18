@@ -6,10 +6,19 @@
     <description>Recent content in Markdown on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Jun 2019 15:06:55 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2019 18:10:32 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>用 reveal-md 简化 Markdown&#43;Reveal 写作</title>
+      <link>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</link>
+      <pubDate>Tue, 18 Jun 2019 18:10:32 +0800</pubDate>
+      
+      <guid>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</guid>
+      <description>参考资料 reveal-md 官方文档 实现 下载 reveal-md 尝试 npm install -g reveal-md 显示失败，安装nvm后，nvm install stable，然后重新 npm install -g reveal-md 提升安装成功 配置文档 研究了一圈文档，有</description>
+    </item>
     
     <item>
       <title>安装配置reveal.js&#43;Markdown实现网页ppt</title>
