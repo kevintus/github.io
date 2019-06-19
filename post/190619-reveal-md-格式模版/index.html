@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Ubuntu 18.04 全局代理和 Sublime Text 3 设置" />
-    <meta property="og:title" content="Ubuntu 18.04 全局代理和 Sublime Text 3 设置" />
-    <meta property="twitter:title" content="Ubuntu 18.04 全局代理和 Sublime Text 3 设置" />
+    <meta name="title" content="reveal-md 的格式模版" />
+    <meta property="og:title" content="reveal-md 的格式模版" />
+    <meta property="twitter:title" content="reveal-md 的格式模版" />
     
 
     
-    <meta name="description" content="利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件">
-    <meta property="og:description" content="利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件" />
-    <meta property="twitter:description" content="利用Privoxy在Ubuntu 18.04里面设置系统全局代理，保证terminal利用ss proxy下载sublime text 3和后续Package Control插件" />
+    <meta name="description" content="总结了一下 reveal-md 的各种配置和内容模板，之前网上看到的都太零散了">
+    <meta property="og:description" content="总结了一下 reveal-md 的各种配置和内容模板，之前网上看到的都太零散了" />
+    <meta property="twitter:description" content="总结了一下 reveal-md 的各种配置和内容模板，之前网上看到的都太零散了" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Ubuntu 18.04 全局代理和 Sublime Text 3 设置-卜平社</title>
+    <title>reveal-md 的格式模版-卜平社</title>
 
-    <link rel="canonical" href="/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/">
+    <link rel="canonical" href="/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -154,16 +154,20 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/ubuntu" title="Ubuntu">
-                            Ubuntu
+                        <a class="tag" href="/tags/reveal-md" title="reveal-md">
+                            reveal-md
                         </a>
                         
-                        <a class="tag" href="/tags/sublime_text" title="Sublime_Text">
-                            Sublime_Text
+                        <a class="tag" href="/tags/reveal.js" title="reveal.js">
+                            reveal.js
+                        </a>
+                        
+                        <a class="tag" href="/tags/markdown" title="markdown">
+                            markdown
                         </a>
                         
                     </div>
-                    <h1>Ubuntu 18.04 全局代理和 Sublime Text 3 设置</h1>
+                    <h1>reveal-md 的格式模版</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
 			Posted by 
@@ -171,7 +175,7 @@
 			        &#34;Kevin L&#34;
 			 
 			on 
-			Saturday, June 8, 2019
+			Wednesday, June 19, 2019
                         
                     </span>
                 </div>
@@ -199,49 +203,125 @@
                 </header>
                 <nav id="TableOfContents">
 <ul>
-<li><a href="#背景条件">背景条件</a></li>
-<li><a href="#利用privoxy实现终端下全局代理">利用Privoxy实现终端下全局代理</a></li>
+<li><a href="#基于这个模板-可以比较方便使用-markdown-reveal-js-了">基于这个模板，可以比较方便使用 markdown + reveal.js 了。</a></li>
 </ul>
 </nav>
                 
                 
 
-<h1 id="背景条件">背景条件</h1>
+<h1 id="基于这个模板-可以比较方便使用-markdown-reveal-js-了">基于这个模板，可以比较方便使用 markdown + reveal.js 了。</h1>
 
-<p>基于Sublime Text 3 官网指南，在Ubuntu 18.04 上进行安装，显示gpg下载错误。</p>
+<pre><code>---
+title: xxx
+separator: &quot;^\n---\n$&quot; 
+verticalSeparator: &quot;^\n--\n$&quot;
+theme: black
+revealOptions:
+    transition: 'slide'
 
-<pre><code>wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+&quot;slideNumber&quot;: true
+&quot;progress&quot;: true
+&quot;width&quot;: 1920
+&quot;height&quot;: 1080
+&quot;margin&quot;: 0.1
+&quot;minScale&quot;: 0.2
+&quot;maxScale&quot;: 2
+
+---
+
+&lt;!--Title Page
+
+利用 &lt;h1&gt;&lt;/h1&gt; 到 &lt;h6&gt;&lt;/h6&gt; 来控制标题字体大小，正文部分相同 
+
+--&gt;
+
+&lt;h1&gt; PPT 首页主标题&lt;/h1&gt;
+&lt;h2&gt; 2019.6.18 &lt;/h2&gt;
+
+&lt;!--Speaker Note--&gt;
+Note: 不会出现在 ppt 里面，会出现在 speaker note 里面
+
+---
+
+&lt;!--Main Page
+
+Some component illustratives:
+* 插入一些网页对象 iframe (Prefer to use lazy-loading, ussing `data-src` instead of `src`):
+
+&lt;iframe frameborder=&quot;0&quot; width=&quot;100%&quot; height=&quot;500pt&quot; data-src=&quot;https://caniuse.com/cors/embed/description&amp;links&quot;&gt;&lt;/iframe&gt;
+
+* 插入视频 （youtube，优酷） iframe
+
+&lt;iframe width=&quot;100%%&quot; height=&quot;500pt&quot; frameborder=&quot;0&quot; data-src=&quot;http://player.youku.com/embed/XODY3NDMzNjY4&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;500pt&quot; frameborder=&quot;0&quot; data-src=&quot;https://www.youtube.com/embed/tgbNymZ7vqY&quot;&gt; &lt;/iframe&gt;
+
+* 页面为可交互网页
+
+&lt;section data-background-iframe=&quot;https://www.gemii.cc&quot; data-background-interactive&gt; &lt;div style=&quot;position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;&quot;&gt;
+    &lt;h2&gt;Try Website&lt;/h2&gt; &lt;/section&gt;
+
+* 内容左对齐
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+    &lt;h2&gt; Thanks &amp; Questions &lt;/h2&gt;  
+&lt;/section&gt;
+
+--&gt;
+
+## 页标题1 (横页)
+
+### 子标题
+
+* xxx
+* xxx
+* xxx
+
+--
+
+### 页标题2 （纵页） 
+
+* xx
+* xx
+
+---
+
+## 试着插入网页对象
+
+
+&lt;iframe frameborder=&quot;0&quot; width=&quot;100%&quot; height=&quot;500pt&quot; data-src=&quot;https://caniuse.com/cors/embed/description&amp;links&quot;&gt;&lt;/iframe&gt;
+
+---
+
+## 优酷视频
+
+&lt;iframe width=&quot;100%%&quot; height=&quot;500pt&quot; frameborder=&quot;0&quot; src=&quot;http://player.youku.com/embed/XODY3NDMzNjY4&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+--
+
+## Youtube 视频
+
+&lt;iframe width=&quot;100%&quot; height=&quot;500pt&quot; frameborder=&quot;0&quot; 
+src=&quot;https://www.youtube.com/embed/tgbNymZ7vqY&quot;&gt;
+&lt;/iframe&gt;
+
+---
+
+&lt;section data-background-iframe=&quot;https://www.youtube.com&quot; data-background-interactive&gt;
+&lt;div style=&quot;position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;&quot;&gt;
+                        &lt;h2&gt;动态网站交互&lt;/h2&gt;
+&lt;/section&gt;
+
+
+---
+
+## 试着左对齐
+
+&lt;section style=&quot;text-align: left;&quot;&gt;
+    &lt;h2&gt; Thanks &amp; Questions &lt;/h2&gt;  
+&lt;/section&gt;
+
 </code></pre>
-
-<p>把管道命令拆开，单独使用 Curl 命令下载gpg，发现连接不上。(Connection timeout)</p>
-
-<pre><code>curl https://download.sublimetext.com/sublimehq-pub.gpg 
-</code></pre>
-
-<p>以为是DNS污染问题，设置ufw规则对所有443接口和 <a href="https://download.sublimetext.com/">https://download.sublimetext.com/</a> 通过，然并卵</p>
-
-<pre><code>sudo ufw status numbered #查看现有ufw规则
-sudo ufw allow tcp/443   #允许443接口
-sudo ufw allow from 104.236.0.104 #允许 download.sublimetext.com 的IP
-</code></pre>
-
-<p>换一种思路，在chrome里面单独下载gpg key，发现网页连接不上。查看SwitchyOmega插件信息，发现failed resource，添加到SS的proxy规则后，下载成功。说明问题出在proxy：sublime text的服务器被墙了？</p>
-
-<h1 id="利用privoxy实现终端下全局代理">利用Privoxy实现终端下全局代理</h1>
-
-<p>因为之前ss+chrome SwitchyOmega 运行正常，所以这里只需要使终端下全局代理即可。主要参考了这篇文章（<a href="https://einverne.github.io/post/2018/03/privoxy-forward-socks-to-http.html）">https://einverne.github.io/post/2018/03/privoxy-forward-socks-to-http.html）</a></p>
-
-<p>要注意的是在以下部分：</p>
-
-<pre><code>&gt;# 把本地 HTTP 流量转发到本地 1080 SOCKS5 代理
-&gt; forward-socks5t / 127.0.0.1:1080 .
-&gt;# 可选，默认监听本地连接
-&gt; listen-address 127.0.0.1:8118
-</code></pre>
-
-<p>只需要设置forward那列即可，不需要添加监听本地链接，因为原文件里面已经有了。</p>
-
-<p>一切顺利，测试<code>curl ip.gs</code>和<code>curl www.google.com</code>输出正常，全局代理设置完毕。</p>
 
 
                 
@@ -250,15 +330,10 @@ sudo ufw allow from 104.236.0.104 #允许 download.sublimetext.com 的IP
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2019/06/08/hello-world/" data-toggle="tooltip" data-placement="top" title="欢迎来到卜平社">&larr;
+                        <a href="/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/" data-toggle="tooltip" data-placement="top" title="用 reveal-md 简化 Markdown&#43;Reveal 写作">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/2019-06-10-markdown%E7%9A%84%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88%E5%92%8C%E5%A4%8D%E6%9D%82%E8%A1%A8%E6%A0%BC%E7%BC%96%E8%BE%91/" data-toggle="tooltip" data-placement="top" title="Markdown的快速预览和复杂表格编辑">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
 

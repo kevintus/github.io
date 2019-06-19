@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</loc>
+    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</loc>
     <lastmod>2019-06-18T18:10:32+08:00</lastmod>
   </url>
@@ -57,26 +62,32 @@
   </url>
   
   <url>
-    <loc>https://kevintus.github.io/post/</loc>
+    <loc>https://kevintus.github.io/tags/markdown/</loc>
     <lastmod>2019-06-18T18:10:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevintus.github.io/post/</loc>
+    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kevintus.github.io/tags/reveal-md/</loc>
-    <lastmod>2019-06-18T18:10:32+08:00</lastmod>
+    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevintus.github.io/tags/reveal.js/</loc>
+    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kevintus.github.io/tags/reveal.js/</loc>
     <lastmod>2019-06-18T18:10:32+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kevintus.github.io/tags/reveal.js/</loc>
-    <lastmod>2019-06-13T15:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -122,7 +133,7 @@
   
   <url>
     <loc>https://kevintus.github.io/</loc>
-    <lastmod>2019-06-18T18:10:32+08:00</lastmod>
+    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   

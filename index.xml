@@ -6,10 +6,19 @@
     <description>Recent content on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Jun 2019 18:10:32 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Jun 2019 12:58:16 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>reveal-md 的格式模版</title>
+      <link>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</link>
+      <pubDate>Wed, 19 Jun 2019 12:58:16 +0800</pubDate>
+      
+      <guid>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</guid>
+      <description>基于这个模板，可以比较方便使用 markdown + reveal.js 了。 --- title: xxx separator: &amp;quot;^\n---\n$&amp;quot; verticalSeparator: &amp;quot;^\n--\n$&amp;quot; theme: black revealOptions: transition: &#39;slide&#39; &amp;quot;slideNumber&amp;quot;: true &amp;quot;progress&amp;quot;: true &amp;quot;width&amp;quot;: 1920 &amp;quot;height&amp;quot;: 1080 &amp;quot;margin&amp;quot;: 0.1 &amp;quot;minScale&amp;quot;: 0.2 &amp;quot;maxScale&amp;quot;: 2 --- &amp;lt;!--Title Page 利用 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; 到 &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 来控制标题字体大小，正文部分相同</description>
+    </item>
     
     <item>
       <title>用 reveal-md 简化 Markdown&#43;Reveal 写作</title>
