@@ -6,18 +6,27 @@
     <description>Recent content in Reveal.js on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Jun 2019 18:10:32 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Jun 2019 12:58:16 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/reveal.js/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>用 reveal-md 简化 Markdown&#43;Reveal 写作</title>
-      <link>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</link>
-      <pubDate>Tue, 18 Jun 2019 18:10:32 +0800</pubDate>
+      <title>reveal-md 的格式模版</title>
+      <link>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</link>
+      <pubDate>Wed, 19 Jun 2019 12:58:16 +0800</pubDate>
       
-      <guid>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</guid>
-      <description>参考资料 reveal-md 官方文档 实现 下载 reveal-md 尝试 npm install -g reveal-md 显示失败，安装nvm后，nvm install stable，然后重新 npm install -g reveal-md 提升安装成功 配置文档 研究了一圈文档，有</description>
+      <guid>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</guid>
+      <description>基于这个模板，可以比较方便使用 markdown + reveal.js 了。 --- title: xxx separator: &amp;quot;^\n---\n$&amp;quot; verticalSeparator: &amp;quot;^\n--\n$&amp;quot; theme: black revealOptions: transition: &#39;slide&#39; &amp;quot;slideNumber&amp;quot;: true &amp;quot;progress&amp;quot;: true &amp;quot;width&amp;quot;: 1920 &amp;quot;height&amp;quot;: 1080 &amp;quot;margin&amp;quot;: 0.1 &amp;quot;minScale&amp;quot;: 0.2 &amp;quot;maxScale&amp;quot;: 2 --- &amp;lt;!--Title Page 利用 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; 到 &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 来控制标题字体大小，正文部分相同</description>
+    </item>
+    
+    <item>
+      <title>安装配置 reveal.js&#43;Markdown 实现网页 ppt</title>
+      <link>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</link>
+      <pubDate>Thu, 13 Jun 2019 15:06:55 +0800</pubDate>
+      
+      <guid>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</guid>
+      <description>关于PPT 因为之前从事管理战略咨询的缘故，PPT 是必备技能。thinkcell+键盘快捷键玩到飞起，巅峰时刻一晚大几十页PPT没有任何问题 -</description>
     </item>
     
   </channel>

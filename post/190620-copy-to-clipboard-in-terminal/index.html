@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="开始使用Tmux" />
-    <meta property="og:title" content="开始使用Tmux" />
-    <meta property="twitter:title" content="开始使用Tmux" />
+    <meta name="title" content="Copy to Clipboard in Terminal" />
+    <meta property="og:title" content="Copy to Clipboard in Terminal" />
+    <meta property="twitter:title" content="Copy to Clipboard in Terminal" />
     
 
     
-    <meta name="description" content="给Tmux做一些基础配置">
-    <meta property="og:description" content="给Tmux做一些基础配置" />
-    <meta property="twitter:description" content="给Tmux做一些基础配置" />
+    <meta name="description" content="用 xclip 非常方便地实现终端内容复制到系统剪贴板">
+    <meta property="og:description" content="用 xclip 非常方便地实现终端内容复制到系统剪贴板" />
+    <meta property="twitter:description" content="用 xclip 非常方便地实现终端内容复制到系统剪贴板" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>开始使用Tmux-卜平社</title>
+    <title>Copy to Clipboard in Terminal-卜平社</title>
 
-    <link rel="canonical" href="/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/">
+    <link rel="canonical" href="/post/190620-copy-to-clipboard-in-terminal/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -154,16 +154,12 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/zsh" title="Zsh">
-                            Zsh
-                        </a>
-                        
-                        <a class="tag" href="/tags/tmux" title="Tmux">
-                            Tmux
+                        <a class="tag" href="/tags/xclip" title="xclip">
+                            xclip
                         </a>
                         
                     </div>
-                    <h1>开始使用Tmux</h1>
+                    <h1>Copy to Clipboard in Terminal</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
 			Posted by 
@@ -171,7 +167,7 @@
 			        &#34;Kevin L&#34;
 			 
 			on 
-			Tuesday, June 11, 2019
+			Thursday, June 20, 2019
                         
                     </span>
                 </div>
@@ -201,84 +197,50 @@
 <ul>
 <li>
 <ul>
-<li><a href="#tmux-的安装和设置">Tmux 的安装和设置</a>
-<ul>
-<li><a href="#基本学习以下教程">基本学习以下教程</a></li>
-<li><a href="#贴出来我的-tmux-conf">贴出来我的<code>~/.tmux.conf</code></a></li>
-<li><a href="#关于-copy-mode-还是比较复杂-操作如下">关于<code>copy mode</code>，还是比较复杂，操作如下：</a></li>
-<li><a href="#跟系统剪贴板打通">跟系统剪贴板打通</a></li>
-</ul></li>
+<li><a href="#利用-xclip-selection-clipboard-把终端内容复制到系统剪贴板">利用 <code>xclip -selection clipboard</code> 把终端内容复制到系统剪贴板</a></li>
+<li><a href="#终端内使用">终端内使用</a></li>
 </ul></li>
 </ul>
 </nav>
                 
                 
 
-<h2 id="tmux-的安装和设置">Tmux 的安装和设置</h2>
+<h2 id="利用-xclip-selection-clipboard-把终端内容复制到系统剪贴板">利用 <code>xclip -selection clipboard</code> 把终端内容复制到系统剪贴板</h2>
 
-<h3 id="基本学习以下教程">基本学习以下教程</h3>
+<p>之前各种研究如何在 zsh 和 tmux 下面实现复制粘贴，参见<a href="https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/">开始使用Tmux</a>，今天发现其实用 <code>xclip -selection clipboard</code> 命令就可以很简单实现</p>
 
-<blockquote>
-<p>[优雅地使用命令行：Tmux 终端复用] <a href="https://harttle.land/2015/11/06/tmux-startup.html">https://harttle.land/2015/11/06/tmux-startup.html</a></p>
+<p>举例：我要拷贝 v2Ray 的配置文件到 Google doc 备份，只需要</p>
 
-<p>[十分钟学会 tmux] <a href="https://www.jianshu.com/p/c217318a9380">https://www.jianshu.com/p/c217318a9380</a></p>
-
-<p>[tmux简洁教程及config关键配置] <a href="https://www.jianshu.com/p/fd3bbdba9dc9">https://www.jianshu.com/p/fd3bbdba9dc9</a></p>
-</blockquote>
-
-<h3 id="贴出来我的-tmux-conf">贴出来我的<code>~/.tmux.conf</code></h3>
-
-<blockquote>
-<p>~/.tmux.conf</p>
-</blockquote>
-
-<pre><code class="language-bash"># 更改Prefix 键为 ctrl + x
-set-option -g prefix C-x
-unbind-key C-x
-bind-key  C-x send-prefix
- 
-# 开启鼠标模式
-set-option -g mouse on
-
-# 不用按prefix，直接用 alt + 箭头 方式在pane之间切换
-bind -n M-Left select-pane -L
-bind -n M-Right select-pane -R
-bind -n M-Up select-pane -U
-bind -n M-Down select-pane -D
-
-# Set easier window split keys
-bind-key v split-window -h
-bind-key h split-window -v
-
-# 如果对 vim 比较熟悉，可以将 copy mode 的快捷键换成 vi 模式
-set-window-option -g mode-keys vi
-bind Escape copy-mode # 绑定esc键为进入复制模式
-bind -T copy-mode-vi v send-keys -X begin-selection
-bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-bind p pasteb # 绑定p键为粘贴文本（p键默认用于进入上一个窗口，不建议覆盖）
+<pre><code class="language-bash">cat /etc/v2ray/config.json | xclip -selection clipboard 
 </code></pre>
 
-<h3 id="关于-copy-mode-还是比较复杂-操作如下">关于<code>copy mode</code>，还是比较复杂，操作如下：</h3>
+<p>就搞定了。比用什么摁住 shift 键拨弄鼠标简单一百倍。</p>
 
-<ol>
-<li><code>Ctrl + x</code> <code>[</code> 进入复制模式</li>
-<li>可以选择<code>v</code> 键进入vim的visual模式，或可用vim的搜索功能&rdquo;/&ldquo;,&rdquo;?&rdquo;</li>
-<li>使用vim的<code>y</code>键进行复制</li>
-<li>在<code>copy mode</code>里面用 <code>p</code>键可以选择粘贴；如果不在<code>copy mode</code>里面，那么用 <code>Ctrl + x</code> <code>」</code>进行粘贴</li>
-</ol>
+<p>可以在 .zshrc 文件里面设置一下 alias，方便使用</p>
 
-<h3 id="跟系统剪贴板打通">跟系统剪贴板打通</h3>
+<pre><code class="language-bash">alias copytoclipboard=&quot;xclip -selection clipboard&quot;
+</code></pre>
 
-<ul>
-<li>按住 <code>shift</code>，鼠标左键选择文本，<code>Ctrl + c</code>复制</li>
-<li>注意全程按住 <code>shift</code></li>
-</ul>
+<p>之后就可以</p>
 
-<hr />
+<pre><code class="language-bash">cat /etc/v2ray/config.json | copytoclipboard
+</code></pre>
 
-<p>190620 更新</p>
+<h2 id="终端内使用">终端内使用</h2>
 
-<p>系统剪贴板功能可以使用 <code>xclip -selection clipboard</code> 更加方便</p>
+<p>如果要在终端里面实现内容复制粘贴，也非常简单</p>
+
+<pre><code class="language-bash">xclip xxx
+xclip -o
+</code></pre>
+
+<p>所以如果想复制粘贴一个文件的绝对路径，只需要</p>
+
+<pre><code class="language-bash">readlink -e sample.png | xclip 
+xclip -o
+</code></pre>
+
+<p>DONE！</p>
 
 
                 
@@ -287,15 +249,10 @@ bind p pasteb # 绑定p键为粘贴文本（p键默认用于进入上一个窗�
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/2019-06-10-markdown%E7%9A%84%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88%E5%92%8C%E5%A4%8D%E6%9D%82%E8%A1%A8%E6%A0%BC%E7%BC%96%E8%BE%91/" data-toggle="tooltip" data-placement="top" title="Markdown的快速预览和复杂表格编辑">&larr;
+                        <a href="/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/" data-toggle="tooltip" data-placement="top" title="reveal-md 的格式模版">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/" data-toggle="tooltip" data-placement="top" title="安装配置 reveal.js&#43;Markdown 实现网页 ppt">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
 

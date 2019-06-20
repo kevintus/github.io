@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xclip on 卜平社</title>
+    <link>https://kevintus.github.io/tags/xclip/</link>
+    <description>Recent content in Xclip on 卜平社</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Jun 2019 18:50:08 +0800</lastBuildDate>
+    
+	<atom:link href="https://kevintus.github.io/tags/xclip/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Copy to Clipboard in Terminal</title>
+      <link>https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/</link>
+      <pubDate>Thu, 20 Jun 2019 18:50:08 +0800</pubDate>
+      
+      <guid>https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/</guid>
+      <description>利用 xclip -selection clipboard 把终端内容复制到系统剪贴板 之前各种研究如何在 zsh 和 tmux 下面实现复制粘贴，参见开始使用Tmux，今天发现其实用 xclip -selection clipboard 命令就可以很简单实现</description>
+    </item>
+    
+  </channel>
+</rss>
