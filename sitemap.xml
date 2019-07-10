@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/</loc>
+    <lastmod>2019-07-08T16:30:31+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/</loc>
     <lastmod>2019-06-20T18:50:08+08:00</lastmod>
   </url>
@@ -61,6 +66,12 @@
   </url>
   
   <url>
+    <loc>https://kevintus.github.io/tags/decktape/</loc>
+    <lastmod>2019-07-08T16:30:31+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kevintus.github.io/tags/markdown/</loc>
     <lastmod>2019-06-18T18:10:32+08:00</lastmod>
     <priority>0</priority>
@@ -74,13 +85,13 @@
   
   <url>
     <loc>https://kevintus.github.io/post/</loc>
-    <lastmod>2019-06-20T18:50:08+08:00</lastmod>
+    <lastmod>2019-07-08T16:30:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kevintus.github.io/tags/reveal-md/</loc>
-    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
+    <lastmod>2019-07-08T16:30:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -109,7 +120,7 @@
   
   <url>
     <loc>https://kevintus.github.io/tags/</loc>
-    <lastmod>2019-06-18T18:10:32+08:00</lastmod>
+    <lastmod>2019-07-08T16:30:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -144,7 +155,7 @@
   
   <url>
     <loc>https://kevintus.github.io/</loc>
-    <lastmod>2019-06-20T18:50:08+08:00</lastmod>
+    <lastmod>2019-07-08T16:30:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   

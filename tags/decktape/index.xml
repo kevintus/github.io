@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Decktape on 卜平社</title>
+    <link>https://kevintus.github.io/tags/decktape/</link>
+    <description>Recent content in Decktape on 卜平社</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Jul 2019 16:30:31 +0800</lastBuildDate>
+    
+	<atom:link href="https://kevintus.github.io/tags/decktape/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>利用 decktape 将 HTML 转为 pdf</title>
+      <link>https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/</link>
+      <pubDate>Mon, 08 Jul 2019 16:30:31 +0800</pubDate>
+      
+      <guid>https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/</guid>
+      <description>参考资料 Decktape 官方文档 实现非常直接 npm install -g decktape # 先用 reveal-md 打开 md 文档 reveal-md xxx.md # 复制 chrome 里面的 url，再利用 decktape 导出 pdf decktape reveal &amp;lt;chrome 里面 md 文档 的 url&amp;gt; output.pdf Done!</description>
+    </item>
+    
+  </channel>
+</rss>
