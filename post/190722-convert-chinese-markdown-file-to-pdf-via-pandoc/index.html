@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Convert Chinese Markdown File to Pdf via Pandoc" />
+    <meta property="og:title" content="Convert Chinese Markdown File to Pdf via Pandoc" />
+    <meta property="twitter:title" content="Convert Chinese Markdown File to Pdf via Pandoc" />
     
 
     
-    <meta name="description" content="">
-    <meta property="og:description" content="" />
-    <meta property="twitter:description" content="" />
+    <meta name="description" content="正确中文输出，调整页边距，允许自动换行">
+    <meta property="og:description" content="正确中文输出，调整页边距，允许自动换行" />
+    <meta property="twitter:description" content="正确中文输出，调整页边距，允许自动换行" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>卜平社</title>
+    <title>Convert Chinese Markdown File to Pdf via Pandoc-卜平社</title>
 
-    <link rel="canonical" href="/top/about/">
+    <link rel="canonical" href="/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -141,14 +141,39 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bach.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bach.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>卜平社 </h1>
-                    
-		    <span class="subheading"></span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/markdown" title="Markdown">
+                            Markdown
+                        </a>
+                        
+                        <a class="tag" href="/tags/pandoc" title="Pandoc">
+                            Pandoc
+                        </a>
+                        
+                    </div>
+                    <h1>Convert Chinese Markdown File to Pdf via Pandoc</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+			Posted by 
+			
+			        &#34;Kevin L&#34;
+			 
+			on 
+			Monday, July 22, 2019
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -168,13 +193,137 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	<ul>
-<li>Internet company Co-founder/ CEO</li>
-<li>ex-Partner of a management consulting firm</li>
-<li>MSc. in Industrial Engineering/ Statistics</li>
-<li>MSc. in Economics</li>
-<li>BSc. in Finance</li>
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#参考资料">参考资料</a></li>
+<li><a href="#环境">环境</a></li>
+<li><a href="#中文显示命令">中文显示命令</a></li>
+<li><a href="#pdf-页边距调整和自动换行">pdf 页边距调整和自动换行</a></li>
+<li><a href="#最终-yaml-示例">最终 YAML 示例</a></li>
+</ul></li>
 </ul>
+</nav>
+                
+                
+
+<h2 id="参考资料">参考资料</h2>
+
+<ul>
+<li><a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">文本做笔记 &mdash; 使用 Pandoc 与 Markdown 生成 PDF 文件</a></li>
+<li><a href="https://github.com/jgm/pandoc/wiki/Pandoc-with-Chinese">Pandoc with Chinese</a></li>
+<li><a href="http://www.bagualu.net/wordpress/archives/5396#pandoc%E4%B8%AD%E7%9A%84%E4%B8%AD%E6%96%87%E6%8D%A2%E8%A1%8C%E9%97%AE%E9%A2%98">用pandoc把markdown转化为pdf文档</a></li>
+</ul>
+
+<h2 id="环境">环境</h2>
+
+<ul>
+<li>Ubuntu 内安装 xelatex (pdflatex 不支持中文)</li>
+<li>安装中文字体，并用 <code>fc-list :lang=zh</code> 确认</li>
+</ul>
+
+<h2 id="中文显示命令">中文显示命令</h2>
+
+<ul>
+<li>方式一：命令行输入</li>
+</ul>
+
+<pre><code class="language-bash">pandoc input.md -o output.pdf --latex-engine=xelatex -V mainfont='WenQuanYi Micro Hei'
+</code></pre>
+
+<ul>
+<li>方式二：在 YAML 输入</li>
+</ul>
+
+<pre><code class="language-markdown">---
+mainfont: WenQuanYi Micro Hei Mono
+---
+</code></pre>
+
+<h2 id="pdf-页边距调整和自动换行">pdf 页边距调整和自动换行</h2>
+
+<ul>
+<li>边距调整</li>
+</ul>
+
+<p>方式一：命令行输入</p>
+
+<pre><code class="language-bash">pandoc input.md -o output.pdf --latex-engine=xelatex -V mainfont='WenQuanYi Micro Hei' -V geometry:margin=1in
+</code></pre>
+
+<p>方式二：在 YAML 输入</p>
+
+<pre><code class="language-markdown">---
+geometry:margin=1in
+---
+</code></pre>
+
+<ul>
+<li>自动换行</li>
+</ul>
+
+<pre><code class="language-bash">pandoc -D latex &gt; template.latex
+</code></pre>
+
+<p><code>template.latex</code> 模板文件中添加最后一行</p>
+
+<pre><code class="language-tex">$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek){$mathfont$}
+$endif$
+\XeTeXlinebreaklocale &quot;zh&quot;
+</code></pre>
+
+<p>然后在命令行输入</p>
+
+<pre><code class="language-bash">pandoc --template ~/.pandoc/templates/template.latex
+</code></pre>
+
+<h2 id="最终-yaml-示例">最终 YAML 示例</h2>
+
+<pre><code class="language-Markdown">---
+
+title: Computer Vision Research Notes
+author: xxx
+date: 2019-07-22
+
+mainfont: WenQuanYi Micro Hei
+geometry: margin=1in
+fontsize: 12pt
+urlcolor: NavyBlue
+
+---
+</code></pre>
+
+<p>或者在 <code>bashrc</code> 里面设置 Alias 如下：</p>
+
+<pre><code class="language-bash">alias pandoc_md2pdf='pandoc --template ~/.pandoc/templates/template.latex --latex-engine=xelatex -V mainfont=&quot;WenQuanYi Micro Hei&quot; -V geometry:margin=1in -V fontsize=12pt -V urlcolor=NavyBlue'
+</code></pre>
+
+<p>这样只需要输入</p>
+
+<pre><code class="language-bash">pandoc_md2pdf input.md -o output.pdf
+</code></pre>
+
+<p>Done!</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/" data-toggle="tooltip" data-placement="top" title="调整 Vim 和 Tmux 为 True Color">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
 
                 
 <div id="disqus-comment"></div>
@@ -200,7 +349,7 @@
                         
                         
                         <a href="/tags/markdown" title="Markdown">
-                        Markdown
+                            Markdown
                         </a>
                         
                         
@@ -210,13 +359,13 @@
                         
                         
                         <a href="/tags/sublime_text" title="Sublime_Text">
-                        Sublime_Text
+                            Sublime_Text
                         </a>
                         
                         
                         
                         <a href="/tags/tmux" title="Tmux">
-                        Tmux
+                            Tmux
                         </a>
                         
                         
@@ -232,13 +381,13 @@
                         
                         
                         <a href="/tags/reveal-md" title="reveal-md">
-                        reveal-md
+                            reveal-md
                         </a>
                         
                         
                         
                         <a href="/tags/reveal.js" title="reveal.js">
-                        reveal.js
+                            reveal.js
                         </a>
                         
                         

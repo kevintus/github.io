@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</loc>
+    <lastmod>2019-07-22T10:44:05+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/</loc>
+    <lastmod>2019-07-16T11:02:57+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/</loc>
     <lastmod>2019-07-08T16:30:31+08:00</lastmod>
   </url>
@@ -72,20 +82,32 @@
   </url>
   
   <url>
-    <loc>https://kevintus.github.io/tags/markdown/</loc>
-    <lastmod>2019-06-18T18:10:32+08:00</lastmod>
+    <loc>https://kevintus.github.io/tags/gnome-terminal/</loc>
+    <lastmod>2019-07-16T11:02:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kevintus.github.io/tags/markdown/</loc>
-    <lastmod>2019-06-18T18:10:32+08:00</lastmod>
+    <lastmod>2019-07-22T10:44:05+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevintus.github.io/tags/markdown/</loc>
+    <lastmod>2019-07-22T10:44:05+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevintus.github.io/tags/pandoc/</loc>
+    <lastmod>2019-07-22T10:44:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kevintus.github.io/post/</loc>
-    <lastmod>2019-07-08T16:30:31+08:00</lastmod>
+    <lastmod>2019-07-22T10:44:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -97,13 +119,13 @@
   
   <url>
     <loc>https://kevintus.github.io/tags/reveal.js/</loc>
-    <lastmod>2019-06-18T18:10:32+08:00</lastmod>
+    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kevintus.github.io/tags/reveal.js/</loc>
-    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
+    <lastmod>2019-06-18T18:10:32+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -126,7 +148,7 @@
   
   <url>
     <loc>https://kevintus.github.io/tags/tmux/</loc>
-    <lastmod>2019-06-11T19:19:36+08:00</lastmod>
+    <lastmod>2019-07-16T11:02:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -138,6 +160,12 @@
   <url>
     <loc>https://kevintus.github.io/tags/ubuntu/</loc>
     <lastmod>2019-06-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kevintus.github.io/tags/vim/</loc>
+    <lastmod>2019-07-16T11:02:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -155,7 +183,7 @@
   
   <url>
     <loc>https://kevintus.github.io/</loc>
-    <lastmod>2019-07-08T16:30:31+08:00</lastmod>
+    <lastmod>2019-07-22T10:44:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="调整 Vim 和 Tmux 为 True Color" />
+    <meta property="og:title" content="调整 Vim 和 Tmux 为 True Color" />
+    <meta property="twitter:title" content="调整 Vim 和 Tmux 为 True Color" />
     
 
     
-    <meta name="description" content="">
-    <meta property="og:description" content="" />
-    <meta property="twitter:description" content="" />
+    <meta name="description" content="“设置 vimrc 和 tmux.conf，调整配色方案&#34;">
+    <meta property="og:description" content="“设置 vimrc 和 tmux.conf，调整配色方案&#34;" />
+    <meta property="twitter:description" content="“设置 vimrc 和 tmux.conf，调整配色方案&#34;" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Searches-卜平社</title>
+    <title>调整 Vim 和 Tmux 为 True Color-卜平社</title>
 
-    <link rel="canonical" href="/search/">
+    <link rel="canonical" href="/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -141,14 +141,43 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bach.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bach.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>卜平社 </h1>
-                    
-		    <span class="subheading"></span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/gnome-terminal" title="Gnome-terminal">
+                            Gnome-terminal
+                        </a>
+                        
+                        <a class="tag" href="/tags/vim" title="Vim">
+                            Vim
+                        </a>
+                        
+                        <a class="tag" href="/tags/tmux" title="Tmux">
+                            Tmux
+                        </a>
+                        
+                    </div>
+                    <h1>调整 Vim 和 Tmux 为 True Color</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+			Posted by 
+			
+		            卜平社
+			 
+			on 
+			Tuesday, July 16, 2019
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -157,247 +186,156 @@
 
 
 
-<div class="container">
-    <div class="row">
-        
-        
-   	    <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
+
+<article>
+    <div class="container">
+        <div class="row">
+
             
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-<div id="search-searchbar"></div>
- <div class="post-list" id="search-hits">
- </div>
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#确认-gnome-terminal-是支持-true-color-的">确认 Gnome-terminal 是支持 True color 的</a></li>
+<li><a href="#最终-vimrc-和-tmux-conf-配置">最终 vimrc 和 tmux.conf 配置</a></li>
+</ul></li>
+</ul>
+</nav>
+                
+                
 
-<script>
-const search = instantsearch({
-  appId: '',
-  indexName: '',
-  apiKey: ''
-});
+<h2 id="确认-gnome-terminal-是支持-true-color-的">确认 Gnome-terminal 是支持 True color 的</h2>
 
-const hitTemplate = function(hit) {
+<p>这一篇已经写的很清楚了：
+[<a href="https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/">https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/</a>]</p>
 
+<h2 id="最终-vimrc-和-tmux-conf-配置">最终 vimrc 和 tmux.conf 配置</h2>
 
-  let date = '';
-  if (hit.date) {
-    date = moment.unix(hit.date).format('MMM D, YYYY');
-  }
-  let url = `${hit.url}#${hit.anchor}`;
-  const title = hit._highlightResult.title.value;
+<p>.vimrc 配置</p>
 
-  let breadcrumbs = '';
-  if (hit._highlightResult.headings) {
-    breadcrumbs = hit._highlightResult.headings.map(match => {
-      return `<span class="post-breadcrumb">${match.value}</span>`
-    }).join(' > ')
-  }
+<pre><code class="language-vim">set termguicolors
+let &amp;t_8f = &quot;\&lt;Esc&gt;[38;2;%lu;%lu;%lum&quot;
+let &amp;t_8b = &quot;\&lt;Esc&gt;[48;2;%lu;%lu;%lum&quot;
 
-  let content = "" ; 
-  if (hit._highlightResult.content){
-      content = hit._highlightResult.content.value;
-  }
-  else{
-      content = hit.summary;
-  }
+set t_Co=256
+set background=dark
+color molokai
+let g:molokai_original=1
+</code></pre>
 
+<p>.tmux.conf 配置</p>
 
-  return `
-    <div class="post-item">
-      <span class="post-meta">${date}</span>
-      <h2><a class="post-link" href="${url}">${title}</a></h2>
-      <a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>
-      <div class="post-snippet">${content}</div>
-    </div>
-  `;
-}
+<pre><code>set -g default-terminal 'screen-256color'
+set-option -ga terminal-overrides &quot;,*256col*:Tc&quot; 
+</code></pre>
 
 
-search.addWidget(
-  instantsearch.widgets.searchBox({
-    container: '#search-searchbar',
-    placeholder: 'Search into posts...',
-    poweredBy: true // This is required if you're on the free Community plan
-  })
-);
+                
 
-search.addWidget(
-  instantsearch.widgets.hits({
-    container: '#search-hits',
-    templates: {
-      item: hitTemplate
-    }
-  })
-);
-
-search.start();
-</script>
-
-<style>
-.ais-search-box {
-  max-width: 100%;
-  margin-bottom: 15px;
-}
-.post-item {
-  margin-bottom: 30px;
-}
-.post-link .ais-Highlight {
-  color: #111;
-  font-style: normal;
-  text-decoration: underline;
-}
-.post-breadcrumbs {
-  color: #424242;
-  display: block;
-}
-.post-breadcrumb {
-  font-size: 18px;
-  color: #424242;
-}
-.post-breadcrumb .ais-Highlight {
-  font-weight: bold;
-  font-style: normal;
-}
-.post-snippet .ais-Highlight {
-  color: #2a7ae2;
-  font-style: normal;
-  font-weight: bold;
-}
-.post-snippet img {
-  display: none;
-}
-</style>
-
-       	</div>
-        
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
-             
-            
-                
-            
-                
-                    <a href="/tags/markdown" title="Markdown">
-                        Markdown
-                    </a>
-                
-            
-                
-            
-                
-            
-                
-                    <a href="/tags/sublime_text" title="Sublime_Text">
-                        Sublime_Text
-                    </a>
-                
-            
-                
-                    <a href="/tags/tmux" title="Tmux">
-                        Tmux
-                    </a>
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-                    <a href="/tags/reveal-md" title="reveal-md">
-                        reveal-md
-                    </a>
-                
-            
-                
-                    <a href="/tags/reveal.js" title="reveal.js">
-                        reveal.js
-                    </a>
-                
-            
-                
-            
-        </div>
-    </section>
-    
-
-    
-	
-    <section class="visible-md visible-lg">
-	<hr><h5><a href="/top/about">ABOUT ME</a></h5>
-        <div class="short-about">
-            
-            
-                <p>金融学/经济学/工业工程，咨询顾问，互联网公司创业者</p>
-            
-           
-           <ul class="list-inline"> 
-               
-               <li>
-                   <a href="https://kevintus.github.io/search/index.xml" rel="alternate" type="application/rss+xml" title="卜平社" >
-                       <span class="fa-stack fa-lg">
-                           <i class="fa fa-circle fa-stack-2x"></i>
-                           <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/kevintus">
-                       <span class="fa-stack fa-lg">
-                           <i class="fa fa-circle fa-stack-2x"></i>
-                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/" data-toggle="tooltip" data-placement="top" title="利用 decktape 将 HTML 转为 pdf">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/" data-toggle="tooltip" data-placement="top" title="Convert Chinese Markdown File to Pdf via Pandoc">Next
+                            Post &rarr;</a>
+                    </li>
+                    
                 </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
             </div>
-    </section>
-	
-    
-    
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-    
-    
-</div>
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/markdown" title="Markdown">
+                            Markdown
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/sublime_text" title="Sublime_Text">
+                            Sublime_Text
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tmux" title="Tmux">
+                            Tmux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/reveal-md" title="reveal-md">
+                            reveal-md
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/reveal.js" title="reveal.js">
+                            reveal.js
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
 
-	</div>
-</div>
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
 
 
 
@@ -408,7 +346,7 @@ search.start();
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href="https://kevintus.github.io/search/index.xml" rel="alternate" type="application/rss+xml" title="卜平社" >
+                       <a href="" rel="alternate" type="application/rss+xml" title="卜平社" >
                            <span class="fa-stack fa-lg">
                                <i class="fa fa-circle fa-stack-2x"></i>
                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
