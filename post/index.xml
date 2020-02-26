@@ -17,7 +17,7 @@
       <pubDate>Mon, 22 Jul 2019 10:44:05 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</guid>
-      <description>参考资料 文本做笔记 &amp;mdash; 使用 Pandoc 与 Markdown 生成 PDF 文件 Pandoc with Chinese 用pandoc把markdown转化为pdf文档 环境 Ubuntu 内安装 xelatex (pdflatex 不支持中文) 安装中文字体，并用</description>
+      <description>2020.2.26 更新 最新 reveal-md 已经可以很好支持 pdf 导出了，只需要 reveal-md xxx.md --print xx.pdf 原资料 参考资料 文本做笔记 &amp;mdash; 使用 Pandoc 与 Markdown 生成 PDF 文件 Pandoc with Chinese 用pandoc把markdown转化</description>
     </item>
     
     <item>
