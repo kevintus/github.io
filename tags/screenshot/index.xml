@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Screenshot on 卜平社</title>
+    <link>https://kevintus.github.io/tags/screenshot/</link>
+    <description>Recent content in Screenshot on 卜平社</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Jul 2019 10:10:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://kevintus.github.io/tags/screenshot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>利用 Chrome 自带开发者工具实现截屏</title>
+      <link>https://kevintus.github.io/post/190729-chrome-%E6%88%AA%E5%B1%8F/</link>
+      <pubDate>Mon, 29 Jul 2019 10:10:54 +0800</pubDate>
+      
+      <guid>https://kevintus.github.io/post/190729-chrome-%E6%88%AA%E5%B1%8F/</guid>
+      <description>参考资料 Chrome 浏览器如何完美实现滚动截图技巧 快速操作 Ctrl+Shift+I（F12）调出开发者工具 Ctrl+Shift+P 打开命令行 输入 Screen，选择不同的方式</description>
+    </item>
+    
+  </channel>
+</rss>
