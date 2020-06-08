@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kevintus.github.io/post/200608_nvidia-egpu-setup/</loc>
+    <lastmod>2020-06-08T16:11:57+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</loc>
     <lastmod>2019-07-22T10:44:05+08:00</lastmod>
   </url>
@@ -82,6 +87,12 @@
   </url>
   
   <url>
+    <loc>https://kevintus.github.io/tags/egpu/</loc>
+    <lastmod>2020-06-08T16:11:57+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kevintus.github.io/tags/gnome-terminal/</loc>
     <lastmod>2019-07-16T11:02:57+08:00</lastmod>
     <priority>0</priority>
@@ -100,6 +111,12 @@
   </url>
   
   <url>
+    <loc>https://kevintus.github.io/tags/nvidia/</loc>
+    <lastmod>2020-06-08T16:11:57+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kevintus.github.io/tags/pandoc/</loc>
     <lastmod>2019-07-22T10:44:05+08:00</lastmod>
     <priority>0</priority>
@@ -107,7 +124,7 @@
   
   <url>
     <loc>https://kevintus.github.io/post/</loc>
-    <lastmod>2019-07-22T10:44:05+08:00</lastmod>
+    <lastmod>2020-06-08T16:11:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -119,13 +136,13 @@
   
   <url>
     <loc>https://kevintus.github.io/tags/reveal.js/</loc>
-    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
+    <lastmod>2019-06-18T18:10:32+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kevintus.github.io/tags/reveal.js/</loc>
-    <lastmod>2019-06-18T18:10:32+08:00</lastmod>
+    <lastmod>2019-06-19T12:58:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -183,7 +200,7 @@
   
   <url>
     <loc>https://kevintus.github.io/</loc>
-    <lastmod>2019-07-22T10:44:05+08:00</lastmod>
+    <lastmod>2020-06-08T16:11:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
