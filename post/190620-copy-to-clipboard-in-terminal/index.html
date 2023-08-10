@@ -194,53 +194,29 @@
                     <h2>TOC</h2>
                 </header>
                 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#利用-xclip-selection-clipboard-把终端内容复制到系统剪贴板">利用 <code>xclip -selection clipboard</code> 把终端内容复制到系统剪贴板</a></li>
-<li><a href="#终端内使用">终端内使用</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#利用-xclip--selection-clipboard-把终端内容复制到系统剪贴板">利用 <code>xclip -selection clipboard</code> 把终端内容复制到系统剪贴板</a></li>
+    <li><a href="#终端内使用">终端内使用</a></li>
+  </ul>
 </nav>
                 
-                
-
-<h2 id="利用-xclip-selection-clipboard-把终端内容复制到系统剪贴板">利用 <code>xclip -selection clipboard</code> 把终端内容复制到系统剪贴板</h2>
-
+                <h2 id="利用-xclip--selection-clipboard-把终端内容复制到系统剪贴板">利用 <code>xclip -selection clipboard</code> 把终端内容复制到系统剪贴板</h2>
 <p>之前各种研究如何在 zsh 和 tmux 下面实现复制粘贴，参见<a href="https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/">开始使用Tmux</a>，今天发现其实用 <code>xclip -selection clipboard</code> 命令就可以很简单实现</p>
-
 <p>举例：我要拷贝 v2Ray 的配置文件到 Google doc 备份，只需要</p>
-
-<pre><code class="language-bash">cat /etc/v2ray/config.json | xclip -selection clipboard 
-</code></pre>
-
-<p>就搞定了。比用什么摁住 shift 键拨弄鼠标简单一百倍。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /etc/v2ray/config.json | xclip -selection clipboard 
+</code></pre></div><p>就搞定了。比用什么摁住 shift 键拨弄鼠标简单一百倍。</p>
 <p>可以在 .zshrc 文件里面设置一下 alias，方便使用</p>
-
-<pre><code class="language-bash">alias copytoclipboard=&quot;xclip -selection clipboard&quot;
-</code></pre>
-
-<p>之后就可以</p>
-
-<pre><code class="language-bash">cat /etc/v2ray/config.json | copytoclipboard
-</code></pre>
-
-<h2 id="终端内使用">终端内使用</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">alias copytoclipboard<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;xclip -selection clipboard&#34;</span>
+</code></pre></div><p>之后就可以</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /etc/v2ray/config.json | copytoclipboard
+</code></pre></div><h2 id="终端内使用">终端内使用</h2>
 <p>如果要在终端里面实现内容复制粘贴，也非常简单</p>
-
-<pre><code class="language-bash">xclip xxx
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">xclip xxx
 xclip -o
-</code></pre>
-
-<p>所以如果想复制粘贴一个文件的绝对路径，只需要</p>
-
-<pre><code class="language-bash">readlink -e sample.png | xclip 
+</code></pre></div><p>所以如果想复制粘贴一个文件的绝对路径，只需要</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">readlink -e sample.png | xclip 
 xclip -o
-</code></pre>
-
-<p>DONE！</p>
+</code></pre></div><p>DONE！</p>
 
 
                 
@@ -284,35 +260,13 @@ xclip -o
                         
                         
                         
-                        <a href="/tags/markdown" title="Markdown">
-                            Markdown
+                        
+                        
+                        
+                        
+                        <a href="/tags/markdown" title="markdown">
+                            markdown
                         </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/sublime_text" title="Sublime_Text">
-                            Sublime_Text
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/tmux" title="Tmux">
-                            Tmux
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         
                         
@@ -329,6 +283,24 @@ xclip -o
                         <a href="/tags/reveal.js" title="reveal.js">
                             reveal.js
                         </a>
+                        
+                        
+                        
+                        <a href="/tags/sublime_text" title="sublime_text">
+                            sublime_text
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tmux" title="tmux">
+                            tmux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         

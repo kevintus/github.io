@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 卜平社</title>
@@ -17,7 +17,7 @@
       <pubDate>Mon, 08 Jun 2020 16:11:57 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/200608_nvidia-egpu-setup/</guid>
-      <description>参考资料 I mainly follow this procedure Adjust the kernel parameter by following this 操作 Purge all existing Nvidia drivers sudo apt-get --purge remove &#39;nvidia*&#39; Reboot sudo reboot [KEY STEP!!!] Adjust kernel parameters: Edit /etc/default/grub as root, change GRUB_CMDLINE_LINUX line: sudo vim /etc/default/grub # In GRUB_CMDLINE_LINUX GRUB_CMDLINE_LINUX=&amp;quot;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&amp;quot; Update booting sudo grub-mkconfig -o /boot/grub/grub.cfg Reboot Install Nvidia driver sudo apt-get install nvidia-driver-440 Reboot Check the</description>
+      <description>参考资料 I mainly follow this procedure Adjust the kernel parameter by following this 操作 Purge all existing Nvidia drivers sudo apt-get --purge remove &amp;#39;nvidia*&amp;#39; Reboot sudo reboot [KEY STEP!!!] Adjust kernel parameters: Edit /etc/default/grub as root, change GRUB_CMDLINE_LINUX line: sudo vim /etc/default/grub # In GRUB_CMDLINE_LINUX GRUB_CMDLINE_LINUX=&amp;#34;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&amp;#34; Update booting sudo grub-mkconfig -o /boot/grub/grub.cfg Reboot Install Nvidia driver sudo apt-get install nvidia-driver-440 Reboot Check the</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Mon, 22 Jul 2019 10:44:05 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</guid>
-      <description>2020.2.26 更新 最新 reveal-md 已经可以很好支持 pdf 导出了，只需要 reveal-md xxx.md --print xx.pdf 原资料 参考资料 文本做笔记 &amp;mdash; 使用 Pandoc 与 Markdown 生成 PDF 文件 Pandoc with Chinese 用pandoc把markdown转化</description>
+      <description>2023.8.8 更新 如果还是用pandoc而不是reveal-md（考虑到reveal-md更适合ppt转pdf，而pandoc更适合word），那么可以</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Tue, 16 Jul 2019 11:02:57 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/</guid>
-      <description>确认 Gnome-terminal 是支持 True color 的 这一篇已经写的很清楚了： [https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/] 最终 vimrc 和 tmux.conf 配置 .vimrc 配置 set termguicolors let &amp;amp;t_8f = &amp;quot;\&amp;lt;Esc&amp;gt;[38;2;%lu;%lu;%lum&amp;quot; let &amp;amp;t_8b = &amp;quot;\&amp;lt;Esc&amp;gt;[48;2;%lu;%lu;%lum&amp;quot; set t_Co=256 set background=dark color molokai let g:molokai_original=1 .tmux.conf 配置 set -g default-terminal &#39;screen-256color&#39; set-option -ga terminal-overrides &amp;quot;,*256col*:Tc&amp;quot;</description>
+      <description>确认 Gnome-terminal 是支持 True color 的 这一篇已经写的很清楚了： [https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/] 最终 vimrc 和 tmux.conf 配置 .vimrc 配置 set termguicolorslet &amp;amp;t_8f = &amp;#34;\&amp;lt;Esc&amp;gt;[38;2;%lu;%lu;%lum&amp;#34;let &amp;amp;t_8b = &amp;#34;\&amp;lt;Esc&amp;gt;[48;2;%lu;%lu;%lum&amp;#34;set t_Co=256set background=darkcolor molokailet g:molokai_original=1.tmux.conf 配置 set -g default-terminal &#39;screen-256color&#39; set-option -ga terminal-overrides &amp;quot;,*256col*:Tc&amp;quot;</description>
     </item>
     
     <item>
@@ -125,9 +125,7 @@
       <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://kevintus.github.io/post/readme/</guid>
-      <description>Clean White Theme for Hugo CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live demo site using this theme.
-It is based on huxblog Jekyll Theme and Clean Blog Jekyll Theme.
-These two upstream projects have done awesome jobs to create a blog theme, what I&amp;rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster compiling speed.</description>
+      <description>Clean White Theme for Hugo CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live demo site using this theme. It is based on huxblog Jekyll Theme and Clean Blog Jekyll Theme. These two upstream projects have done awesome jobs to create a blog theme, what I&amp;rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster</description>
     </item>
     
   </channel>

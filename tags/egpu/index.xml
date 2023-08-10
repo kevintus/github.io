@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>EGPU on 卜平社</title>
+    <title>eGPU on 卜平社</title>
     <link>https://kevintus.github.io/tags/egpu/</link>
-    <description>Recent content in EGPU on 卜平社</description>
+    <description>Recent content in eGPU on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Jun 2020 16:11:57 +0800</lastBuildDate>
@@ -17,7 +17,7 @@
       <pubDate>Mon, 08 Jun 2020 16:11:57 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/200608_nvidia-egpu-setup/</guid>
-      <description>参考资料 I mainly follow this procedure Adjust the kernel parameter by following this 操作 Purge all existing Nvidia drivers sudo apt-get --purge remove &#39;nvidia*&#39; Reboot sudo reboot [KEY STEP!!!] Adjust kernel parameters: Edit /etc/default/grub as root, change GRUB_CMDLINE_LINUX line: sudo vim /etc/default/grub # In GRUB_CMDLINE_LINUX GRUB_CMDLINE_LINUX=&amp;quot;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&amp;quot; Update booting sudo grub-mkconfig -o /boot/grub/grub.cfg Reboot Install Nvidia driver sudo apt-get install nvidia-driver-440 Reboot Check the</description>
+      <description>参考资料 I mainly follow this procedure Adjust the kernel parameter by following this 操作 Purge all existing Nvidia drivers sudo apt-get --purge remove &amp;#39;nvidia*&amp;#39; Reboot sudo reboot [KEY STEP!!!] Adjust kernel parameters: Edit /etc/default/grub as root, change GRUB_CMDLINE_LINUX line: sudo vim /etc/default/grub # In GRUB_CMDLINE_LINUX GRUB_CMDLINE_LINUX=&amp;#34;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&amp;#34; Update booting sudo grub-mkconfig -o /boot/grub/grub.cfg Reboot Install Nvidia driver sudo apt-get install nvidia-driver-440 Reboot Check the</description>
     </item>
     
   </channel>

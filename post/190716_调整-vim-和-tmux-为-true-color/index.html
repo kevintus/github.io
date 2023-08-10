@@ -202,42 +202,29 @@
                     <h2>TOC</h2>
                 </header>
                 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#确认-gnome-terminal-是支持-true-color-的">确认 Gnome-terminal 是支持 True color 的</a></li>
-<li><a href="#最终-vimrc-和-tmux-conf-配置">最终 vimrc 和 tmux.conf 配置</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#确认-gnome-terminal-是支持-true-color-的">确认 Gnome-terminal 是支持 True color 的</a></li>
+    <li><a href="#最终-vimrc-和-tmuxconf-配置">最终 vimrc 和 tmux.conf 配置</a></li>
+  </ul>
 </nav>
                 
-                
-
-<h2 id="确认-gnome-terminal-是支持-true-color-的">确认 Gnome-terminal 是支持 True color 的</h2>
-
+                <h2 id="确认-gnome-terminal-是支持-true-color-的">确认 Gnome-terminal 是支持 True color 的</h2>
 <p>这一篇已经写的很清楚了：
-[<a href="https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/">https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/</a>]</p>
-
-<h2 id="最终-vimrc-和-tmux-conf-配置">最终 vimrc 和 tmux.conf 配置</h2>
-
+[https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/]</p>
+<h2 id="最终-vimrc-和-tmuxconf-配置">最终 vimrc 和 tmux.conf 配置</h2>
 <p>.vimrc 配置</p>
-
-<pre><code class="language-vim">set termguicolors
-let &amp;t_8f = &quot;\&lt;Esc&gt;[38;2;%lu;%lu;%lum&quot;
-let &amp;t_8b = &quot;\&lt;Esc&gt;[48;2;%lu;%lu;%lum&quot;
-
-set t_Co=256
-set background=dark
-color molokai
-let g:molokai_original=1
-</code></pre>
-
-<p>.tmux.conf 配置</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">termguicolors</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> &amp;<span style="color:#a6e22e">t_8f</span> = <span style="color:#e6db74">&#34;\&lt;Esc&gt;[38;2;%lu;%lu;%lum&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> &amp;<span style="color:#a6e22e">t_8b</span> = <span style="color:#e6db74">&#34;\&lt;Esc&gt;[48;2;%lu;%lu;%lum&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">t_Co</span>=<span style="color:#ae81ff">256</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">set</span> <span style="color:#a6e22e">background</span>=dark<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">color</span> <span style="color:#a6e22e">molokai</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">molokai_original</span>=<span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>.tmux.conf 配置</p>
 <pre><code>set -g default-terminal 'screen-256color'
 set-option -ga terminal-overrides &quot;,*256col*:Tc&quot; 
 </code></pre>
-
 
                 
 
@@ -280,35 +267,13 @@ set-option -ga terminal-overrides &quot;,*256col*:Tc&quot;
                         
                         
                         
-                        <a href="/tags/markdown" title="Markdown">
-                            Markdown
+                        
+                        
+                        
+                        
+                        <a href="/tags/markdown" title="markdown">
+                            markdown
                         </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/sublime_text" title="Sublime_Text">
-                            Sublime_Text
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/tmux" title="Tmux">
-                            Tmux
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         
                         
@@ -325,6 +290,24 @@ set-option -ga terminal-overrides &quot;,*256col*:Tc&quot;
                         <a href="/tags/reveal.js" title="reveal.js">
                             reveal.js
                         </a>
+                        
+                        
+                        
+                        <a href="/tags/sublime_text" title="sublime_text">
+                            sublime_text
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tmux" title="tmux">
+                            tmux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         

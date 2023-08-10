@@ -198,87 +198,63 @@
                     <h2>TOC</h2>
                 </header>
                 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#关于ppt">关于PPT</a></li>
-<li><a href="#为什么是-markdown-reveal-js">为什么是 Markdown + reveal.js</a></li>
-<li><a href="#reveal-js的配置">Reveal.js的配置</a></li>
-<li><a href="#待解决问题">待解决问题</a></li>
-<li><a href="#2019-6-19-更新">2019.6.19 更新</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#关于ppt">关于PPT</a></li>
+    <li><a href="#为什么是-markdown--revealjs">为什么是 Markdown + reveal.js</a></li>
+    <li><a href="#revealjs的配置">Reveal.js的配置</a></li>
+    <li><a href="#待解决问题">待解决问题</a></li>
+    <li><a href="#2019619-更新">2019.6.19 更新</a></li>
+  </ul>
 </nav>
                 
-                
-
-<h2 id="关于ppt">关于PPT</h2>
-
+                <h2 id="关于ppt">关于PPT</h2>
 <p>因为之前从事管理战略咨询的缘故，PPT 是必备技能。thinkcell+键盘快捷键玩到飞起，巅峰时刻一晚大几十页PPT没有任何问题 - 于是脑海中非常根深蒂固的印象就是 PPT = Microsoft Powerpoint，最好的 PPT 模板就是麦肯锡的一套。过去三四年转行互联网，这样的认知逐渐被打破，尤其在以下方面，看到了很多 PowerPoint 没法解决（或不适应）的问题：</p>
-
 <ol>
 <li>非线性逻辑结构：PPT 的翻页是线性且单维的，这让我现在很多时候用脑图而不是 PPT 来思考和陈述</li>
 <li>对于包括代码、视频、公式等形式的支持落后：记得自己2006年开始用 Linux（Ubuntu），就是因为写论文的时候不能忍受输入数学公式的繁琐，转而用 vim + LaTex 生成 PDF。时至今日，这些问题依然在 office suite 里面没有得到特别好的解决</li>
 <li>轻便：如果不是之前管理战略咨询那样的 PPT（极其严谨的图文排布、12-16号字打便天下，高密度信息结构），其实是不需要 PowerPoint 那么重的工具的。同时，过去三四年我自己的管理决策一直是在做减法，因此在最终思路的呈现上反而强调 KISS 原则，不像之前呈现给500强 CXO 或者 PE 投资人那么需要信息丰富度和高级逻辑能力，转而力求“把事情用最简单的方式说清楚，并且让绝大多数听众第一时间就能明白吸收”。在这种情况下，PowerPoint 略显沉闷和笨重</li>
 <li>云和协作：这点 Google Suite 比 Office Suite 好很多。当然我不觉得 Google Suite 总体产品做的很好，只是会拿 Google Doc 和 Google Keep 来记录日常思考，最近有被 Markdown 取代的迹象。实时云存储一定是趋势，PowerPoint 动作太慢了，背后其实是有隐性风险的，比如我相信很多人都经历过本机保存不及时活白干，或者团队内部搞 PPT 版本控制问题等。</li>
 </ol>
-
 <p>当然，PowerPoint 的优势依然明显，比如任何时候，我需要准备一份最严谨的商业陈述，或者 BD/ 销售材料，那么 PowerPoint 仍然是我的最优解。但在其他时刻，比如团队内部分享，或者一些产品讨论等方面，我在过去一段时间里的确在认真考虑使用更加灵活和轻量级的其他工具。</p>
-
-<h2 id="为什么是-markdown-reveal-js">为什么是 Markdown + reveal.js</h2>
-
+<h2 id="为什么是-markdown--revealjs">为什么是 Markdown + reveal.js</h2>
 <ol>
 <li>还是尝试阶段，可能有更好的工具</li>
 <li>过去一周使用 Markdown 的体验非常愉快。Markdown 比当年写 LaTex 文档入门门槛低太多了，而且排版还是很舒服的</li>
 <li>个人是所想即所得的忠实拥护者，我对工具的要求是在聚焦写完 Markdown 文档以后，能否最低成本地以我想要的方式“逐页”展现出来</li>
 <li><a href="https://github.com/hakimel/reveal.js/#configuration">Reveal.js</a>的社区文档做的不错，一开始的demo还是很吸引人的。粗略看了一圈，也不复杂，就先试起来了</li>
 </ol>
-
-<h2 id="reveal-js的配置">Reveal.js的配置</h2>
-
+<h2 id="revealjs的配置">Reveal.js的配置</h2>
 <ul>
 <li>基本 follow GitHub 上的官方教程，我采用的是 <a href="https://github.com/hakimel/reveal.js/#full-setup">Full Setup</a>，就是装了一个比较完整的 node.js + npm 环境在机子上</li>
 <li>不喜欢用 “internal” Markdown 的方式来写，每一页还要前后加 <code>&lt;section&gt; &lt;/section&gt;</code> 也太烦人了，直接采用 <a href="https://github.com/hakimel/reveal.js/#external-markdown">External Markdown</a> 的方式来处理比较好，最快上手的方式是直接在安装目录下的 <code>index.html</code> 上面修改保存，省的一开始配置</li>
 <li>一个关键定义是 Markdown 文档里面怎么分页，官方给的方式是横向空三行、纵向空两行</li>
 </ul>
-
 <blockquote>
-<p>data-separator=&ldquo;^\n\n\n&rdquo;<br />
-data-separator-vertical=&ldquo;^\n\n&rdquo;</p>
+<p>data-separator=&quot;^\n\n\n&rdquo;<br>
+data-separator-vertical=&quot;^\n\n&rdquo;</p>
 </blockquote>
-
 <p>我采用的方式是横向空一行，加三个-，再空一行;纵向纵向空一行，加两个-，再空一行。纯粹觉得这样比较安全</p>
-
 <blockquote>
-<p>data-separator=&ldquo;^\n&mdash;\n$&rdquo;<br />
-data-separator-vertical=&ldquo;^\n&ndash;\n$&rdquo;</p>
+<p>data-separator=&quot;^\n&mdash;\n$&rdquo;<br>
+data-separator-vertical=&quot;^\n&ndash;\n$&rdquo;</p>
 </blockquote>
-
 <ul>
 <li>默认的字体太大了，我偷懒就改了一下 css 里面 theme 文件的  <code>font-size</code>，从原来40改成24</li>
 </ul>
-
-<pre><code class="language-node.js">.reveal {
-font-family: &quot;Source Sans Pro&quot;, Helvetica, sans-serif;
-font-size: 24px;
-font-weight: normal;
-color: #fff; }
-</code></pre>
-
-<p>基本能用了。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-node.js" data-lang="node.js">.<span style="color:#a6e22e">reveal</span> {
+<span style="color:#a6e22e">font</span><span style="color:#f92672">-</span><span style="color:#a6e22e">family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Source Sans Pro&#34;</span>, <span style="color:#a6e22e">Helvetica</span>, <span style="color:#a6e22e">sans</span><span style="color:#f92672">-</span><span style="color:#a6e22e">serif</span>;
+<span style="color:#a6e22e">font</span><span style="color:#f92672">-</span><span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">24</span><span style="color:#a6e22e">px</span>;
+<span style="color:#a6e22e">font</span><span style="color:#f92672">-</span><span style="color:#a6e22e">weight</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">normal</span>;
+<span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">fff</span>; }
+</code></pre></div><p>基本能用了。</p>
 <h2 id="待解决问题">待解决问题</h2>
-
 <ul>
 <li>表格的宽度设定，跟用 Markdown 之间生成样子不一样</li>
 <li>插入图片和视频</li>
 <li>页面里一些元素的调整，比如引用，现在的版面占用比较大</li>
 </ul>
-
-<h2 id="2019-6-19-更新">2019.6.19 更新</h2>
-
+<h2 id="2019619-更新">2019.6.19 更新</h2>
 <p>插入图片选择了 <a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo</a> + github 作为图床，每次上传完照片之后，进入 PicGo 的相片区，选择复制，可以自动生成 Markdown 文档的图片链接，粘贴进文档完事儿。</p>
-
 <p>插入视频选择了用 iframe 方式，具体见 <a href="https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/">190619-reveal-md-格式模版</a></p>
 
 
@@ -323,35 +299,13 @@ color: #fff; }
                         
                         
                         
-                        <a href="/tags/markdown" title="Markdown">
-                            Markdown
+                        
+                        
+                        
+                        
+                        <a href="/tags/markdown" title="markdown">
+                            markdown
                         </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/sublime_text" title="Sublime_Text">
-                            Sublime_Text
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/tmux" title="Tmux">
-                            Tmux
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         
                         
@@ -368,6 +322,24 @@ color: #fff; }
                         <a href="/tags/reveal.js" title="reveal.js">
                             reveal.js
                         </a>
+                        
+                        
+                        
+                        <a href="/tags/sublime_text" title="sublime_text">
+                            sublime_text
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tmux" title="tmux">
+                            tmux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         

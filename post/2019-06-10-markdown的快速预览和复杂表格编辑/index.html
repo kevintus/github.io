@@ -198,119 +198,65 @@
                     <h2>TOC</h2>
                 </header>
                 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#markdown的快速预览">Markdown的快速预览</a></li>
-<li><a href="#利用excel下的-html-格式实现复杂表格编辑">利用Excel下的 HTML 格式实现复杂表格编辑</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#markdown的快速预览">Markdown的快速预览</a></li>
+    <li><a href="#利用excel下的-html-格式实现复杂表格编辑">利用Excel下的 HTML 格式实现复杂表格编辑</a></li>
+  </ul>
 </nav>
                 
-                
-
-<h2 id="markdown的快速预览">Markdown的快速预览</h2>
-
+                <h2 id="markdown的快速预览">Markdown的快速预览</h2>
 <p>在 Sublime Text 3 里面利用 <code>ctrl + shift + p</code> 呼出菜单，输入 <code>Install</code> 查找到 <code>Markdown Preview</code> 进行安装；之后选择 <code>Preference -&gt; Key Bindings</code>，在 user 配置文件内添加快捷键 <code>Alt + m</code>来实现快速预览，预览文件会在 <code>/tmp</code> 文件夹内</p>
-
 <pre><code>    { &quot;keys&quot;: [&quot;alt+m&quot;], &quot;command&quot;: &quot;markdown_preview&quot;, &quot;args&quot;: {&quot;target&quot;: &quot;browser&quot;, &quot;parser&quot;:&quot;markdown&quot;}  }
-</code></pre>
-
-<p>如需要生成最终HTML文件，快捷键是 <code>Ctrl + b</code>。</p>
-
+</code></pre><p>如需要生成最终HTML文件，快捷键是 <code>Ctrl + b</code>。</p>
 <h2 id="利用excel下的-html-格式实现复杂表格编辑">利用Excel下的 HTML 格式实现复杂表格编辑</h2>
-
 <p>原生命令太烦人了，还不支持复杂表格，直接把excel另存为html文件，然后用 gedit 或其他文本编辑软件打开，选取 <code>&lt;table&gt;  &lt;\table&gt;</code> 中间部分，粘贴到 <code>md</code>文件里面对应位置即可。
 示例如下：</p>
-
-<table cellspacing="0" border="0">
-    <colgroup width="189"></colgroup>
-    <colgroup width="195"></colgroup>
-    <colgroup width="360"></colgroup>
-    <colgroup width="92"></colgroup>
-    <colgroup width="74"></colgroup>
-    <tr>
-        <td height="19" align="left"><b><font face="Noto Sans CJK SC Regular">导流渠道 </font></b></td>
-        <td align="left"><b><font face="Noto Sans CJK SC Regular"> 子渠道 </font></b></td>
-        <td align="left"><b><font face="Noto Sans CJK SC Regular"> 主要方式</font></b></td>
-        <td align="left"><b><font face="Noto Sans CJK SC Regular"> 基础转化率 </font></b></td>
-        <td align="left"><b><font face="Noto Sans CJK SC Regular"> 适用场景</font></b></td>
-    </tr>
-    <tr>
-        <td rowspan=2 height="37" align="left"><font face="Noto Sans CJK SC Regular">电商（京东、天猫、淘宝）</font></td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 历史订单 </font></td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 短信、主动添加 </font></td>
-        <td align="right"> xx% </td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 冷启动</font></td>
-    </tr>
-    <tr>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 销售过程 </font></td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 礼券，页面引导，客服引导，物流信息提醒等 </font></td>
-        <td align="right" sdval="0.3" sdnum="1033;0;0%">xx%</td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 持续积累</font></td>
-    </tr>
-    <tr>
-        <td height="24" align="left"><font face="Noto Sans CJK SC Regular">线下导购 </font></td>
-        <td align="left"> </td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 门店位置（门口，收银台，POP等），销售服务过程 </font></td>
-        <td align="right" sdval="0.4" sdnum="1033;0;0%">xx%</td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 持续积累</font></td>
-    </tr>
-    <tr>
-        <td height="19" align="left"><font face="Noto Sans CJK SC Regular">社交媒体 </font></td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 快手，抖音，小红书，微博 </font></td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 页面引导，内容引导，口播引导等 </font></td>
-        <td align="right"> TBD </td>
-        <td align="left"><font face="Noto Sans CJK SC Regular"> 持续积累</font></td>
-    </tr>
-</table>
-
-<p>代码部分如下：
-&gt;</p>
-
-<pre><code class="language-html">&lt;table cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;
-    &lt;colgroup width=&quot;189&quot;&gt;&lt;/colgroup&gt;
-    &lt;colgroup width=&quot;195&quot;&gt;&lt;/colgroup&gt;
-    &lt;colgroup width=&quot;360&quot;&gt;&lt;/colgroup&gt;
-    &lt;colgroup width=&quot;92&quot;&gt;&lt;/colgroup&gt;
-    &lt;colgroup width=&quot;74&quot;&gt;&lt;/colgroup&gt;
-    &lt;tr&gt;
-        &lt;td height=&quot;19&quot; align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt;导流渠道 &lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 子渠道 &lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 主要方式&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 基础转化率 &lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;b&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 适用场景&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td rowspan=2 height=&quot;37&quot; align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt;电商（京东、天猫、淘宝）&lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 历史订单 &lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 短信、主动添加 &lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;right&quot;&gt; xx% &lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 冷启动&lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 销售过程 &lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 礼券，页面引导，客服引导，物流信息提醒等 &lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;right&quot; sdval=&quot;0.3&quot; sdnum=&quot;1033;0;0%&quot;&gt;xx%&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 持续积累&lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td height=&quot;24&quot; align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt;线下导购 &lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt; &lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 门店位置（门口，收银台，POP等），销售服务过程 &lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;right&quot; sdval=&quot;0.4&quot; sdnum=&quot;1033;0;0%&quot;&gt;xx%&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 持续积累&lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td height=&quot;19&quot; align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt;社交媒体 &lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 快手，抖音，小红书，微博 &lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 页面引导，内容引导，口播引导等 &lt;/font&gt;&lt;/td&gt;
-        &lt;td align=&quot;right&quot;&gt; TBD &lt;/td&gt;
-        &lt;td align=&quot;left&quot;&gt;&lt;font face=&quot;Noto Sans CJK SC Regular&quot;&gt; 持续积累&lt;/font&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-</code></pre>
-
+<!-- raw HTML omitted -->
+<p>代码部分如下：</p>
+<blockquote>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">cellspacing</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">border</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>&gt;
+    &lt;<span style="color:#f92672">colgroup</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;189&#34;</span>&gt;&lt;/<span style="color:#f92672">colgroup</span>&gt;
+    &lt;<span style="color:#f92672">colgroup</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;195&#34;</span>&gt;&lt;/<span style="color:#f92672">colgroup</span>&gt;
+    &lt;<span style="color:#f92672">colgroup</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;360&#34;</span>&gt;&lt;/<span style="color:#f92672">colgroup</span>&gt;
+    &lt;<span style="color:#f92672">colgroup</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;92&#34;</span>&gt;&lt;/<span style="color:#f92672">colgroup</span>&gt;
+    &lt;<span style="color:#f92672">colgroup</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;74&#34;</span>&gt;&lt;/<span style="color:#f92672">colgroup</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;19&#34;</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">b</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt;导流渠道 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">b</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">b</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 子渠道 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">b</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">b</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 主要方式&lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">b</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">b</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 基础转化率 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">b</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">b</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 适用场景&lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">b</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+    &lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">rowspan</span><span style="color:#f92672">=</span><span style="color:#e6db74">2</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;37&#34;</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt;电商（京东、天猫、淘宝）&lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 历史订单 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 短信、主动添加 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;right&#34;</span>&gt; xx% &lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 冷启动&lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+    &lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 销售过程 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 礼券，页面引导，客服引导，物流信息提醒等 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;right&#34;</span> <span style="color:#a6e22e">sdval</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.3&#34;</span> <span style="color:#a6e22e">sdnum</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1033;0;0%&#34;</span>&gt;xx%&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 持续积累&lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+    &lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;24&#34;</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt;线下导购 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt; &lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 门店位置（门口，收银台，POP等），销售服务过程 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;right&#34;</span> <span style="color:#a6e22e">sdval</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.4&#34;</span> <span style="color:#a6e22e">sdnum</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1033;0;0%&#34;</span>&gt;xx%&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 持续积累&lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+    &lt;/<span style="color:#f92672">tr</span>&gt;
+    &lt;<span style="color:#f92672">tr</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;19&#34;</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt;社交媒体 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 快手，抖音，小红书，微博 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 页面引导，内容引导，口播引导等 &lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;right&#34;</span>&gt; TBD &lt;/<span style="color:#f92672">td</span>&gt;
+        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>&gt;&lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Noto Sans CJK SC Regular&#34;</span>&gt; 持续积累&lt;/<span style="color:#f92672">font</span>&gt;&lt;/<span style="color:#f92672">td</span>&gt;
+    &lt;/<span style="color:#f92672">tr</span>&gt;
+&lt;/<span style="color:#f92672">table</span>&gt;
+</code></pre></div>
 
                 
 
@@ -353,35 +299,13 @@
                         
                         
                         
-                        <a href="/tags/markdown" title="Markdown">
-                            Markdown
+                        
+                        
+                        
+                        
+                        <a href="/tags/markdown" title="markdown">
+                            markdown
                         </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/sublime_text" title="Sublime_Text">
-                            Sublime_Text
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/tmux" title="Tmux">
-                            Tmux
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         
                         
@@ -398,6 +322,24 @@
                         <a href="/tags/reveal.js" title="reveal.js">
                             reveal.js
                         </a>
+                        
+                        
+                        
+                        <a href="/tags/sublime_text" title="sublime_text">
+                            sublime_text
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tmux" title="tmux">
+                            tmux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         

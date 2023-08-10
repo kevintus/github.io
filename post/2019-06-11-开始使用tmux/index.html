@@ -198,87 +198,72 @@
                     <h2>TOC</h2>
                 </header>
                 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#tmux-的安装和设置">Tmux 的安装和设置</a>
-<ul>
-<li><a href="#基本学习以下教程">基本学习以下教程</a></li>
-<li><a href="#贴出来我的-tmux-conf">贴出来我的<code>~/.tmux.conf</code></a></li>
-<li><a href="#关于-copy-mode-还是比较复杂-操作如下">关于<code>copy mode</code>，还是比较复杂，操作如下：</a></li>
-<li><a href="#跟系统剪贴板打通">跟系统剪贴板打通</a></li>
-</ul></li>
-<li><a href="#190620-更新">190620 更新</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#tmux-的安装和设置">Tmux 的安装和设置</a>
+      <ul>
+        <li><a href="#基本学习以下教程">基本学习以下教程</a></li>
+        <li><a href="#贴出来我的tmuxconf">贴出来我的<code>~/.tmux.conf</code></a></li>
+        <li><a href="#关于copy-mode还是比较复杂操作如下">关于<code>copy mode</code>，还是比较复杂，操作如下：</a></li>
+        <li><a href="#跟系统剪贴板打通">跟系统剪贴板打通</a></li>
+      </ul>
+    </li>
+    <li><a href="#190620-更新">190620 更新</a></li>
+  </ul>
 </nav>
                 
-                
-
-<h2 id="tmux-的安装和设置">Tmux 的安装和设置</h2>
-
+                <h2 id="tmux-的安装和设置">Tmux 的安装和设置</h2>
 <h3 id="基本学习以下教程">基本学习以下教程</h3>
-
 <blockquote>
 <p>[优雅地使用命令行：Tmux 终端复用] <a href="https://harttle.land/2015/11/06/tmux-startup.html">https://harttle.land/2015/11/06/tmux-startup.html</a></p>
-
+</blockquote>
+<blockquote>
 <p>[十分钟学会 tmux] <a href="https://www.jianshu.com/p/c217318a9380">https://www.jianshu.com/p/c217318a9380</a></p>
-
+</blockquote>
+<blockquote>
 <p>[tmux简洁教程及config关键配置] <a href="https://www.jianshu.com/p/fd3bbdba9dc9">https://www.jianshu.com/p/fd3bbdba9dc9</a></p>
 </blockquote>
-
-<h3 id="贴出来我的-tmux-conf">贴出来我的<code>~/.tmux.conf</code></h3>
-
+<h3 id="贴出来我的tmuxconf">贴出来我的<code>~/.tmux.conf</code></h3>
 <blockquote>
 <p>~/.tmux.conf</p>
 </blockquote>
-
-<pre><code class="language-bash"># 更改Prefix 键为 ctrl + x
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 更改Prefix 键为 ctrl + x</span>
 set-option -g prefix C-x
 unbind-key C-x
 bind-key  C-x send-prefix
  
-# 开启鼠标模式
+<span style="color:#75715e"># 开启鼠标模式</span>
 set-option -g mouse on
 
-# 不用按prefix，直接用 alt + 箭头 方式在pane之间切换
-bind -n M-Left select-pane -L
-bind -n M-Right select-pane -R
-bind -n M-Up select-pane -U
-bind -n M-Down select-pane -D
+<span style="color:#75715e"># 不用按prefix，直接用 alt + 箭头 方式在pane之间切换</span>
+bind -n M-Left <span style="color:#66d9ef">select</span>-pane -L
+bind -n M-Right <span style="color:#66d9ef">select</span>-pane -R
+bind -n M-Up <span style="color:#66d9ef">select</span>-pane -U
+bind -n M-Down <span style="color:#66d9ef">select</span>-pane -D
 
-# Set easier window split keys
+<span style="color:#75715e"># Set easier window split keys</span>
 bind-key v split-window -h
 bind-key h split-window -v
 
-# 如果对 vim 比较熟悉，可以将 copy mode 的快捷键换成 vi 模式
+<span style="color:#75715e"># 如果对 vim 比较熟悉，可以将 copy mode 的快捷键换成 vi 模式</span>
 set-window-option -g mode-keys vi
-bind Escape copy-mode # 绑定esc键为进入复制模式
+bind Escape copy-mode <span style="color:#75715e"># 绑定esc键为进入复制模式</span>
 bind -T copy-mode-vi v send-keys -X begin-selection
 bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-bind p pasteb # 绑定p键为粘贴文本（p键默认用于进入上一个窗口，不建议覆盖）
-</code></pre>
-
-<h3 id="关于-copy-mode-还是比较复杂-操作如下">关于<code>copy mode</code>，还是比较复杂，操作如下：</h3>
-
+bind p pasteb <span style="color:#75715e"># 绑定p键为粘贴文本（p键默认用于进入上一个窗口，不建议覆盖）</span>
+</code></pre></div><h3 id="关于copy-mode还是比较复杂操作如下">关于<code>copy mode</code>，还是比较复杂，操作如下：</h3>
 <ol>
 <li><code>Ctrl + x</code> <code>[</code> 进入复制模式</li>
-<li>可以选择<code>v</code> 键进入vim的visual模式，或可用vim的搜索功能&rdquo;/&ldquo;,&rdquo;?&rdquo;</li>
+<li>可以选择<code>v</code> 键进入vim的visual模式，或可用vim的搜索功能&rdquo;/&quot;,&quot;?&rdquo;</li>
 <li>使用vim的<code>y</code>键进行复制</li>
 <li>在<code>copy mode</code>里面用 <code>p</code>键可以选择粘贴；如果不在<code>copy mode</code>里面，那么用 <code>Ctrl + x</code> <code>」</code>进行粘贴</li>
 </ol>
-
 <h3 id="跟系统剪贴板打通">跟系统剪贴板打通</h3>
-
 <ul>
 <li>按住 <code>shift</code>，鼠标左键选择文本，<code>Ctrl + c</code>复制</li>
 <li>注意全程按住 <code>shift</code></li>
 </ul>
-
-<hr />
-
+<hr>
 <h2 id="190620-更新">190620 更新</h2>
-
 <p>系统剪贴板功能可以使用 <code>xclip -selection clipboard</code> 更加方便</p>
 
 
@@ -323,35 +308,13 @@ bind p pasteb # 绑定p键为粘贴文本（p键默认用于进入上一个窗�
                         
                         
                         
-                        <a href="/tags/markdown" title="Markdown">
-                            Markdown
+                        
+                        
+                        
+                        
+                        <a href="/tags/markdown" title="markdown">
+                            markdown
                         </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/sublime_text" title="Sublime_Text">
-                            Sublime_Text
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/tmux" title="Tmux">
-                            Tmux
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         
                         
@@ -368,6 +331,24 @@ bind p pasteb # 绑定p键为粘贴文本（p键默认用于进入上一个窗�
                         <a href="/tags/reveal.js" title="reveal.js">
                             reveal.js
                         </a>
+                        
+                        
+                        
+                        <a href="/tags/sublime_text" title="sublime_text">
+                            sublime_text
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tmux" title="tmux">
+                            tmux
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         
