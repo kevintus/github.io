@@ -6,6 +6,7 @@
     <description>Recent content in Posts on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>copyright by Kevin.Lai</copyright>
     <lastBuildDate>Tue, 29 Aug 2023 10:02:57 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/post/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,15 @@
       <pubDate>Tue, 29 Aug 2023 10:02:57 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/</guid>
-      <description>安装 Wanda the Fish 首先安装 Fortunes，Bash 下输入 sudo apt install fortunes sudo apt install fortunes-zh 之后安装 Wanda the Fish： git clone https://gitlab.com/tallero/wandathefish cp -r wandathefish/wandathefish\@arcipelago.org ~/.local/share/gnome-shell/extensions gnome-shell-extension-tool -e wandathefish@arcipelago.org 测试效果： fortune fortune-zh 以及 Gnome-p</description>
+      <description>安装 Wanda the Fish 首先安装 Fortunes，Bash 下输入
+sudo apt install fortunes sudo apt install fortunes-zh 之后安装 Wanda the Fish：
+git clone https://gitlab.com/tallero/wandathefish cp -r wandathefish/wandathefish\@arcipelago.org ~/.local/share/gnome-shell/extensions gnome-shell-extension-tool -e wandathefish@arcipelago.org 测试效果：
+fortune fortune-zh 以及 Gnome-panel上应该有条小鱼
+调整字体和Logo 首先进入文件目录，
+cd ~/.local/share/gnome-shell/extensions/wandathefish@arcipelago.org 在 icon 文件夹内，替换想要的logo文件 WandaFish.svg。
+之后编辑 extension.js文件：
+vim extension.js 在其中找到以下段落，并编辑logo size：
+let gicon = Gio.icon_new_for_string(Me.path + (got_humour  &amp;amp;&amp;amp; &amp;#34;/icons/WandaFish.svg&amp;#34;  || &amp;#34;/icons/wanda2.png&amp;#34;)); let icon = new St.Icon({gicon: gicon}); icon.style = `width: 25px; height: 2.</description>
     </item>
     
     <item>
@@ -26,7 +35,10 @@
       <pubDate>Mon, 08 Jun 2020 16:11:57 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/200608_nvidia-egpu-setup/</guid>
-      <description>参考资料 I mainly follow this procedure Adjust the kernel parameter by following this 操作 Purge all existing Nvidia drivers sudo apt-get --purge remove &amp;#39;nvidia*&amp;#39; Reboot sudo reboot [KEY STEP!!!] Adjust kernel parameters: Edit /etc/default/grub as root, change GRUB_CMDLINE_LINUX line: sudo vim /etc/default/grub # In GRUB_CMDLINE_LINUX GRUB_CMDLINE_LINUX=&amp;#34;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&amp;#34; Update booting sudo grub-mkconfig -o /boot/grub/grub.cfg Reboot Install Nvidia driver sudo apt-get install nvidia-driver-440 Reboot Check the</description>
+      <description>参考资料  I mainly follow this procedure Adjust the kernel parameter by following this  操作  Purge all existing Nvidia drivers  sudo apt-get --purge remove &amp;#39;nvidia*&amp;#39;  Reboot sudo reboot
+  [KEY STEP!!!] Adjust kernel parameters: Edit /etc/default/grub as root, change GRUB_CMDLINE_LINUX line:
+  sudo vim /etc/default/grub # In GRUB_CMDLINE_LINUX GRUB_CMDLINE_LINUX=&amp;#34;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&amp;#34; Update booting  sudo grub-mkconfig -o /boot/grub/grub.cfg  Reboot
+  Install Nvidia driver</description>
     </item>
     
     <item>
@@ -35,7 +47,9 @@
       <pubDate>Mon, 22 Jul 2019 10:44:05 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</guid>
-      <description>2023.8.8 更新 如果还是用pandoc而不是reveal-md（考虑到reveal-md更适合ppt转pdf，而pandoc更适合word），那么可以</description>
+      <description>2023.8.8 更新 如果还是用pandoc而不是reveal-md（考虑到reveal-md更适合ppt转pdf，而pandoc更适合word），那么可以生成一个 head.tex 模版文件，然后让pandoc来调用
+ vim Pandoc-md-to-pdf-head-template.tex
+ \usepackage{fancyvrb,newverbs} %% 设置页面间距 \usepackage[top=2cm, bottom=1.5cm, left=2cm, right=2cm]{geometry} % change background color for inline code in % markdown files. The following code does not work well for % long text as the text will exceed the page boundary \definecolor{bgcolor}{HTML}{E0E0E0} \let\oldtexttt\texttt \renewcommand{\texttt}[1]{ \colorbox{bgcolor}{\oldtexttt{#1}} } %% color and other settings for hyperref package \hypersetup{ bookmarksopen=true, linkcolor=blue, filecolor=magenta, urlcolor=RoyalBlue, } %% 全局中文字体 \setmainfont{Noto Sans CJK SC} %% 针对中文自动换行 \XeTeXlinebreaklocale &amp;#34;zh&amp;#34; %% 设置行间距 \linespread{1.</description>
     </item>
     
     <item>
@@ -44,7 +58,10 @@
       <pubDate>Tue, 16 Jul 2019 11:02:57 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/</guid>
-      <description>确认 Gnome-terminal 是支持 True color 的 这一篇已经写的很清楚了： How to enable true-color for neovim, tmux, and gnome-terminal 最终 vimrc 和 tmux.conf 配置 .vimrc 配置 set termguicolorslet &amp;amp;t_8f = &amp;#34;\&amp;lt;Esc&amp;gt;[38;2;%lu;%lu;%lum&amp;#34;let &amp;amp;t_8b = &amp;#34;\&amp;lt;Esc&amp;gt;[48;2;%lu;%lu;%lum&amp;#34;set t_Co=256set background=darkcolor molokailet g:molokai_original=1.tmux.conf 配置 set -g default-terminal &#39;screen-256color&#39; set-option -ga terminal-overrides &amp;quot;,*256col*:Tc&amp;quot;</description>
+      <description>确认 Gnome-terminal 是支持 True color 的 这一篇已经写的很清楚了： How to enable true-color for neovim, tmux, and gnome-terminal
+最终 vimrc 和 tmux.conf 配置 .vimrc 配置
+set termguicolorslet &amp;amp;t_8f = &amp;#34;\&amp;lt;Esc&amp;gt;[38;2;%lu;%lu;%lum&amp;#34;let &amp;amp;t_8b = &amp;#34;\&amp;lt;Esc&amp;gt;[48;2;%lu;%lu;%lum&amp;#34;set t_Co=256set background=darkcolor molokailet g:molokai_original=1.tmux.conf 配置
+set -g default-terminal &#39;screen-256color&#39; set-option -ga terminal-overrides &amp;quot;,*256col*:Tc&amp;quot; </description>
     </item>
     
     <item>
@@ -53,7 +70,8 @@
       <pubDate>Mon, 08 Jul 2019 16:30:31 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/</guid>
-      <description>参考资料 Decktape 官方文档 实现非常直接 npm install -g decktape # 先用 reveal-md 打开 md 文档 reveal-md xxx.md # 复制 chrome 里面的 url，再利用 decktape 导出 pdf decktape reveal &amp;lt;chrome 里面 md 文档 的 url&amp;gt; output.pdf Done!</description>
+      <description>参考资料 Decktape 官方文档
+实现非常直接 npm install -g decktape # 先用 reveal-md 打开 md 文档 reveal-md xxx.md # 复制 chrome 里面的 url，再利用 decktape 导出 pdf decktape reveal &amp;lt;chrome 里面 md 文档 的 url&amp;gt; output.pdf Done!</description>
     </item>
     
     <item>
@@ -62,7 +80,14 @@
       <pubDate>Thu, 20 Jun 2019 18:50:08 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/</guid>
-      <description>利用 xclip -selection clipboard 把终端内容复制到系统剪贴板 之前各种研究如何在 zsh 和 tmux 下面实现复制粘贴，参见开始使用Tmux，今天发现其实用 xclip -selection clipboard 命令就可以很简单实现</description>
+      <description>利用 xclip -selection clipboard 把终端内容复制到系统剪贴板 之前各种研究如何在 zsh 和 tmux 下面实现复制粘贴，参见开始使用Tmux，今天发现其实用 xclip -selection clipboard 命令就可以很简单实现
+举例：我要拷贝 v2Ray 的配置文件到 Google doc 备份，只需要
+cat /etc/v2ray/config.json | xclip -selection clipboard 就搞定了。比用什么摁住 shift 键拨弄鼠标简单一百倍。
+可以在 .zshrc 文件里面设置一下 alias，方便使用
+alias copytoclipboard=&amp;#34;xclip -selection clipboard&amp;#34; 之后就可以
+cat /etc/v2ray/config.json | copytoclipboard 终端内使用 如果要在终端里面实现内容复制粘贴，也非常简单
+xclip xxx xclip -o 所以如果想复制粘贴一个文件的绝对路径，只需要
+readlink -e sample.png | xclip xclip -o DONE！</description>
     </item>
     
     <item>
@@ -71,7 +96,7 @@
       <pubDate>Wed, 19 Jun 2019 12:58:16 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</guid>
-      <description>基于这个模板，可以比较方便使用 markdown + reveal.js 了。 --- title: xxx separator: &amp;quot;^\n---\n$&amp;quot; verticalSeparator: &amp;quot;^\n--\n$&amp;quot; theme: black revealOptions: transition: &#39;slide&#39; &amp;quot;slideNumber&amp;quot;: true &amp;quot;progress&amp;quot;: true &amp;quot;width&amp;quot;: 1920 &amp;quot;height&amp;quot;: 1080 &amp;quot;margin&amp;quot;: 0.1 &amp;quot;minScale&amp;quot;: 0.2 &amp;quot;maxScale&amp;quot;: 2 --- &amp;lt;!--Title Page 利用 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; 到 &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 来控制标题字体大小，正文部分相同</description>
+      <description>基于这个模板，可以比较方便使用 markdown + reveal.js 了。 --- title: xxx separator: &amp;quot;^\n---\n$&amp;quot; verticalSeparator: &amp;quot;^\n--\n$&amp;quot; theme: black revealOptions: transition: &#39;slide&#39; &amp;quot;slideNumber&amp;quot;: true &amp;quot;progress&amp;quot;: true &amp;quot;width&amp;quot;: 1920 &amp;quot;height&amp;quot;: 1080 &amp;quot;margin&amp;quot;: 0.1 &amp;quot;minScale&amp;quot;: 0.2 &amp;quot;maxScale&amp;quot;: 2 --- &amp;lt;!--Title Page 利用 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; 到 &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 来控制标题字体大小，正文部分相同 --&amp;gt; &amp;lt;h1&amp;gt; PPT 首页主标题&amp;lt;/h1&amp;gt; &amp;lt;h2&amp;gt; 2019.6.18 &amp;lt;/h2&amp;gt; &amp;lt;!--Speaker Note--&amp;gt; Note: 不会出现在 ppt 里面，会出现在 speaker note 里面 --- &amp;lt;!--Main Page Some component illustratives: * 插入一些网页对象 iframe (Prefer to use lazy-loading, ussing `data-src` instead of `src`): &amp;lt;iframe frameborder=&amp;quot;0&amp;quot; width=&amp;quot;100%&amp;quot; height=&amp;quot;500pt&amp;quot; data-src=&amp;quot;https://caniuse.</description>
     </item>
     
     <item>
@@ -80,7 +105,10 @@
       <pubDate>Tue, 18 Jun 2019 18:10:32 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</guid>
-      <description>参考资料 reveal-md 官方文档 实现 下载 reveal-md 尝试 npm install -g reveal-md 显示失败，安装nvm后，nvm install stable，然后重新 npm install -g reveal-md 提升安装成功 配置文档 研究了一圈文档，有</description>
+      <description>参考资料 reveal-md 官方文档
+实现 下载 reveal-md 尝试 npm install -g reveal-md 显示失败，安装nvm后，nvm install stable，然后重新 npm install -g reveal-md 提升安装成功
+配置文档 研究了一圈文档，有三种实现方式：
+ 命令行，例如  reveal-md slides.md --theme solarized  在 md 文档的目录下新建 reveal.json 和 reveal-md.json 两个配置文档，前者设定文档格式，后者设定每个页面格式，如下:  // reveal.json { &amp;#34;controls&amp;#34;: true, &amp;#34;progress&amp;#34;: true } // reveal-md.json { &amp;#34;separator&amp;#34;: &amp;#34;^\n\n\n&amp;#34;, &amp;#34;verticalSeparator&amp;#34;: &amp;#34;^\n\n&amp;#34; }  利用 YAML Front matter 在文档内进行配置，如下：  --- title: Foobar separator: &amp;lt;!--s--&amp;gt; verticalSeparator: &amp;lt;!--v--&amp;gt; theme: solarized revealOptions: transition: &amp;#39;fade&amp;#39; --- Foo Note: test note &amp;lt;!</description>
     </item>
     
     <item>
@@ -89,7 +117,9 @@
       <pubDate>Thu, 13 Jun 2019 15:06:55 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</guid>
-      <description>关于PPT 因为之前从事管理战略咨询的缘故，PPT 是必备技能。thinkcell+键盘快捷键玩到飞起，巅峰时刻一晚大几十页PPT没有任何问题 -</description>
+      <description>关于PPT 因为之前从事管理战略咨询的缘故，PPT 是必备技能。thinkcell+键盘快捷键玩到飞起，巅峰时刻一晚大几十页PPT没有任何问题 - 于是脑海中非常根深蒂固的印象就是 PPT = Microsoft Powerpoint，最好的 PPT 模板就是麦肯锡的一套。过去三四年转行互联网，这样的认知逐渐被打破，尤其在以下方面，看到了很多 PowerPoint 没法解决（或不适应）的问题：
+ 非线性逻辑结构：PPT 的翻页是线性且单维的，这让我现在很多时候用脑图而不是 PPT 来思考和陈述 对于包括代码、视频、公式等形式的支持落后：记得自己2006年开始用 Linux（Ubuntu），就是因为写论文的时候不能忍受输入数学公式的繁琐，转而用 vim + LaTex 生成 PDF。时至今日，这些问题依然在 office suite 里面没有得到特别好的解决 轻便：如果不是之前管理战略咨询那样的 PPT（极其严谨的图文排布、12-16号字打便天下，高密度信息结构），其实是不需要 PowerPoint 那么重的工具的。同时，过去三四年我自己的管理决策一直是在做减法，因此在最终思路的呈现上反而强调 KISS 原则，不像之前呈现给500强 CXO 或者 PE 投资人那么需要信息丰富度和高级逻辑能力，转而力求“把事情用最简单的方式说清楚，并且让绝大多数听众第一时间就能明白吸收”。在这种情况下，PowerPoint 略显沉闷和笨重 云和协作：这点 Google Suite 比 Office Suite 好很多。当然我不觉得 Google Suite 总体产品做的很好，只是会拿 Google Doc 和 Google Keep 来记录日常思考，最近有被 Markdown 取代的迹象。实时云存储一定是趋势，PowerPoint 动作太慢了，背后其实是有隐性风险的，比如我相信很多人都经历过本机保存不及时活白干，或者团队内部搞 PPT 版本控制问题等。  当然，PowerPoint 的优势依然明显，比如任何时候，我需要准备一份最严谨的商业陈述，或者 BD/ 销售材料，那么 PowerPoint 仍然是我的最优解。但在其他时刻，比如团队内部分享，或者一些产品讨论等方面，我在过去一段时间里的确在认真考虑使用更加灵活和轻量级的其他工具。
+为什么是 Markdown + reveal.</description>
     </item>
     
     <item>
@@ -98,7 +128,11 @@
       <pubDate>Tue, 11 Jun 2019 19:19:36 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</guid>
-      <description>Tmux 的安装和设置 基本学习以下教程 [优雅地使用命令行：Tmux 终端复用] https://harttle.land/2015/11/06/tmux-startup.html [十分钟学会 tmux] https://www.jianshu.com/p/c217318a9380 [tmux简洁教程及config关键配置] https://www.jianshu.com/p/fd3bbdba9dc9 贴出来我的</description>
+      <description>Tmux 的安装和设置 基本学习以下教程  [优雅地使用命令行：Tmux 终端复用] https://harttle.land/2015/11/06/tmux-startup.html
+  [十分钟学会 tmux] https://www.jianshu.com/p/c217318a9380
+  [tmux简洁教程及config关键配置] https://www.jianshu.com/p/fd3bbdba9dc9
+ 贴出来我的~/.tmux.conf  ~/.tmux.conf
+ # 更改Prefix 键为 ctrl + x set-option -g prefix C-x unbind-key C-x bind-key C-x send-prefix # 开启鼠标模式 set-option -g mouse on # 不用按prefix，直接用 alt + 箭头 方式在pane之间切换 bind -n M-Left select-pane -L bind -n M-Right select-pane -R bind -n M-Up select-pane -U bind -n M-Down select-pane -D # Set easier window split keys bind-key v split-window -h bind-key h split-window -v # 如果对 vim 比较熟悉，可以将 copy mode 的快捷键换成 vi 模式 set-window-option -g mode-keys vi bind Escape copy-mode # 绑定esc键为进入复制模式 bind -T copy-mode-vi v send-keys -X begin-selection bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel bind p pasteb # 绑定p键为粘贴文本（p键默认用于进入上一个窗口，不建议覆盖） 关于copy mode，还是比较复杂，操作如下：  Ctrl + x [ 进入复制模式 可以选择v 键进入vim的visual模式，或可用vim的搜索功能&amp;rdquo;/&amp;quot;,&amp;quot;?</description>
     </item>
     
     <item>
@@ -107,7 +141,11 @@
       <pubDate>Mon, 10 Jun 2019 15:05:24 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/2019-06-10-markdown%E7%9A%84%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88%E5%92%8C%E5%A4%8D%E6%9D%82%E8%A1%A8%E6%A0%BC%E7%BC%96%E8%BE%91/</guid>
-      <description>Markdown的快速预览 在 Sublime Text 3 里面利用 ctrl + shift + p 呼出菜单，输入 Install 查找到 Markdown Preview 进行安装；之后选择 Preference -&amp;gt; Key Bindings，在 user 配置文件内添加快</description>
+      <description>Markdown的快速预览 在 Sublime Text 3 里面利用 ctrl + shift + p 呼出菜单，输入 Install 查找到 Markdown Preview 进行安装；之后选择 Preference -&amp;gt; Key Bindings，在 user 配置文件内添加快捷键 Alt + m来实现快速预览，预览文件会在 /tmp 文件夹内
+ { &amp;quot;keys&amp;quot;: [&amp;quot;alt+m&amp;quot;], &amp;quot;command&amp;quot;: &amp;quot;markdown_preview&amp;quot;, &amp;quot;args&amp;quot;: {&amp;quot;target&amp;quot;: &amp;quot;browser&amp;quot;, &amp;quot;parser&amp;quot;:&amp;quot;markdown&amp;quot;} } 如需要生成最终HTML文件，快捷键是 Ctrl + b。
+利用Excel下的 HTML 格式实现复杂表格编辑 原生命令太烦人了，还不支持复杂表格，直接把excel另存为html文件，然后用 gedit 或其他文本编辑软件打开，选取 &amp;lt;table&amp;gt; &amp;lt;\table&amp;gt; 中间部分，粘贴到 md文件里面对应位置即可。 示例如下：
+代码部分如下：
+  &amp;lt;table cellspacing=&amp;#34;0&amp;#34; border=&amp;#34;0&amp;#34;&amp;gt; &amp;lt;colgroup width=&amp;#34;189&amp;#34;&amp;gt;&amp;lt;/colgroup&amp;gt; &amp;lt;colgroup width=&amp;#34;195&amp;#34;&amp;gt;&amp;lt;/colgroup&amp;gt; &amp;lt;colgroup width=&amp;#34;360&amp;#34;&amp;gt;&amp;lt;/colgroup&amp;gt; &amp;lt;colgroup width=&amp;#34;92&amp;#34;&amp;gt;&amp;lt;/colgroup&amp;gt; &amp;lt;colgroup width=&amp;#34;74&amp;#34;&amp;gt;&amp;lt;/colgroup&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td height=&amp;#34;19&amp;#34; align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;b&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt;导流渠道 &amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;b&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt; 子渠道 &amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;b&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt; 主要方式&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;b&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt; 基础转化率 &amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;b&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt; 适用场景&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td rowspan=2 height=&amp;#34;37&amp;#34; align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt;电商（京东、天猫、淘宝）&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt; 历史订单 &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt; 短信、主动添加 &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;right&amp;#34;&amp;gt; xx% &amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt; 冷启动&amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt; 销售过程 &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;left&amp;#34;&amp;gt;&amp;lt;font face=&amp;#34;Noto Sans CJK SC Regular&amp;#34;&amp;gt; 礼券，页面引导，客服引导，物流信息提醒等 &amp;lt;/font&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td align=&amp;#34;right&amp;#34; sdval=&amp;#34;0.</description>
     </item>
     
     <item>
@@ -116,7 +154,13 @@
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://kevintus.github.io/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/</guid>
-      <description>背景条件 基于Sublime Text 3 官网指南，在Ubuntu 18.04 上进行安装，显示gpg下载错误。 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - 把管道命令拆开，单独使用 Curl 命令下载</description>
+      <description>背景条件 基于Sublime Text 3 官网指南，在Ubuntu 18.04 上进行安装，显示gpg下载错误。
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - 把管道命令拆开，单独使用 Curl 命令下载gpg，发现连接不上。(Connection timeout)
+curl https://download.sublimetext.com/sublimehq-pub.gpg 以为是DNS污染问题，设置ufw规则对所有443接口和 https://download.sublimetext.com/ 通过，然并卵
+sudo ufw status numbered #查看现有ufw规则 sudo ufw allow tcp/443 #允许443接口 sudo ufw allow from 104.236.0.104 #允许 download.sublimetext.com 的IP 换一种思路，在chrome里面单独下载gpg key，发现网页连接不上。查看SwitchyOmega插件信息，发现failed resource，添加到SS的proxy规则后，下载成功。说明问题出在proxy：sublime text的服务器被墙了？
+利用Privoxy实现终端下全局代理 因为之前ss+chrome SwitchyOmega 运行正常，所以这里只需要使终端下全局代理即可。主要参考了这篇文章（https://einverne.github.io/post/2018/03/privoxy-forward-socks-to-http.html）
+要注意的是在以下部分：
+&amp;gt;# 把本地 HTTP 流量转发到本地 1080 SOCKS5 代理 &amp;gt; forward-socks5t / 127.0.0.1:1080 . &amp;gt;# 可选，默认监听本地连接 &amp;gt; listen-address 127.0.0.1:8118 只需要设置forward那列即可，不需要添加监听本地链接，因为原文件里面已经有了。</description>
     </item>
     
     <item>
@@ -125,7 +169,8 @@
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://kevintus.github.io/2019/06/08/hello-world/</guid>
-      <description>欢迎来到卜平社，这是一个测试 Hello World!</description>
+      <description> 欢迎来到卜平社，这是一个测试
+ Hello World! </description>
     </item>
     
     <item>
@@ -134,7 +179,9 @@
       <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://kevintus.github.io/post/readme/</guid>
-      <description>Clean White Theme for Hugo CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live demo site using this theme. It is based on huxblog Jekyll Theme and Clean Blog Jekyll Theme. These two upstream projects have done awesome jobs to create a blog theme, what I&amp;rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster</description>
+      <description>Clean White Theme for Hugo CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live demo site using this theme.
+It is based on huxblog Jekyll Theme and Clean Blog Jekyll Theme.
+These two upstream projects have done awesome jobs to create a blog theme, what I&amp;rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster compiling speed.</description>
     </item>
     
   </channel>

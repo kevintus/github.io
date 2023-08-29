@@ -1,500 +1,660 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    
-    <meta property="og:site_name" content="卜平社">
-    <meta property="og:type" content="article">
-
-    
-    <meta property="og:image" content="https://kevintus.github.io/img/home-bach.jpg">
-    <meta property="twitter:image" content="https://kevintus.github.io/img/home-bach.jpg" />
-    
-
-    
-    <meta name="title" content="Ubuntu 20.04 下 Wanda the Fish 配置" />
-    <meta property="og:title" content="Ubuntu 20.04 下 Wanda the Fish 配置" />
-    <meta property="twitter:title" content="Ubuntu 20.04 下 Wanda the Fish 配置" />
-    
-
-    
-    <meta name="description" content="“在Ubuntu 20.04 下安装 Fortunes 和 Wanda the Fish&#34;">
-    <meta property="og:description" content="“在Ubuntu 20.04 下安装 Fortunes 和 Wanda the Fish&#34;" />
-    <meta property="twitter:description" content="“在Ubuntu 20.04 下安装 Fortunes 和 Wanda the Fish&#34;" />
-    
-
-    
-    <meta property="twitter:card" content="summary" />
-    
-    
-
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>Ubuntu 20.04 下 Wanda the Fish 配置-卜平社</title>
-
-    <link rel="canonical" href="/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/">
-
-    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
-	
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
-
-    
-    <link rel="stylesheet" href="/css/syntax.css">
-
-    
-    <link rel="stylesheet" href="/css/zanshang.css">
-
-    
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
-    
-    <script src="/js/jquery.min.js"></script>
-    
-    
-    <script src="/js/bootstrap.min.js"></script>
-    
-    
-    <script src="/js/hux-blog.min.js"></script>
-	
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-</head>
+<html><head>
+<title>Ubuntu 20.04 下 Wanda the Fish 配置</title>
 
 
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">卜平社</a>
-        </div>
 
-        
-        
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    
-                    
-		    
-                        <li><a href="/top/about/">ABOUT</a></li>
-                    
 
-                    
-		    <li>
-                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
-		    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-    </div>
-    
-</nav>
-<script>
-    
-    
-    
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="“在Ubuntu 20.04 下安装 Fortunes 和 Wanda the Fish&#34;">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
 
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        
-            $navbar.className = " ";
-            
-            setTimeout(function(){
-                
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
+
+
+<meta property="og:title" content="Ubuntu 20.04 下 Wanda the Fish 配置" />
+<meta property="og:description" content="“在Ubuntu 20.04 下安装 Fortunes 和 Wanda the Fish&#34;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kevintus.github.io/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/" />
+<meta property="article:published_time" content="2023-08-29T10:02:57+08:00" />
+<meta property="article:modified_time" content="2023-08-29T10:02:57+08:00" /><meta property="og:site_name" content="卜平社" />
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ubuntu 20.04 下 Wanda the Fish 配置"/>
+<meta name="twitter:description" content="“在Ubuntu 20.04 下安装 Fortunes 和 Wanda the Fish&#34;"/>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "abcdefghzd");
 </script>
 
 
 
+  
 
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/img/home-bach.jpg')
-    }
-</style>
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/gnome-extension" title="Gnome-extension">
-                            Gnome-extension
-                        </a>
-                        
-                        <a class="tag" href="/tags/ubuntu" title="Ubuntu">
-                            Ubuntu
-                        </a>
-                        
-                        <a class="tag" href="/tags/wanda-the-fish" title="Wanda the Fish">
-                            Wanda the Fish
-                        </a>
-                        
-                    </div>
-                    <h1>Ubuntu 20.04 下 Wanda the Fish 配置</h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-			Posted by 
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.d14c0dd19ee8169a9878352de1ce28ddfc58e839fa8037cd244b475c96c34aaf.css" integrity="sha256-0UwN0Z7oFpqYeDUt4c4o3fxY6Dn6gDfNJEtHXJbDSq8=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS Feed
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
 			
-		            卜平社
-			 
-			on 
-			Tuesday, August 29, 2023
-                        
-                    </span>
-                </div>
-            </div>
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%ae%89%e8%a3%85-wanda-the-fish" class="nav-安装-wanda-the-fish">
+									安装 Wanda the Fish
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%b0%83%e6%95%b4%e5%ad%97%e4%bd%93%e5%92%8clogo" class="nav-调整字体和logo">
+									调整字体和Logo
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%a7%a3%e5%86%b3%e4%b8%ad%e6%96%87%e4%b9%b1%e7%a0%81%e9%97%ae%e9%a2%98" class="nav-解决中文乱码问题">
+									解决中文乱码问题
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%94%9f%e6%88%90%e8%87%aa%e5%b7%b1%e7%9a%84%e7%9f%a5%e8%af%86%e5%ba%93" class="nav-生成自己的知识库">
+									生成自己的知识库
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
         </div>
     </div>
-</header>
-
-
-
-
-<article>
-    <div class="container">
-        <div class="row">
-
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                
-                <header>
-                    <h2>TOC</h2>
-                </header>
-                <nav id="TableOfContents">
-  <ul>
-    <li><a href="#安装-wanda-the-fish">安装 Wanda the Fish</a></li>
-    <li><a href="#调整字体和logo">调整字体和Logo</a></li>
-    <li><a href="#解决中文乱码问题">解决中文乱码问题</a></li>
-    <li><a href="#生成自己的知识库">生成自己的知识库</a></li>
-  </ul>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://kevintus.github.io">
+            卜平社
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
 </nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://kevintus.github.io">
+        <div class="single-column-header-title">卜平社</div>
+        
+        <div class="single-column-header-subtitle">简单 长期 乐观</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
                 
-                <h2 id="安装-wanda-the-fish">安装 Wanda the Fish</h2>
+            >
+                <div class="post-title">
+                    Ubuntu 20.04 下 Wanda the Fish 配置
+                    
+                    <div class="post-subtitle">
+                        “在Ubuntu 20.04 下安装 Fortunes 和 Wanda the Fish&#34;
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-08-29 10:02
+                        </time>
+                        
+
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/gnome-extension">Gnome-extension</a>
+                                &nbsp;
+                            
+                                <a href="/tags/ubuntu">Ubuntu</a>
+                                &nbsp;
+                            
+                                <a href="/tags/wanda-the-fish">Wanda the Fish</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="安装-wanda-the-fish">安装 Wanda the Fish</h2>
 <p>首先安装 <code>Fortunes</code>，Bash 下输入</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install fortunes 
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install fortunes 
 sudo apt install fortunes-zh
 </code></pre></div><p>之后安装 <a href="https://gitlab.com/tallero/wandathefish">Wanda the Fish</a>：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://gitlab.com/tallero/wandathefish
-cp -r wandathefish/wandathefish<span style="color:#ae81ff">\@</span>arcipelago.org ~/.local/share/gnome-shell/extensions
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://gitlab.com/tallero/wandathefish
+cp -r wandathefish/wandathefish<span style="color:#cd5555">\@</span>arcipelago.org ~/.local/share/gnome-shell/extensions
 gnome-shell-extension-tool -e wandathefish@arcipelago.org
 </code></pre></div><p>测试效果：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fortune
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">fortune
 fortune-zh
 </code></pre></div><p>以及 Gnome-panel上应该有条小鱼</p>
 <h2 id="调整字体和logo">调整字体和Logo</h2>
 <p>首先进入文件目录，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/.local/share/gnome-shell/extensions/wandathefish@arcipelago.org
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#658b00">cd</span> ~/.local/share/gnome-shell/extensions/wandathefish@arcipelago.org
 </code></pre></div><p>在 icon 文件夹内，替换想要的logo文件 <code>WandaFish.svg</code>。</p>
 <p>之后编辑 <code>extension.js</code>文件：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim extension.js
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim extension.js
 </code></pre></div><p>在其中找到以下段落，并编辑logo size：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">gicon</span> = <span style="color:#a6e22e">Gio</span>.<span style="color:#a6e22e">icon_new_for_string</span>(<span style="color:#a6e22e">Me</span>.<span style="color:#a6e22e">path</span> + (<span style="color:#a6e22e">got_humour</span> <span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>                                                &amp;&amp; <span style="color:#e6db74">&#34;/icons/WandaFish.svg&#34;</span> <span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>                                                || <span style="color:#e6db74">&#34;/icons/wanda2.png&#34;</span>));           <span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">icon</span> = <span style="color:#a6e22e">new</span> <span style="color:#a6e22e">St</span>.<span style="color:#a6e22e">Icon</span>({<span style="color:#a6e22e">gicon</span>: <span style="color:#a6e22e">gicon</span>});                                 <span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">icon</span>.<span style="color:#a6e22e">style</span> = `<span style="color:#a6e22e">width</span>: <span style="color:#ae81ff">25</span>px; <span style="color:#a6e22e">height</span>: <span style="color:#ae81ff">2</span>.<span style="color:#ae81ff">2</span>px;`; <span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#8b008b;font-weight:bold">let</span> gicon = Gio.icon_new_for_string(Me.path + (got_humour <span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>                                                &amp;&amp; <span style="color:#cd5555">&#34;/icons/WandaFish.svg&#34;</span> <span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>                                                || <span style="color:#cd5555">&#34;/icons/wanda2.png&#34;</span>));           <span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#8b008b;font-weight:bold">let</span> icon = new St.Icon({gicon: gicon});                                 <span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>icon.style = `width: <span style="color:#b452cd">25</span>px; height: <span style="color:#b452cd">2</span>.<span style="color:#b452cd">2</span>px;`; <span style="color:#a61717;background-color:#e3d2d2">
 </span></code></pre></div><p>打开 <code>stylesheet.css</code> 文件调整中文字体，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>.<span style="color:#a6e22e">fortune</span>-<span style="color:#a6e22e">label</span> {<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">font</span>-<span style="color:#a6e22e">size</span>: <span style="color:#ae81ff">18</span>px;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">font</span>-<span style="color:#a6e22e">family</span>: <span style="color:#e6db74">&#34;Noto Sans CJK SC&#34;</span>, <span style="color:#a6e22e">sans</span>-<span style="color:#a6e22e">serif</span>;;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">color</span>: <span style="color:#ae81ff">#000000</span>;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#e6db74">/* Pale, light grayish arctic blue A9ECF9 */</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">background</span>-<span style="color:#a6e22e">color</span>: <span style="color:#a6e22e">rgba</span>(<span style="color:#ae81ff">246</span>,<span style="color:#ae81ff">251</span>,<span style="color:#ae81ff">215</span>,<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">90</span>);<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">border</span>-<span style="color:#a6e22e">radius</span>: <span style="color:#ae81ff">3</span>px;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">padding</span>: .<span style="color:#ae81ff">5</span>em;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>}<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>.<span style="color:#a6e22e">fortune</span>-<span style="color:#a6e22e">label</span>-<span style="color:#a6e22e">black</span> {<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">font</span>-<span style="color:#a6e22e">size</span>: <span style="color:#ae81ff">16</span>px;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">font</span>-<span style="color:#a6e22e">family</span>: <span style="color:#a6e22e">Noto</span> <span style="color:#a6e22e">Sans</span> <span style="color:#a6e22e">CJK</span> <span style="color:#a6e22e">SC</span>;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">color</span>: <span style="color:#ae81ff">#eeeeee</span>;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">background</span>-<span style="color:#a6e22e">color</span>: <span style="color:#ae81ff">#000000</span>;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">border</span>-<span style="color:#a6e22e">radius</span>: <span style="color:#ae81ff">3</span>px;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">padding</span>: .<span style="color:#ae81ff">5</span>em;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>}<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>.fortune-label {<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    font-size: <span style="color:#b452cd">18</span>px;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    font-family: <span style="color:#cd5555">&#34;Noto Sans CJK SC&#34;</span>, sans-serif;;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    color: <span style="color:#b452cd">#000000</span>;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    <span style="color:#1c7e71">/* Pale, light grayish arctic blue A9ECF9 */</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    background-color: rgba(<span style="color:#b452cd">246</span>,<span style="color:#b452cd">251</span>,<span style="color:#b452cd">215</span>,<span style="color:#b452cd">0</span>.<span style="color:#b452cd">90</span>);<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    border-radius: <span style="color:#b452cd">3</span>px;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    padding: .<span style="color:#b452cd">5</span>em;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>}<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>.fortune-label-black {<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    font-size: <span style="color:#b452cd">16</span>px;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    font-family: Noto Sans CJK SC;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    color: <span style="color:#b452cd">#eeeeee</span>;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    background-color: <span style="color:#b452cd">#000000</span>;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    border-radius: <span style="color:#b452cd">3</span>px;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>    padding: .<span style="color:#b452cd">5</span>em;<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>}<span style="color:#a61717;background-color:#e3d2d2">
 </span></code></pre></div><h2 id="解决中文乱码问题">解决中文乱码问题</h2>
 <p>参考了 <a href="https://chshelf.blogspot.com/2009/06/wanda.html">解决了wanda小鱼的中文乱码问题</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /usr/share/games/fortunes/
-sudo sed -ie <span style="color:#e6db74">&#39;s/[[:cntrl:]]\|\[33m\|\[32m\|\[35m\|\[m//g&#39;</span> tang300
-sudo sed -ie <span style="color:#e6db74">&#39;s/[[:cntrl:]]\|\[33m\|\[32m\|\[35m\|\[m//g&#39;</span> song100
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#658b00">cd</span> /usr/share/games/fortunes/
+sudo sed -ie <span style="color:#cd5555">&#39;s/[[:cntrl:]]\|\[33m\|\[32m\|\[35m\|\[m//g&#39;</span> tang300
+sudo sed -ie <span style="color:#cd5555">&#39;s/[[:cntrl:]]\|\[33m\|\[32m\|\[35m\|\[m//g&#39;</span> song100
 sudo strfile song100
 sudo strfile tang300
 </code></pre></div><p>后发现在 <code>Chinese</code> 文件内发现有其他乱码格式，采取同样方式进行转换即可</p>
 <h2 id="生成自己的知识库">生成自己的知识库</h2>
 <p>编辑文本知识库文件，之后导入 <code>Fortunes</code>的文件夹内，生成 <code>.dat</code>，调用即可</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo cp 人间词话.txt /usr/share/games/fortunes
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo cp 人间词话.txt /usr/share/games/fortunes
 suod mv 人间词话.txt 人间词话
 sudo strfile 人间词话
 </code></pre></div><p>里面每一段<code>quote</code>用<code>%</code>隔开，示例如下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">词以境界为最上</span>.<span style="color:#a6e22e">有境界则自成高格</span>,<span style="color:#a6e22e">自有名句</span>.<span style="color:#a6e22e">五代</span>、<span style="color:#a6e22e">北宋之词所以独绝者在此</span>.<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>---- <span style="color:#a6e22e">人间词话</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>%<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">有造境</span>,<span style="color:#a6e22e">有写境</span>,<span style="color:#a6e22e">此</span><span style="color:#e6db74">&#34;理想&#34;</span><span style="color:#a6e22e">与</span><span style="color:#e6db74">&#34;写实&#34;</span><span style="color:#a6e22e">二派之所由分</span>.<span style="color:#a6e22e">然二者颇难分别</span>.<span style="color:#a6e22e">因大诗人所造之境</span>,<span style="color:#a6e22e">必合</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">乎自然</span>,<span style="color:#a6e22e">所写之境</span>,<span style="color:#a6e22e">亦必邻于理想故也</span>.<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>---- <span style="color:#a6e22e">人间词话</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>%<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">有有我之境</span>,<span style="color:#a6e22e">有无我之境</span>.<span style="color:#e6db74">&#34;泪眼问花花不语,乱红飞过秋千去.&#34;</span>&#34;<span style="color:#a6e22e">可堪孤馆闭春寒</span>,<span style="color:#a6e22e">杜鹃声里斜</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">阳暮</span>.<span style="color:#e6db74">&#34;有我之境也.&#34;</span><span style="color:#a6e22e">采菊东篱下</span>,<span style="color:#a6e22e">悠然见南山</span>.<span style="color:#e6db74">&#34;&#34;</span><span style="color:#a6e22e">寒波澹澹起</span>,<span style="color:#a6e22e">白鸟悠悠下</span>.&#34;<span style="color:#a6e22e">无我之境也</span>.<span style="color:#a6e22e">有我</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">之境</span>,<span style="color:#a6e22e">以我观物</span>,<span style="color:#a6e22e">故物皆着我之色彩</span>.<span style="color:#a6e22e">无我之境</span>,<span style="color:#a6e22e">以物观物</span>,<span style="color:#a6e22e">故不知何者为我</span>,<span style="color:#a6e22e">何者为物</span>.<span style="color:#a6e22e">古人为</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">词</span>,<span style="color:#a6e22e">写有我之境者为多</span>,<span style="color:#a6e22e">然未始不能写无我之境</span>,<span style="color:#a6e22e">此在豪杰之士能自树立耳</span>.<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>---- <span style="color:#a6e22e">人间词话</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>%<span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">词以境界为最上.有境界则自成高格,自有名句.五代、北宋之词所以独绝者在此.<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>---- 人间词话<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>%<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>有造境,有写境,此<span style="color:#cd5555">&#34;理想&#34;</span>与<span style="color:#cd5555">&#34;写实&#34;</span>二派之所由分.然二者颇难分别.因大诗人所造之境,必合<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>乎自然,所写之境,亦必邻于理想故也.<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>---- 人间词话<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>%<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>有有我之境,有无我之境.<span style="color:#cd5555">&#34;泪眼问花花不语,乱红飞过秋千去.&#34;</span>&#34;可堪孤馆闭春寒,杜鹃声里斜<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>阳暮.<span style="color:#cd5555">&#34;有我之境也.&#34;</span>采菊东篱下,悠然见南山.<span style="color:#cd5555">&#34;&#34;</span>寒波澹澹起,白鸟悠悠下.&#34;无我之境也.有我<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>之境,以我观物,故物皆着我之色彩.无我之境,以物观物,故不知何者为我,何者为物.古人为<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>词,写有我之境者为多,然未始不能写无我之境,此在豪杰之士能自树立耳.<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>---- 人间词话<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>%<span style="color:#a61717;background-color:#e3d2d2">
 </span></code></pre></div><p>Github 上找了一个中文典籍数据库，灌了一些进去：
 <a href="https://github.com/wenyuange">文渊阁</a></p>
 <p>Done!</p>
 
-
-                
-
-                <hr>
-                <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/post/200608_nvidia-egpu-setup/" data-toggle="tooltip" data-placement="top" title="XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti">&larr;
-                            Previous Post</a>
-                    </li>
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2023-08-29</p>
                     
-                    
-                </ul>
-
-                
-<div id="disqus-comment"></div>
-
-
-
+                </div>
             </div>
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
+            
+            <nav class="post-pagination">
 
                 
+                <a class="newer-posts">
+			Next<br>No newer posts.
+                </a>
                 
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/markdown" title="markdown">
-                            markdown
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/reveal-md" title="reveal-md">
-                            reveal-md
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/reveal.js" title="reveal.js">
-                            reveal.js
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/sublime_text" title="sublime_text">
-                            sublime_text
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/tmux" title="tmux">
-                            tmux
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/ubuntu" title="ubuntu">
-                            ubuntu
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                
+                
+                <a class="older-posts" href="/post/200608_nvidia-egpu-setup/">
+			Previous<br>XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="username/repo"
+        data-repo-id="**************************"
+        data-category="General"
+        data-category-id="*********************"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+        </div>
+    </div>
+
+
                     </div>
-                </section>
-                
-
-                
-                
-            </div>
-        </div>
-    </div>
-</article>
-
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                   
-                   <li>
-                       <a href="" rel="alternate" type="application/rss+xml" title="卜平社" >
-                           <span class="fa-stack fa-lg">
-                               <i class="fa fa-circle fa-stack-2x"></i>
-                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-                   
-                    
-                    <li>
-                        <a href="mailto:kevin.lai1985@gmail.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    
-                    
-                    
-
-                    
-
-		    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/kevintus">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    
-                </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; 卜平社 2023
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-
-
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-
-
-
-
-<script>
+            </div><div id="sideContainer" class="side-container">
     
-    if($('#tag_cloud').length !== 0){
-        async("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
+    <a class="a-block nav-head false" href="https://kevintus.github.io">
+    
+        <div class="nav-title">
+            卜平社
+        </div>
+        
+        <div class="nav-subtitle">
+            简单 长期 乐观
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS Feed
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	copyright by Kevin.Lai
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
 
 
-<script>
-    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%ae%89%e8%a3%85-wanda-the-fish" class="nav-安装-wanda-the-fish">
+									安装 Wanda the Fish
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%b0%83%e6%95%b4%e5%ad%97%e4%bd%93%e5%92%8clogo" class="nav-调整字体和logo">
+									调整字体和Logo
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%a7%a3%e5%86%b3%e4%b8%ad%e6%96%87%e4%b9%b1%e7%a0%81%e9%97%ae%e9%a2%98" class="nav-解决中文乱码问题">
+									解决中文乱码问题
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%94%9f%e6%88%90%e8%87%aa%e5%b7%b1%e7%9a%84%e7%9f%a5%e8%af%86%e5%ba%93" class="nav-生成自己的知识库">
+									生成自己的知识库
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
 
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
 
-
-
-
-
-</body>
+&copy;
+	
+	copyright by Kevin.Lai
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
 </html>

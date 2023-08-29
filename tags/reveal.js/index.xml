@@ -6,6 +6,7 @@
     <description>Recent content in Reveal.js on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>copyright by Kevin.Lai</copyright>
     <lastBuildDate>Wed, 19 Jun 2019 12:58:16 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/reveal.js/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,7 @@
       <pubDate>Wed, 19 Jun 2019 12:58:16 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</guid>
-      <description>基于这个模板，可以比较方便使用 markdown + reveal.js 了。 --- title: xxx separator: &amp;quot;^\n---\n$&amp;quot; verticalSeparator: &amp;quot;^\n--\n$&amp;quot; theme: black revealOptions: transition: &#39;slide&#39; &amp;quot;slideNumber&amp;quot;: true &amp;quot;progress&amp;quot;: true &amp;quot;width&amp;quot;: 1920 &amp;quot;height&amp;quot;: 1080 &amp;quot;margin&amp;quot;: 0.1 &amp;quot;minScale&amp;quot;: 0.2 &amp;quot;maxScale&amp;quot;: 2 --- &amp;lt;!--Title Page 利用 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; 到 &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 来控制标题字体大小，正文部分相同</description>
+      <description>基于这个模板，可以比较方便使用 markdown + reveal.js 了。 --- title: xxx separator: &amp;quot;^\n---\n$&amp;quot; verticalSeparator: &amp;quot;^\n--\n$&amp;quot; theme: black revealOptions: transition: &#39;slide&#39; &amp;quot;slideNumber&amp;quot;: true &amp;quot;progress&amp;quot;: true &amp;quot;width&amp;quot;: 1920 &amp;quot;height&amp;quot;: 1080 &amp;quot;margin&amp;quot;: 0.1 &amp;quot;minScale&amp;quot;: 0.2 &amp;quot;maxScale&amp;quot;: 2 --- &amp;lt;!--Title Page 利用 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; 到 &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 来控制标题字体大小，正文部分相同 --&amp;gt; &amp;lt;h1&amp;gt; PPT 首页主标题&amp;lt;/h1&amp;gt; &amp;lt;h2&amp;gt; 2019.6.18 &amp;lt;/h2&amp;gt; &amp;lt;!--Speaker Note--&amp;gt; Note: 不会出现在 ppt 里面，会出现在 speaker note 里面 --- &amp;lt;!--Main Page Some component illustratives: * 插入一些网页对象 iframe (Prefer to use lazy-loading, ussing `data-src` instead of `src`): &amp;lt;iframe frameborder=&amp;quot;0&amp;quot; width=&amp;quot;100%&amp;quot; height=&amp;quot;500pt&amp;quot; data-src=&amp;quot;https://caniuse.</description>
     </item>
     
     <item>
@@ -26,7 +27,10 @@
       <pubDate>Tue, 18 Jun 2019 18:10:32 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</guid>
-      <description>参考资料 reveal-md 官方文档 实现 下载 reveal-md 尝试 npm install -g reveal-md 显示失败，安装nvm后，nvm install stable，然后重新 npm install -g reveal-md 提升安装成功 配置文档 研究了一圈文档，有</description>
+      <description>参考资料 reveal-md 官方文档
+实现 下载 reveal-md 尝试 npm install -g reveal-md 显示失败，安装nvm后，nvm install stable，然后重新 npm install -g reveal-md 提升安装成功
+配置文档 研究了一圈文档，有三种实现方式：
+ 命令行，例如  reveal-md slides.md --theme solarized  在 md 文档的目录下新建 reveal.json 和 reveal-md.json 两个配置文档，前者设定文档格式，后者设定每个页面格式，如下:  // reveal.json { &amp;#34;controls&amp;#34;: true, &amp;#34;progress&amp;#34;: true } // reveal-md.json { &amp;#34;separator&amp;#34;: &amp;#34;^\n\n\n&amp;#34;, &amp;#34;verticalSeparator&amp;#34;: &amp;#34;^\n\n&amp;#34; }  利用 YAML Front matter 在文档内进行配置，如下：  --- title: Foobar separator: &amp;lt;!--s--&amp;gt; verticalSeparator: &amp;lt;!--v--&amp;gt; theme: solarized revealOptions: transition: &amp;#39;fade&amp;#39; --- Foo Note: test note &amp;lt;!</description>
     </item>
     
     <item>
@@ -35,7 +39,9 @@
       <pubDate>Thu, 13 Jun 2019 15:06:55 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</guid>
-      <description>关于PPT 因为之前从事管理战略咨询的缘故，PPT 是必备技能。thinkcell+键盘快捷键玩到飞起，巅峰时刻一晚大几十页PPT没有任何问题 -</description>
+      <description>关于PPT 因为之前从事管理战略咨询的缘故，PPT 是必备技能。thinkcell+键盘快捷键玩到飞起，巅峰时刻一晚大几十页PPT没有任何问题 - 于是脑海中非常根深蒂固的印象就是 PPT = Microsoft Powerpoint，最好的 PPT 模板就是麦肯锡的一套。过去三四年转行互联网，这样的认知逐渐被打破，尤其在以下方面，看到了很多 PowerPoint 没法解决（或不适应）的问题：
+ 非线性逻辑结构：PPT 的翻页是线性且单维的，这让我现在很多时候用脑图而不是 PPT 来思考和陈述 对于包括代码、视频、公式等形式的支持落后：记得自己2006年开始用 Linux（Ubuntu），就是因为写论文的时候不能忍受输入数学公式的繁琐，转而用 vim + LaTex 生成 PDF。时至今日，这些问题依然在 office suite 里面没有得到特别好的解决 轻便：如果不是之前管理战略咨询那样的 PPT（极其严谨的图文排布、12-16号字打便天下，高密度信息结构），其实是不需要 PowerPoint 那么重的工具的。同时，过去三四年我自己的管理决策一直是在做减法，因此在最终思路的呈现上反而强调 KISS 原则，不像之前呈现给500强 CXO 或者 PE 投资人那么需要信息丰富度和高级逻辑能力，转而力求“把事情用最简单的方式说清楚，并且让绝大多数听众第一时间就能明白吸收”。在这种情况下，PowerPoint 略显沉闷和笨重 云和协作：这点 Google Suite 比 Office Suite 好很多。当然我不觉得 Google Suite 总体产品做的很好，只是会拿 Google Doc 和 Google Keep 来记录日常思考，最近有被 Markdown 取代的迹象。实时云存储一定是趋势，PowerPoint 动作太慢了，背后其实是有隐性风险的，比如我相信很多人都经历过本机保存不及时活白干，或者团队内部搞 PPT 版本控制问题等。  当然，PowerPoint 的优势依然明显，比如任何时候，我需要准备一份最严谨的商业陈述，或者 BD/ 销售材料，那么 PowerPoint 仍然是我的最优解。但在其他时刻，比如团队内部分享，或者一些产品讨论等方面，我在过去一段时间里的确在认真考虑使用更加灵活和轻量级的其他工具。
+为什么是 Markdown + reveal.</description>
     </item>
     
   </channel>

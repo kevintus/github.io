@@ -6,6 +6,7 @@
     <description>Recent content in Wanda the Fish on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>copyright by Kevin.Lai</copyright>
     <lastBuildDate>Tue, 29 Aug 2023 10:02:57 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/wanda-the-fish/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,15 @@
       <pubDate>Tue, 29 Aug 2023 10:02:57 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/</guid>
-      <description>安装 Wanda the Fish 首先安装 Fortunes，Bash 下输入 sudo apt install fortunes sudo apt install fortunes-zh 之后安装 Wanda the Fish： git clone https://gitlab.com/tallero/wandathefish cp -r wandathefish/wandathefish\@arcipelago.org ~/.local/share/gnome-shell/extensions gnome-shell-extension-tool -e wandathefish@arcipelago.org 测试效果： fortune fortune-zh 以及 Gnome-p</description>
+      <description>安装 Wanda the Fish 首先安装 Fortunes，Bash 下输入
+sudo apt install fortunes sudo apt install fortunes-zh 之后安装 Wanda the Fish：
+git clone https://gitlab.com/tallero/wandathefish cp -r wandathefish/wandathefish\@arcipelago.org ~/.local/share/gnome-shell/extensions gnome-shell-extension-tool -e wandathefish@arcipelago.org 测试效果：
+fortune fortune-zh 以及 Gnome-panel上应该有条小鱼
+调整字体和Logo 首先进入文件目录，
+cd ~/.local/share/gnome-shell/extensions/wandathefish@arcipelago.org 在 icon 文件夹内，替换想要的logo文件 WandaFish.svg。
+之后编辑 extension.js文件：
+vim extension.js 在其中找到以下段落，并编辑logo size：
+let gicon = Gio.icon_new_for_string(Me.path + (got_humour  &amp;amp;&amp;amp; &amp;#34;/icons/WandaFish.svg&amp;#34;  || &amp;#34;/icons/wanda2.png&amp;#34;)); let icon = new St.Icon({gicon: gicon}); icon.style = `width: 25px; height: 2.</description>
     </item>
     
   </channel>

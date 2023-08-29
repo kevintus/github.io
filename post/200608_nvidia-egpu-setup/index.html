@@ -1,210 +1,284 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    
-    <meta property="og:site_name" content="卜平社">
-    <meta property="og:type" content="article">
-
-    
-    <meta property="og:image" content="https://kevintus.github.io/img/home-bach.jpg">
-    <meta property="twitter:image" content="https://kevintus.github.io/img/home-bach.jpg" />
-    
-
-    
-    <meta name="title" content="XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti" />
-    <meta property="og:title" content="XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti" />
-    <meta property="twitter:title" content="XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti" />
-    
-
-    
-    <meta name="description" content="Setup eGPU in Ubuntu 18.04">
-    <meta property="og:description" content="Setup eGPU in Ubuntu 18.04" />
-    <meta property="twitter:description" content="Setup eGPU in Ubuntu 18.04" />
-    
-
-    
-    <meta property="twitter:card" content="summary" />
-    
-    
-
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti-卜平社</title>
-
-    <link rel="canonical" href="/post/200608_nvidia-egpu-setup/">
-
-    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
-	
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
-
-    
-    <link rel="stylesheet" href="/css/syntax.css">
-
-    
-    <link rel="stylesheet" href="/css/zanshang.css">
-
-    
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
-    
-    <script src="/js/jquery.min.js"></script>
-    
-    
-    <script src="/js/bootstrap.min.js"></script>
-    
-    
-    <script src="/js/hux-blog.min.js"></script>
-	
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-</head>
+<html><head>
+<title>XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti</title>
 
 
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">卜平社</a>
-        </div>
 
-        
-        
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    
-                    
-		    
-                        <li><a href="/top/about/">ABOUT</a></li>
-                    
 
-                    
-		    <li>
-                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
-		    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-    </div>
-    
-</nav>
-<script>
-    
-    
-    
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="Setup eGPU in Ubuntu 18.04">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
 
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        
-            $navbar.className = " ";
-            
-            setTimeout(function(){
-                
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
+
+
+<meta property="og:title" content="XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti" />
+<meta property="og:description" content="Setup eGPU in Ubuntu 18.04" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kevintus.github.io/post/200608_nvidia-egpu-setup/" />
+<meta property="article:published_time" content="2020-06-08T16:11:57+08:00" />
+<meta property="article:modified_time" content="2020-06-08T16:11:57+08:00" /><meta property="og:site_name" content="卜平社" />
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti"/>
+<meta name="twitter:description" content="Setup eGPU in Ubuntu 18.04"/>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "abcdefghzd");
 </script>
 
 
 
+  
 
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/img/home-bach.jpg')
-    }
-</style>
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/egpu" title="eGPU">
-                            eGPU
-                        </a>
-                        
-                        <a class="tag" href="/tags/nvidia" title="Nvidia">
-                            Nvidia
-                        </a>
-                        
-                    </div>
-                    <h1>XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti</h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-			Posted by 
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.d14c0dd19ee8169a9878352de1ce28ddfc58e839fa8037cd244b475c96c34aaf.css" integrity="sha256-0UwN0Z7oFpqYeDUt4c4o3fxY6Dn6gDfNJEtHXJbDSq8=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS Feed
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
 			
-			        &#34;Kevin L&#34;
-			 
-			on 
-			Monday, June 8, 2020
-                        
-                    </span>
-                </div>
-            </div>
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="nav-参考资料">
+									参考资料
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%93%8d%e4%bd%9c" class="nav-操作">
+									操作
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
         </div>
     </div>
-</header>
-
-
-
-
-<article>
-    <div class="container">
-        <div class="row">
-
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                
-                <header>
-                    <h2>TOC</h2>
-                </header>
-                <nav id="TableOfContents">
-  <ul>
-    <li><a href="#参考资料">参考资料</a></li>
-    <li><a href="#操作">操作</a></li>
-  </ul>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://kevintus.github.io">
+            卜平社
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
 </nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://kevintus.github.io">
+        <div class="single-column-header-title">卜平社</div>
+        
+        <div class="single-column-header-subtitle">简单 长期 乐观</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
                 
-                <h2 id="参考资料">参考资料</h2>
+            >
+                <div class="post-title">
+                    XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti
+                    
+                    <div class="post-subtitle">
+                        Setup eGPU in Ubuntu 18.04
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2020-06-08 16:11
+                        </time>
+                        
+
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/egpu">eGPU</a>
+                                &nbsp;
+                            
+                                <a href="/tags/nvidia">Nvidia</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="参考资料">参考资料</h2>
 <ul>
 <li><a href="https://egpu.io/forums/thunderbolt-linux-setup/tutorial-ubuntu-18-04-rtx-2080-razer-core-v1/">I mainly follow this procedure</a></li>
 <li><a href="https://egpu.io/forums/thunderbolt-enclosures/pdf-guide-and-patches-for-making-linux-v5-3-kernel-to-work-with-thunderbolt-3-add-in-card/">Adjust the kernel parameter by following this</a></li>
@@ -213,7 +287,7 @@
 <ol>
 <li>Purge all existing Nvidia drivers</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get --purge remove <span style="color:#e6db74">&#39;nvidia*&#39;</span>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get --purge remove <span style="color:#cd5555">&#39;nvidia*&#39;</span>
 </code></pre></div><ol start="2">
 <li>
 <p>Reboot <code>sudo reboot</code></p>
@@ -222,14 +296,14 @@
 <p>[KEY STEP!!!] Adjust kernel parameters: Edit /etc/default/grub as root, change GRUB_CMDLINE_LINUX line:</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vim /etc/default/grub
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vim /etc/default/grub
 
-<span style="color:#75715e"># In GRUB_CMDLINE_LINUX</span>
-GRUB_CMDLINE_LINUX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&#34;</span>
+<span style="color:#228b22"># In GRUB_CMDLINE_LINUX</span>
+<span style="color:#00688b">GRUB_CMDLINE_LINUX</span>=<span style="color:#cd5555">&#34;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&#34;</span>
 </code></pre></div><ol start="4">
 <li>Update booting</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo grub-mkconfig -o /boot/grub/grub.cfg
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre></div><ol start="5">
 <li>
 <p>Reboot</p>
@@ -238,7 +312,7 @@ GRUB_CMDLINE_LINUX<span style="color:#f92672">=</span><span style="color:#e6db74
 <p>Install Nvidia driver</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install nvidia-driver-440
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install nvidia-driver-440
 </code></pre></div><ol start="7">
 <li>
 <p>Reboot</p>
@@ -250,7 +324,7 @@ GRUB_CMDLINE_LINUX<span style="color:#f92672">=</span><span style="color:#e6db74
 <p>Update Xconfig</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nvidia-xconfig
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nvidia-xconfig
 </code></pre></div><ol start="9">
 <li>
 <p>Reboot</p>
@@ -260,221 +334,233 @@ GRUB_CMDLINE_LINUX<span style="color:#f92672">=</span><span style="color:#e6db74
 </li>
 </ol>
 
-
-                
-
-                <hr>
-                <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/" data-toggle="tooltip" data-placement="top" title="Convert Chinese Markdown File to Pdf via Pandoc">&larr;
-                            Previous Post</a>
-                    </li>
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2020-06-08</p>
                     
-                    
-                    <li class="next">
-                        <a href="/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/" data-toggle="tooltip" data-placement="top" title="Ubuntu 20.04 下 Wanda the Fish 配置">Next
-                            Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-                
-<div id="disqus-comment"></div>
-
-
-
+                </div>
             </div>
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
+            
+            <nav class="post-pagination">
 
                 
+                <a class="newer-posts" href="/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/">
+			Next<br>Ubuntu 20.04 下 Wanda the Fish 配置
+                </a>
                 
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/markdown" title="markdown">
-                            markdown
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <a href="/tags/reveal-md" title="reveal-md">
-                            reveal-md
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/reveal.js" title="reveal.js">
-                            reveal.js
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/sublime_text" title="sublime_text">
-                            sublime_text
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/tmux" title="tmux">
-                            tmux
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/ubuntu" title="ubuntu">
-                            ubuntu
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                
+                
+                <a class="older-posts" href="/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/">
+			Previous<br>Convert Chinese Markdown File to Pdf via Pandoc
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="username/repo"
+        data-repo-id="**************************"
+        data-category="General"
+        data-category-id="*********************"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+        </div>
+    </div>
+
+
                     </div>
-                </section>
-                
-
-                
-                
-            </div>
-        </div>
-    </div>
-</article>
-
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                   
-                   <li>
-                       <a href="" rel="alternate" type="application/rss+xml" title="卜平社" >
-                           <span class="fa-stack fa-lg">
-                               <i class="fa fa-circle fa-stack-2x"></i>
-                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-                   
-                    
-                    <li>
-                        <a href="mailto:kevin.lai1985@gmail.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    
-                    
-                    
-
-                    
-
-		    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/kevintus">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    
-                </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; 卜平社 2023
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-
-
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-
-
-
-
-<script>
+            </div><div id="sideContainer" class="side-container">
     
-    if($('#tag_cloud').length !== 0){
-        async("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
+    <a class="a-block nav-head false" href="https://kevintus.github.io">
+    
+        <div class="nav-title">
+            卜平社
+        </div>
+        
+        <div class="nav-subtitle">
+            简单 长期 乐观
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS Feed
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	copyright by Kevin.Lai
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
 
 
-<script>
-    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="nav-参考资料">
+									参考资料
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%93%8d%e4%bd%9c" class="nav-操作">
+									操作
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
 
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
 
-
-
-
-
-</body>
+&copy;
+	
+	copyright by Kevin.Lai
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
 </html>

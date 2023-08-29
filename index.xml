@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>卜平社</title>
@@ -6,154 +6,653 @@
     <description>Recent content on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>copyright by Kevin.Lai</copyright>
     <lastBuildDate>Tue, 29 Aug 2023 10:02:57 +0800</lastBuildDate>
     
-	<atom:link href="https://kevintus.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://kevintus.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Ubuntu 20.04 下 Wanda the Fish 配置</title>
-      <link>https://kevintus.github.io/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Tue, 29 Aug 2023 10:02:57 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/</guid>
-      <description>安装 Wanda the Fish 首先安装 Fortunes，Bash 下输入 sudo apt install fortunes sudo apt install fortunes-zh 之后安装 Wanda the Fish： git clone https://gitlab.com/tallero/wandathefish cp -r wandathefish/wandathefish\@arcipelago.org ~/.local/share/gnome-shell/extensions gnome-shell-extension-tool -e wandathefish@arcipelago.org 测试效果： fortune fortune-zh 以及 Gnome-p</description>
-    </item>
     
-    <item>
-      <title>XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti</title>
-      <link>https://kevintus.github.io/post/200608_nvidia-egpu-setup/</link>
-      <pubDate>Mon, 08 Jun 2020 16:11:57 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/200608_nvidia-egpu-setup/</guid>
-      <description>参考资料 I mainly follow this procedure Adjust the kernel parameter by following this 操作 Purge all existing Nvidia drivers sudo apt-get --purge remove &amp;#39;nvidia*&amp;#39; Reboot sudo reboot [KEY STEP!!!] Adjust kernel parameters: Edit /etc/default/grub as root, change GRUB_CMDLINE_LINUX line: sudo vim /etc/default/grub # In GRUB_CMDLINE_LINUX GRUB_CMDLINE_LINUX=&amp;#34;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&amp;#34; Update booting sudo grub-mkconfig -o /boot/grub/grub.cfg Reboot Install Nvidia driver sudo apt-get install nvidia-driver-440 Reboot Check the</description>
-    </item>
+        <item>
+        <title>Ubuntu 20.04 下 Wanda the Fish 配置</title>
+        <link>https://kevintus.github.io/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/</link>
+        <pubDate>Tue, 29 Aug 2023 10:02:57 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/</guid>
+        <description>卜平社 https://kevintus.github.io/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/ -&lt;h2 id=&#34;安装-wanda-the-fish&#34;&gt;安装 Wanda the Fish&lt;/h2&gt;
+&lt;p&gt;首先安装 &lt;code&gt;Fortunes&lt;/code&gt;，Bash 下输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install fortunes 
+sudo apt install fortunes-zh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;之后安装 &lt;a href=&#34;https://gitlab.com/tallero/wandathefish&#34;&gt;Wanda the Fish&lt;/a&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://gitlab.com/tallero/wandathefish
+cp -r wandathefish/wandathefish&lt;span style=&#34;color:#cd5555&#34;&gt;\@&lt;/span&gt;arcipelago.org ~/.local/share/gnome-shell/extensions
+gnome-shell-extension-tool -e wandathefish@arcipelago.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;测试效果：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;fortune
+fortune-zh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以及 Gnome-panel上应该有条小鱼&lt;/p&gt;
+&lt;h2 id=&#34;调整字体和logo&#34;&gt;调整字体和Logo&lt;/h2&gt;
+&lt;p&gt;首先进入文件目录，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#658b00&#34;&gt;cd&lt;/span&gt; ~/.local/share/gnome-shell/extensions/wandathefish@arcipelago.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 icon 文件夹内，替换想要的logo文件 &lt;code&gt;WandaFish.svg&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;之后编辑 &lt;code&gt;extension.js&lt;/code&gt;文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim extension.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在其中找到以下段落，并编辑logo size：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; gicon = Gio.icon_new_for_string(Me.path + (got_humour &lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;                                                &amp;amp;&amp;amp; &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;/icons/WandaFish.svg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;                                                || &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;/icons/wanda2.png&amp;#34;&lt;/span&gt;));           &lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; icon = new St.Icon({gicon: gicon});                                 &lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;icon.style = `width: &lt;span style=&#34;color:#b452cd&#34;&gt;25&lt;/span&gt;px; height: &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt;.&lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt;px;`; &lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开 &lt;code&gt;stylesheet.css&lt;/code&gt; 文件调整中文字体，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;.fortune-label {&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    font-size: &lt;span style=&#34;color:#b452cd&#34;&gt;18&lt;/span&gt;px;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    font-family: &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;Noto Sans CJK SC&amp;#34;&lt;/span&gt;, sans-serif;;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    color: &lt;span style=&#34;color:#b452cd&#34;&gt;#000000&lt;/span&gt;;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#1c7e71&#34;&gt;/* Pale, light grayish arctic blue A9ECF9 */&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    background-color: rgba(&lt;span style=&#34;color:#b452cd&#34;&gt;246&lt;/span&gt;,&lt;span style=&#34;color:#b452cd&#34;&gt;251&lt;/span&gt;,&lt;span style=&#34;color:#b452cd&#34;&gt;215&lt;/span&gt;,&lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#b452cd&#34;&gt;90&lt;/span&gt;);&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    border-radius: &lt;span style=&#34;color:#b452cd&#34;&gt;3&lt;/span&gt;px;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    padding: .&lt;span style=&#34;color:#b452cd&#34;&gt;5&lt;/span&gt;em;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;.fortune-label-black {&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    font-size: &lt;span style=&#34;color:#b452cd&#34;&gt;16&lt;/span&gt;px;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    font-family: Noto Sans CJK SC;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    color: &lt;span style=&#34;color:#b452cd&#34;&gt;#eeeeee&lt;/span&gt;;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    background-color: &lt;span style=&#34;color:#b452cd&#34;&gt;#000000&lt;/span&gt;;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    border-radius: &lt;span style=&#34;color:#b452cd&#34;&gt;3&lt;/span&gt;px;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;    padding: .&lt;span style=&#34;color:#b452cd&#34;&gt;5&lt;/span&gt;em;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;}&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;解决中文乱码问题&#34;&gt;解决中文乱码问题&lt;/h2&gt;
+&lt;p&gt;参考了 &lt;a href=&#34;https://chshelf.blogspot.com/2009/06/wanda.html&#34;&gt;解决了wanda小鱼的中文乱码问题&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#658b00&#34;&gt;cd&lt;/span&gt; /usr/share/games/fortunes/
+sudo sed -ie &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;s/[[:cntrl:]]\|\[33m\|\[32m\|\[35m\|\[m//g&amp;#39;&lt;/span&gt; tang300
+sudo sed -ie &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;s/[[:cntrl:]]\|\[33m\|\[32m\|\[35m\|\[m//g&amp;#39;&lt;/span&gt; song100
+sudo strfile song100
+sudo strfile tang300
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;后发现在 &lt;code&gt;Chinese&lt;/code&gt; 文件内发现有其他乱码格式，采取同样方式进行转换即可&lt;/p&gt;
+&lt;h2 id=&#34;生成自己的知识库&#34;&gt;生成自己的知识库&lt;/h2&gt;
+&lt;p&gt;编辑文本知识库文件，之后导入 &lt;code&gt;Fortunes&lt;/code&gt;的文件夹内，生成 &lt;code&gt;.dat&lt;/code&gt;，调用即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo cp 人间词话.txt /usr/share/games/fortunes
+suod mv 人间词话.txt 人间词话
+sudo strfile 人间词话
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;里面每一段&lt;code&gt;quote&lt;/code&gt;用&lt;code&gt;%&lt;/code&gt;隔开，示例如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;词以境界为最上.有境界则自成高格,自有名句.五代、北宋之词所以独绝者在此.&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;---- 人间词话&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;%&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;有造境,有写境,此&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;理想&amp;#34;&lt;/span&gt;与&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;写实&amp;#34;&lt;/span&gt;二派之所由分.然二者颇难分别.因大诗人所造之境,必合&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;乎自然,所写之境,亦必邻于理想故也.&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;---- 人间词话&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;%&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;有有我之境,有无我之境.&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;泪眼问花花不语,乱红飞过秋千去.&amp;#34;&lt;/span&gt;&amp;#34;可堪孤馆闭春寒,杜鹃声里斜&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;阳暮.&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;有我之境也.&amp;#34;&lt;/span&gt;采菊东篱下,悠然见南山.&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;寒波澹澹起,白鸟悠悠下.&amp;#34;无我之境也.有我&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;之境,以我观物,故物皆着我之色彩.无我之境,以物观物,故不知何者为我,何者为物.古人为&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;词,写有我之境者为多,然未始不能写无我之境,此在豪杰之士能自树立耳.&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;---- 人间词话&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;%&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Github 上找了一个中文典籍数据库，灌了一些进去：
+&lt;a href=&#34;https://github.com/wenyuange&#34;&gt;文渊阁&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Done!&lt;/p&gt;
+- https://kevintus.github.io/post/230829_wandathefish_%E9%85%8D%E7%BD%AE/ - copyright by Kevin.Lai</description>
+        </item>
     
-    <item>
-      <title>Convert Chinese Markdown File to Pdf via Pandoc</title>
-      <link>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</link>
-      <pubDate>Mon, 22 Jul 2019 10:44:05 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</guid>
-      <description>2023.8.8 更新 如果还是用pandoc而不是reveal-md（考虑到reveal-md更适合ppt转pdf，而pandoc更适合word），那么可以</description>
-    </item>
     
-    <item>
-      <title>调整 Vim 和 Tmux 为 True Color</title>
-      <link>https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/</link>
-      <pubDate>Tue, 16 Jul 2019 11:02:57 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/</guid>
-      <description>确认 Gnome-terminal 是支持 True color 的 这一篇已经写的很清楚了： How to enable true-color for neovim, tmux, and gnome-terminal 最终 vimrc 和 tmux.conf 配置 .vimrc 配置 set termguicolorslet &amp;amp;t_8f = &amp;#34;\&amp;lt;Esc&amp;gt;[38;2;%lu;%lu;%lum&amp;#34;let &amp;amp;t_8b = &amp;#34;\&amp;lt;Esc&amp;gt;[48;2;%lu;%lu;%lum&amp;#34;set t_Co=256set background=darkcolor molokailet g:molokai_original=1.tmux.conf 配置 set -g default-terminal &#39;screen-256color&#39; set-option -ga terminal-overrides &amp;quot;,*256col*:Tc&amp;quot;</description>
-    </item>
     
-    <item>
-      <title>利用 decktape 将 HTML 转为 pdf</title>
-      <link>https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/</link>
-      <pubDate>Mon, 08 Jul 2019 16:30:31 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/</guid>
-      <description>参考资料 Decktape 官方文档 实现非常直接 npm install -g decktape # 先用 reveal-md 打开 md 文档 reveal-md xxx.md # 复制 chrome 里面的 url，再利用 decktape 导出 pdf decktape reveal &amp;lt;chrome 里面 md 文档 的 url&amp;gt; output.pdf Done!</description>
-    </item>
+        <item>
+        <title>XPS9380 &#43; Ubuntu 18.04 &#43; Razor Core X &#43; Nividia RTX 2080 Ti</title>
+        <link>https://kevintus.github.io/post/200608_nvidia-egpu-setup/</link>
+        <pubDate>Mon, 08 Jun 2020 16:11:57 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/200608_nvidia-egpu-setup/</guid>
+        <description>卜平社 https://kevintus.github.io/post/200608_nvidia-egpu-setup/ -&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://egpu.io/forums/thunderbolt-linux-setup/tutorial-ubuntu-18-04-rtx-2080-razer-core-v1/&#34;&gt;I mainly follow this procedure&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://egpu.io/forums/thunderbolt-enclosures/pdf-guide-and-patches-for-making-linux-v5-3-kernel-to-work-with-thunderbolt-3-add-in-card/&#34;&gt;Adjust the kernel parameter by following this&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;操作&#34;&gt;操作&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Purge all existing Nvidia drivers&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get --purge remove &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;nvidia*&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Reboot &lt;code&gt;sudo reboot&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[KEY STEP!!!] Adjust kernel parameters: Edit /etc/default/grub as root, change GRUB_CMDLINE_LINUX line:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo vim /etc/default/grub
+
+&lt;span style=&#34;color:#228b22&#34;&gt;# In GRUB_CMDLINE_LINUX&lt;/span&gt;
+&lt;span style=&#34;color:#00688b&#34;&gt;GRUB_CMDLINE_LINUX&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;pcie_ports=native pci=assignbusses,hpbussize=0x33,hpiosize=0,hpmmiosize=256M,hpmmioprefsize=4G,nocrs,realloc iommu=on intel_iommu=on&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Update booting&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Reboot&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install Nvidia driver&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install nvidia-driver-440
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Reboot&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check the &lt;code&gt;lspci | grep -i VGA&lt;/code&gt; and &lt;code&gt;lspci -vnnt&lt;/code&gt; and find Nvidia&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update Xconfig&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo nvidia-xconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Reboot&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check with &lt;code&gt;nvidia-smi&lt;/code&gt; again, ALL DONE!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+- https://kevintus.github.io/post/200608_nvidia-egpu-setup/ - copyright by Kevin.Lai</description>
+        </item>
     
-    <item>
-      <title>Copy to Clipboard in Terminal</title>
-      <link>https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/</link>
-      <pubDate>Thu, 20 Jun 2019 18:50:08 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/</guid>
-      <description>利用 xclip -selection clipboard 把终端内容复制到系统剪贴板 之前各种研究如何在 zsh 和 tmux 下面实现复制粘贴，参见开始使用Tmux，今天发现其实用 xclip -selection clipboard 命令就可以很简单实现</description>
-    </item>
     
-    <item>
-      <title>reveal-md 的格式模版</title>
-      <link>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</link>
-      <pubDate>Wed, 19 Jun 2019 12:58:16 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</guid>
-      <description>基于这个模板，可以比较方便使用 markdown + reveal.js 了。 --- title: xxx separator: &amp;quot;^\n---\n$&amp;quot; verticalSeparator: &amp;quot;^\n--\n$&amp;quot; theme: black revealOptions: transition: &#39;slide&#39; &amp;quot;slideNumber&amp;quot;: true &amp;quot;progress&amp;quot;: true &amp;quot;width&amp;quot;: 1920 &amp;quot;height&amp;quot;: 1080 &amp;quot;margin&amp;quot;: 0.1 &amp;quot;minScale&amp;quot;: 0.2 &amp;quot;maxScale&amp;quot;: 2 --- &amp;lt;!--Title Page 利用 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; 到 &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 来控制标题字体大小，正文部分相同</description>
-    </item>
     
-    <item>
-      <title>用 reveal-md 简化 Markdown&#43;Reveal 写作</title>
-      <link>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</link>
-      <pubDate>Tue, 18 Jun 2019 18:10:32 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</guid>
-      <description>参考资料 reveal-md 官方文档 实现 下载 reveal-md 尝试 npm install -g reveal-md 显示失败，安装nvm后，nvm install stable，然后重新 npm install -g reveal-md 提升安装成功 配置文档 研究了一圈文档，有</description>
-    </item>
+        <item>
+        <title>Convert Chinese Markdown File to Pdf via Pandoc</title>
+        <link>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</link>
+        <pubDate>Mon, 22 Jul 2019 10:44:05 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</guid>
+        <description>卜平社 https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/ -&lt;h2 id=&#34;202388-更新&#34;&gt;2023.8.8 更新&lt;/h2&gt;
+&lt;p&gt;如果还是用pandoc而不是reveal-md（考虑到reveal-md更适合ppt转pdf，而pandoc更适合word），那么可以生成一个 head.tex 模版文件，然后让pandoc来调用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;vim Pandoc-md-to-pdf-head-template.tex&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;fancyvrb,newverbs&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#228b22&#34;&gt;%% 设置页面间距
+&lt;/span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;[top=2cm, bottom=1.5cm, left=2cm, right=2cm]&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;geometry&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#228b22&#34;&gt;% change background color for inline code in
+&lt;/span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;% markdown files. The following code does not work well for
+&lt;/span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;% long text as the text will exceed the page boundary
+&lt;/span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\definecolor&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;bgcolor&lt;span style=&#34;color:#658b00&#34;&gt;}{&lt;/span&gt;HTML&lt;span style=&#34;color:#658b00&#34;&gt;}{&lt;/span&gt;E0E0E0&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\let\oldtexttt\texttt&lt;/span&gt;
+
+&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\renewcommand&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\texttt&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;[1]&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\colorbox&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;bgcolor&lt;span style=&#34;color:#658b00&#34;&gt;}{&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\oldtexttt&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;#1&lt;span style=&#34;color:#658b00&#34;&gt;}}&lt;/span&gt;
+&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#228b22&#34;&gt;%% color and other settings for hyperref package
+&lt;/span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\hypersetup&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;
+    bookmarksopen=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=RoyalBlue,
+&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#228b22&#34;&gt;%% 全局中文字体
+&lt;/span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\setmainfont&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;Noto Sans CJK SC&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#228b22&#34;&gt;%% 针对中文自动换行
+&lt;/span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\XeTeXlinebreaklocale&lt;/span&gt; &amp;#34;zh&amp;#34;
+
+&lt;span style=&#34;color:#228b22&#34;&gt;%% 设置行间距
+&lt;/span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\linespread&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;1.2&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\selectfont&lt;/span&gt;
+
+&lt;span style=&#34;color:#228b22&#34;&gt;%% 段落之间的距离
+&lt;/span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\setlength&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\parskip&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;}{&lt;/span&gt;3pt&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;   
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后就可以&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pandoc &amp;ndash;pdf-engine=xelatex -H Pandoc-md-to-pdf-head-template.tex XXX.md -o XXX.pdf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;DONE!&lt;/p&gt;
+&lt;h2 id=&#34;2020226-更新&#34;&gt;2020.2.26 更新&lt;/h2&gt;
+&lt;p&gt;最新 reveal-md 已经可以很好支持 pdf 导出了，只需要&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;reveal-md xxx.md --print xx.pdf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;原资料&lt;/p&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/&#34;&gt;文本做笔记 &amp;mdash; 使用 Pandoc 与 Markdown 生成 PDF 文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jgm/pandoc/wiki/Pandoc-with-Chinese&#34;&gt;Pandoc with Chinese&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.bagualu.net/wordpress/archives/5396#pandoc%E4%B8%AD%E7%9A%84%E4%B8%AD%E6%96%87%E6%8D%A2%E8%A1%8C%E9%97%AE%E9%A2%98&#34;&gt;用pandoc把markdown转化为pdf文档&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;环境&#34;&gt;环境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ubuntu 内安装 xelatex (pdflatex 不支持中文)&lt;/li&gt;
+&lt;li&gt;安装中文字体，并用 &lt;code&gt;fc-list :lang=zh&lt;/code&gt; 确认&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;中文显示命令&#34;&gt;中文显示命令&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;方式一：命令行输入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pandoc input.md -o output.pdf --latex-engine=xelatex -V &lt;span style=&#34;color:#00688b&#34;&gt;mainfont&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;WenQuanYi Micro Hei&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;方式二：在 YAML 输入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;---
+mainfont: WenQuanYi Micro Hei Mono
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pdf-页边距调整和自动换行&#34;&gt;pdf 页边距调整和自动换行&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;边距调整&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方式一：命令行输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pandoc input.md -o output.pdf --latex-engine=xelatex -V &lt;span style=&#34;color:#00688b&#34;&gt;mainfont&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;WenQuanYi Micro Hei&amp;#39;&lt;/span&gt; -V geometry:margin=1in
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;方式二：在 YAML 输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;---
+geometry:margin=1in
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;自动换行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pandoc -D latex &amp;gt; template.latex
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;template.latex&lt;/code&gt; 模板文件中添加最后一行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#658b00&#34;&gt;mathfont&lt;/span&gt;)&lt;span style=&#34;color:#cd5555&#34;&gt;$&lt;/span&gt;
+    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\setmathfont&lt;/span&gt;(Digits,Latin,Greek)&lt;span style=&#34;color:#658b00&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;mathfont&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#cd5555&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;endif&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;$&lt;/span&gt;
+&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;\XeTeXlinebreaklocale&lt;/span&gt; &amp;#34;zh&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在命令行输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pandoc --template ~/.pandoc/templates/template.latex
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;最终-yaml-示例&#34;&gt;最终 YAML 示例&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Markdown&#34; data-lang=&#34;Markdown&#34;&gt;---
+
+title: Computer Vision Research Notes
+author: xxx
+date: 2019-07-22
+
+mainfont: WenQuanYi Micro Hei
+geometry: margin=1in
+fontsize: 12pt
+urlcolor: NavyBlue
+
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者在 &lt;code&gt;bashrc&lt;/code&gt; 里面设置 Alias 如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#658b00&#34;&gt;alias&lt;/span&gt; &lt;span style=&#34;color:#00688b&#34;&gt;pandoc_md2pdf&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;pandoc --template ~/.pandoc/templates/template.latex --latex-engine=xelatex -V mainfont=&amp;#34;WenQuanYi Micro Hei&amp;#34; -V geometry:margin=1in -V fontsize=12pt -V urlcolor=NavyBlue&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样只需要输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pandoc_md2pdf input.md -o output.pdf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Done!&lt;/p&gt;
+- https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/ - copyright by Kevin.Lai</description>
+        </item>
     
-    <item>
-      <title>安装配置 reveal.js&#43;Markdown 实现网页 ppt</title>
-      <link>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</link>
-      <pubDate>Thu, 13 Jun 2019 15:06:55 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</guid>
-      <description>关于PPT 因为之前从事管理战略咨询的缘故，PPT 是必备技能。thinkcell+键盘快捷键玩到飞起，巅峰时刻一晚大几十页PPT没有任何问题 -</description>
-    </item>
     
-    <item>
-      <title>开始使用Tmux</title>
-      <link>https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</link>
-      <pubDate>Tue, 11 Jun 2019 19:19:36 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</guid>
-      <description>Tmux 的安装和设置 基本学习以下教程 [优雅地使用命令行：Tmux 终端复用] https://harttle.land/2015/11/06/tmux-startup.html [十分钟学会 tmux] https://www.jianshu.com/p/c217318a9380 [tmux简洁教程及config关键配置] https://www.jianshu.com/p/fd3bbdba9dc9 贴出来我的</description>
-    </item>
     
-    <item>
-      <title>Markdown的快速预览和复杂表格编辑</title>
-      <link>https://kevintus.github.io/post/2019-06-10-markdown%E7%9A%84%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88%E5%92%8C%E5%A4%8D%E6%9D%82%E8%A1%A8%E6%A0%BC%E7%BC%96%E8%BE%91/</link>
-      <pubDate>Mon, 10 Jun 2019 15:05:24 +0800</pubDate>
-      
-      <guid>https://kevintus.github.io/post/2019-06-10-markdown%E7%9A%84%E5%BF%AB%E9%80%9F%E9%A2%84%E8%A7%88%E5%92%8C%E5%A4%8D%E6%9D%82%E8%A1%A8%E6%A0%BC%E7%BC%96%E8%BE%91/</guid>
-      <description>Markdown的快速预览 在 Sublime Text 3 里面利用 ctrl + shift + p 呼出菜单，输入 Install 查找到 Markdown Preview 进行安装；之后选择 Preference -&amp;gt; Key Bindings，在 user 配置文件内添加快</description>
-    </item>
+        <item>
+        <title>调整 Vim 和 Tmux 为 True Color</title>
+        <link>https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/</link>
+        <pubDate>Tue, 16 Jul 2019 11:02:57 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/</guid>
+        <description>卜平社 https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/ -&lt;h2 id=&#34;确认-gnome-terminal-是支持-true-color-的&#34;&gt;确认 Gnome-terminal 是支持 True color 的&lt;/h2&gt;
+&lt;p&gt;这一篇已经写的很清楚了：
+&lt;a href=&#34;https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/&#34;&gt;How to enable true-color for neovim, tmux, and gnome-terminal&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;最终-vimrc-和-tmuxconf-配置&#34;&gt;最终 vimrc 和 tmux.conf 配置&lt;/h2&gt;
+&lt;p&gt;.vimrc 配置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;set termguicolors&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; &amp;amp;t_8f = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;\&amp;lt;Esc&amp;gt;[38;2;%lu;%lu;%lum&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; &amp;amp;t_8b = &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;\&amp;lt;Esc&amp;gt;[48;2;%lu;%lu;%lum&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;set t_Co=&lt;span style=&#34;color:#b452cd&#34;&gt;256&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;set background=&lt;span style=&#34;color:#658b00&#34;&gt;dark&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;color molokai&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;let&lt;/span&gt; g:molokai_original=&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;.tmux.conf 配置&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set -g default-terminal &#39;screen-256color&#39;
+set-option -ga terminal-overrides &amp;quot;,*256col*:Tc&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;- https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/ - copyright by Kevin.Lai</description>
+        </item>
     
-    <item>
-      <title>Ubuntu 18.04 全局代理和 Sublime Text 3 设置</title>
-      <link>https://kevintus.github.io/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/</link>
-      <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kevintus.github.io/post/2019-06-08-ubuntu_18.04%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E5%92%8Csublime_text_3%E8%AE%BE%E7%BD%AE/</guid>
-      <description>背景条件 基于Sublime Text 3 官网指南，在Ubuntu 18.04 上进行安装，显示gpg下载错误。 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - 把管道命令拆开，单独使用 Curl 命令下载</description>
-    </item>
     
-    <item>
-      <title>欢迎来到卜平社</title>
-      <link>https://kevintus.github.io/2019/06/08/hello-world/</link>
-      <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kevintus.github.io/2019/06/08/hello-world/</guid>
-      <description>欢迎来到卜平社，这是一个测试 Hello World!</description>
-    </item>
     
-    <item>
-      <title>Clean White Theme for Hugo</title>
-      <link>https://kevintus.github.io/post/readme/</link>
-      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://kevintus.github.io/post/readme/</guid>
-      <description>Clean White Theme for Hugo CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live demo site using this theme. It is based on huxblog Jekyll Theme and Clean Blog Jekyll Theme. These two upstream projects have done awesome jobs to create a blog theme, what I&amp;rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster</description>
-    </item>
+        <item>
+        <title>利用 decktape 将 HTML 转为 pdf</title>
+        <link>https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/</link>
+        <pubDate>Mon, 08 Jul 2019 16:30:31 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/</guid>
+        <description>卜平社 https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/ -&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/astefanutti/decktape&#34;&gt;Decktape 官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;实现非常直接&#34;&gt;实现非常直接&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;npm install -g decktape
+
+&lt;span style=&#34;color:#228b22&#34;&gt;# 先用 reveal-md 打开 md 文档&lt;/span&gt;
+reveal-md xxx.md
+
+&lt;span style=&#34;color:#228b22&#34;&gt;# 复制 chrome 里面的 url，再利用 decktape 导出 pdf&lt;/span&gt;
+decktape reveal &amp;lt;chrome 里面 md 文档 的 url&amp;gt; output.pdf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Done!&lt;/p&gt;
+- https://kevintus.github.io/post/190708_%E5%88%A9%E7%94%A8decktape%E5%B0%86html%E8%BD%AC%E4%B8%BApdf/ - copyright by Kevin.Lai</description>
+        </item>
     
-    <item>
-      <title></title>
-      <link>https://kevintus.github.io/search/placeholder/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kevintus.github.io/search/placeholder/</guid>
-      <description></description>
-    </item>
     
-    <item>
-      <title></title>
-      <link>https://kevintus.github.io/top/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kevintus.github.io/top/about/</guid>
-      <description> Internet company Co-founder/ CEO ex-Partner of a management consulting firm MSc. in Industrial Engineering/ Statistics MSc. in Economics BSc. in Finance  </description>
-    </item>
+    
+        <item>
+        <title>Copy to Clipboard in Terminal</title>
+        <link>https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/</link>
+        <pubDate>Thu, 20 Jun 2019 18:50:08 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/</guid>
+        <description>卜平社 https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/ -&lt;h2 id=&#34;利用-xclip--selection-clipboard-把终端内容复制到系统剪贴板&#34;&gt;利用 &lt;code&gt;xclip -selection clipboard&lt;/code&gt; 把终端内容复制到系统剪贴板&lt;/h2&gt;
+&lt;p&gt;之前各种研究如何在 zsh 和 tmux 下面实现复制粘贴，参见&lt;a href=&#34;https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/&#34;&gt;开始使用Tmux&lt;/a&gt;，今天发现其实用 &lt;code&gt;xclip -selection clipboard&lt;/code&gt; 命令就可以很简单实现&lt;/p&gt;
+&lt;p&gt;举例：我要拷贝 v2Ray 的配置文件到 Google doc 备份，只需要&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cat /etc/v2ray/config.json | xclip -selection clipboard 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;就搞定了。比用什么摁住 shift 键拨弄鼠标简单一百倍。&lt;/p&gt;
+&lt;p&gt;可以在 .zshrc 文件里面设置一下 alias，方便使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#658b00&#34;&gt;alias&lt;/span&gt; &lt;span style=&#34;color:#00688b&#34;&gt;copytoclipboard&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;xclip -selection clipboard&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;之后就可以&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cat /etc/v2ray/config.json | copytoclipboard
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;终端内使用&#34;&gt;终端内使用&lt;/h2&gt;
+&lt;p&gt;如果要在终端里面实现内容复制粘贴，也非常简单&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;xclip xxx
+xclip -o
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;所以如果想复制粘贴一个文件的绝对路径，只需要&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;readlink -e sample.png | xclip 
+xclip -o
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;DONE！&lt;/p&gt;
+- https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/ - copyright by Kevin.Lai</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>reveal-md 的格式模版</title>
+        <link>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</link>
+        <pubDate>Wed, 19 Jun 2019 12:58:16 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/</guid>
+        <description>卜平社 https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/ -&lt;h1 id=&#34;基于这个模板可以比较方便使用-markdown--revealjs-了&#34;&gt;基于这个模板，可以比较方便使用 markdown + reveal.js 了。&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: xxx
+separator: &amp;quot;^\n---\n$&amp;quot; 
+verticalSeparator: &amp;quot;^\n--\n$&amp;quot;
+theme: black
+revealOptions:
+    transition: &#39;slide&#39;
+
+&amp;quot;slideNumber&amp;quot;: true
+&amp;quot;progress&amp;quot;: true
+&amp;quot;width&amp;quot;: 1920
+&amp;quot;height&amp;quot;: 1080
+&amp;quot;margin&amp;quot;: 0.1
+&amp;quot;minScale&amp;quot;: 0.2
+&amp;quot;maxScale&amp;quot;: 2
+
+---
+
+&amp;lt;!--Title Page
+
+利用 &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt; 到 &amp;lt;h6&amp;gt;&amp;lt;/h6&amp;gt; 来控制标题字体大小，正文部分相同 
+
+--&amp;gt;
+
+&amp;lt;h1&amp;gt; PPT 首页主标题&amp;lt;/h1&amp;gt;
+&amp;lt;h2&amp;gt; 2019.6.18 &amp;lt;/h2&amp;gt;
+
+&amp;lt;!--Speaker Note--&amp;gt;
+Note: 不会出现在 ppt 里面，会出现在 speaker note 里面
+
+---
+
+&amp;lt;!--Main Page
+
+Some component illustratives:
+* 插入一些网页对象 iframe (Prefer to use lazy-loading, ussing `data-src` instead of `src`):
+
+&amp;lt;iframe frameborder=&amp;quot;0&amp;quot; width=&amp;quot;100%&amp;quot; height=&amp;quot;500pt&amp;quot; data-src=&amp;quot;https://caniuse.com/cors/embed/description&amp;amp;links&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;
+
+* 插入视频 （youtube，优酷） iframe
+
+&amp;lt;iframe width=&amp;quot;100%%&amp;quot; height=&amp;quot;500pt&amp;quot; frameborder=&amp;quot;0&amp;quot; data-src=&amp;quot;http://player.youku.com/embed/XODY3NDMzNjY4&amp;quot; allowfullscreen=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;
+
+&amp;lt;iframe width=&amp;quot;100%&amp;quot; height=&amp;quot;500pt&amp;quot; frameborder=&amp;quot;0&amp;quot; data-src=&amp;quot;https://www.youtube.com/embed/tgbNymZ7vqY&amp;quot;&amp;gt; &amp;lt;/iframe&amp;gt;
+
+* 页面为可交互网页
+
+&amp;lt;section data-background-iframe=&amp;quot;https://www.gemii.cc&amp;quot; data-background-interactive&amp;gt; &amp;lt;div style=&amp;quot;position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;&amp;quot;&amp;gt;
+    &amp;lt;h2&amp;gt;Try Website&amp;lt;/h2&amp;gt; &amp;lt;/section&amp;gt;
+
+* 内容左对齐
+
+&amp;lt;section style=&amp;quot;text-align: left;&amp;quot;&amp;gt;
+    &amp;lt;h2&amp;gt; Thanks &amp;amp; Questions &amp;lt;/h2&amp;gt;  
+&amp;lt;/section&amp;gt;
+
+* 添加脚注：用 sup 添加标注，然后用 footer 进行注释
+
+&amp;lt;sup&amp;gt;[1]&amp;lt;/sup&amp;gt;
+
+&amp;lt;footer style=&amp;quot;text-align: left; font-size: 0.5em&amp;quot; &amp;gt;
+    [1] reference text
+&amp;lt;/footer&amp;gt;
+
+--&amp;gt;
+
+## 页标题1 (横页)
+
+### 子标题
+
+* xxx
+* xxx
+* xxx
+
+--
+
+### 页标题2 （纵页） 
+
+* xx
+* xx
+&lt;/code&gt;&lt;/pre&gt;- https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/ - copyright by Kevin.Lai</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>用 reveal-md 简化 Markdown&#43;Reveal 写作</title>
+        <link>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</link>
+        <pubDate>Tue, 18 Jun 2019 18:10:32 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/</guid>
+        <description>卜平社 https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/ -&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/webpro/reveal-md#speaker-notes&#34;&gt;reveal-md 官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;实现&#34;&gt;实现&lt;/h2&gt;
+&lt;h3 id=&#34;下载-reveal-md&#34;&gt;下载 reveal-md&lt;/h3&gt;
+&lt;p&gt;尝试 &lt;code&gt;npm install -g reveal-md&lt;/code&gt; 显示失败，安装&lt;code&gt;nvm&lt;/code&gt;后，&lt;code&gt;nvm install stable&lt;/code&gt;，然后重新 &lt;code&gt;npm install -g reveal-md&lt;/code&gt; 提升安装成功&lt;/p&gt;
+&lt;h3 id=&#34;配置文档&#34;&gt;配置文档&lt;/h3&gt;
+&lt;p&gt;研究了一圈文档，有三种实现方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;命令行，例如&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;reveal-md slides.md --theme solarized
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;在 md 文档的目录下新建 &lt;code&gt;reveal.json&lt;/code&gt; 和 &lt;code&gt;reveal-md.json&lt;/code&gt; 两个配置文档，前者设定文档格式，后者设定每个页面格式，如下:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;reveal.json&lt;/span&gt;
+{
+  &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;&amp;#34;controls&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;true&lt;/span&gt;,
+  &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;&amp;#34;progress&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;true&lt;/span&gt;
+}
+
+&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;reveal-md.json&lt;/span&gt;
+{
+  &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;&amp;#34;separator&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;^\n\n\n&amp;#34;&lt;/span&gt;,
+  &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;&amp;#34;verticalSeparator&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;^\n\n&amp;#34;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;利用 YAML Front matter 在文档内进行配置，如下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;---
+title: Foobar
+separator: &amp;lt;!--s--&amp;gt;
+verticalSeparator: &amp;lt;!--v--&amp;gt;
+theme: solarized
+revealOptions:
+    transition: &amp;#39;fade&amp;#39;
+---
+Foo
+
+Note: test note
+
+&amp;lt;!--s--&amp;gt;
+
+&lt;span style=&#34;color:#000080;font-weight:bold&#34;&gt;# Bar
+&lt;/span&gt;&lt;span style=&#34;color:#000080;font-weight:bold&#34;&gt;&lt;/span&gt;
+&amp;lt;!--v--&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最后选择了第三种方式，因为第二种还得每次把 md 文档放在带有那两个&lt;code&gt;.json&lt;/code&gt;的文件夹内&lt;/p&gt;
+&lt;h2 id=&#34;我的一个-md-文档格式示例&#34;&gt;我的一个 md 文档格式示例&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;---
+title: xxx
+separator: &amp;#34;^\n---\n$&amp;#34;
+verticalSeparator: &amp;#34;^\n--\n$&amp;#34;
+theme: black 
+revealOptions:
+    transition: &amp;#39;slide&amp;#39;
+
+&amp;#34;slideNumber&amp;#34;: true
+&amp;#34;progress&amp;#34;: true
+&amp;#34;width&amp;#34;: 1920
+&amp;#34;height&amp;#34;: 1080
+&amp;#34;margin&amp;#34;: 0.1
+&amp;#34;minScale&amp;#34;: 0.2
+&amp;#34;maxScale&amp;#34;: 2
+
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样可以把文档放在任何位置，然后每次用 &lt;code&gt;reveal-md XX.md&lt;/code&gt; 输出最终 html。&lt;/p&gt;
+- https://kevintus.github.io/post/190618-%E7%94%A8reveal-md%E7%AE%80%E5%8C%96markdown&#43;reveal.js%E5%86%99%E4%BD%9C/ - copyright by Kevin.Lai</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>安装配置 reveal.js&#43;Markdown 实现网页 ppt</title>
+        <link>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</link>
+        <pubDate>Thu, 13 Jun 2019 15:06:55 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/</guid>
+        <description>卜平社 https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/ -&lt;h2 id=&#34;关于ppt&#34;&gt;关于PPT&lt;/h2&gt;
+&lt;p&gt;因为之前从事管理战略咨询的缘故，PPT 是必备技能。thinkcell+键盘快捷键玩到飞起，巅峰时刻一晚大几十页PPT没有任何问题 - 于是脑海中非常根深蒂固的印象就是 PPT = Microsoft Powerpoint，最好的 PPT 模板就是麦肯锡的一套。过去三四年转行互联网，这样的认知逐渐被打破，尤其在以下方面，看到了很多 PowerPoint 没法解决（或不适应）的问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;非线性逻辑结构：PPT 的翻页是线性且单维的，这让我现在很多时候用脑图而不是 PPT 来思考和陈述&lt;/li&gt;
+&lt;li&gt;对于包括代码、视频、公式等形式的支持落后：记得自己2006年开始用 Linux（Ubuntu），就是因为写论文的时候不能忍受输入数学公式的繁琐，转而用 vim + LaTex 生成 PDF。时至今日，这些问题依然在 office suite 里面没有得到特别好的解决&lt;/li&gt;
+&lt;li&gt;轻便：如果不是之前管理战略咨询那样的 PPT（极其严谨的图文排布、12-16号字打便天下，高密度信息结构），其实是不需要 PowerPoint 那么重的工具的。同时，过去三四年我自己的管理决策一直是在做减法，因此在最终思路的呈现上反而强调 KISS 原则，不像之前呈现给500强 CXO 或者 PE 投资人那么需要信息丰富度和高级逻辑能力，转而力求“把事情用最简单的方式说清楚，并且让绝大多数听众第一时间就能明白吸收”。在这种情况下，PowerPoint 略显沉闷和笨重&lt;/li&gt;
+&lt;li&gt;云和协作：这点 Google Suite 比 Office Suite 好很多。当然我不觉得 Google Suite 总体产品做的很好，只是会拿 Google Doc 和 Google Keep 来记录日常思考，最近有被 Markdown 取代的迹象。实时云存储一定是趋势，PowerPoint 动作太慢了，背后其实是有隐性风险的，比如我相信很多人都经历过本机保存不及时活白干，或者团队内部搞 PPT 版本控制问题等。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;当然，PowerPoint 的优势依然明显，比如任何时候，我需要准备一份最严谨的商业陈述，或者 BD/ 销售材料，那么 PowerPoint 仍然是我的最优解。但在其他时刻，比如团队内部分享，或者一些产品讨论等方面，我在过去一段时间里的确在认真考虑使用更加灵活和轻量级的其他工具。&lt;/p&gt;
+&lt;h2 id=&#34;为什么是-markdown--revealjs&#34;&gt;为什么是 Markdown + reveal.js&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;还是尝试阶段，可能有更好的工具&lt;/li&gt;
+&lt;li&gt;过去一周使用 Markdown 的体验非常愉快。Markdown 比当年写 LaTex 文档入门门槛低太多了，而且排版还是很舒服的&lt;/li&gt;
+&lt;li&gt;个人是所想即所得的忠实拥护者，我对工具的要求是在聚焦写完 Markdown 文档以后，能否最低成本地以我想要的方式“逐页”展现出来&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hakimel/reveal.js/#configuration&#34;&gt;Reveal.js&lt;/a&gt;的社区文档做的不错，一开始的demo还是很吸引人的。粗略看了一圈，也不复杂，就先试起来了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;revealjs的配置&#34;&gt;Reveal.js的配置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;基本 follow GitHub 上的官方教程，我采用的是 &lt;a href=&#34;https://github.com/hakimel/reveal.js/#full-setup&#34;&gt;Full Setup&lt;/a&gt;，就是装了一个比较完整的 node.js + npm 环境在机子上&lt;/li&gt;
+&lt;li&gt;不喜欢用 “internal” Markdown 的方式来写，每一页还要前后加 &lt;code&gt;&amp;lt;section&amp;gt; &amp;lt;/section&amp;gt;&lt;/code&gt; 也太烦人了，直接采用 &lt;a href=&#34;https://github.com/hakimel/reveal.js/#external-markdown&#34;&gt;External Markdown&lt;/a&gt; 的方式来处理比较好，最快上手的方式是直接在安装目录下的 &lt;code&gt;index.html&lt;/code&gt; 上面修改保存，省的一开始配置&lt;/li&gt;
+&lt;li&gt;一个关键定义是 Markdown 文档里面怎么分页，官方给的方式是横向空三行、纵向空两行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;data-separator=&amp;quot;^\n\n\n&amp;rdquo;&lt;br&gt;
+data-separator-vertical=&amp;quot;^\n\n&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我采用的方式是横向空一行，加三个-，再空一行;纵向纵向空一行，加两个-，再空一行。纯粹觉得这样比较安全&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;data-separator=&amp;quot;^\n&amp;mdash;\n$&amp;rdquo;&lt;br&gt;
+data-separator-vertical=&amp;quot;^\n&amp;ndash;\n$&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;默认的字体太大了，我偷懒就改了一下 css 里面 theme 文件的  &lt;code&gt;font-size&lt;/code&gt;，从原来40改成24&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-node.js&#34; data-lang=&#34;node.js&#34;&gt;.reveal {
+font-family: &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;Source Sans Pro&amp;#34;&lt;/span&gt;, Helvetica, sans-serif;
+font-size: &lt;span style=&#34;color:#b452cd&#34;&gt;24&lt;/span&gt;px;
+font-weight: normal;
+color: &lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;#&lt;/span&gt;fff; }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;基本能用了。&lt;/p&gt;
+&lt;h2 id=&#34;待解决问题&#34;&gt;待解决问题&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;表格的宽度设定，跟用 Markdown 之间生成样子不一样&lt;/li&gt;
+&lt;li&gt;插入图片和视频&lt;/li&gt;
+&lt;li&gt;页面里一些元素的调整，比如引用，现在的版面占用比较大&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2019619-更新&#34;&gt;2019.6.19 更新&lt;/h2&gt;
+&lt;p&gt;插入图片选择了 &lt;a href=&#34;https://picgo.github.io/PicGo-Doc/zh/guide/&#34;&gt;PicGo&lt;/a&gt; + github 作为图床，每次上传完照片之后，进入 PicGo 的相片区，选择复制，可以自动生成 Markdown 文档的图片链接，粘贴进文档完事儿。&lt;/p&gt;
+&lt;p&gt;插入视频选择了用 iframe 方式，具体见 &lt;a href=&#34;https://kevintus.github.io/post/190619-reveal-md-%E6%A0%BC%E5%BC%8F%E6%A8%A1%E7%89%88/&#34;&gt;190619-reveal-md-格式模版&lt;/a&gt;&lt;/p&gt;
+- https://kevintus.github.io/post/2019-06-13-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEreveal.js&#43;markdown%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5ppt/ - copyright by Kevin.Lai</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>开始使用Tmux</title>
+        <link>https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</link>
+        <pubDate>Tue, 11 Jun 2019 19:19:36 +0800</pubDate>
+        
+        <guid>https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</guid>
+        <description>卜平社 https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/ -&lt;h2 id=&#34;tmux-的安装和设置&#34;&gt;Tmux 的安装和设置&lt;/h2&gt;
+&lt;h3 id=&#34;基本学习以下教程&#34;&gt;基本学习以下教程&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[优雅地使用命令行：Tmux 终端复用] &lt;a href=&#34;https://harttle.land/2015/11/06/tmux-startup.html&#34;&gt;https://harttle.land/2015/11/06/tmux-startup.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[十分钟学会 tmux] &lt;a href=&#34;https://www.jianshu.com/p/c217318a9380&#34;&gt;https://www.jianshu.com/p/c217318a9380&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[tmux简洁教程及config关键配置] &lt;a href=&#34;https://www.jianshu.com/p/fd3bbdba9dc9&#34;&gt;https://www.jianshu.com/p/fd3bbdba9dc9&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;贴出来我的tmuxconf&#34;&gt;贴出来我的&lt;code&gt;~/.tmux.conf&lt;/code&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;~/.tmux.conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 更改Prefix 键为 ctrl + x&lt;/span&gt;
+set-option -g prefix C-x
+unbind-key C-x
+bind-key  C-x send-prefix
+ 
+&lt;span style=&#34;color:#228b22&#34;&gt;# 开启鼠标模式&lt;/span&gt;
+set-option -g mouse on
+
+&lt;span style=&#34;color:#228b22&#34;&gt;# 不用按prefix，直接用 alt + 箭头 方式在pane之间切换&lt;/span&gt;
+&lt;span style=&#34;color:#658b00&#34;&gt;bind&lt;/span&gt; -n M-Left &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;select&lt;/span&gt;-pane -L
+&lt;span style=&#34;color:#658b00&#34;&gt;bind&lt;/span&gt; -n M-Right &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;select&lt;/span&gt;-pane -R
+&lt;span style=&#34;color:#658b00&#34;&gt;bind&lt;/span&gt; -n M-Up &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;select&lt;/span&gt;-pane -U
+&lt;span style=&#34;color:#658b00&#34;&gt;bind&lt;/span&gt; -n M-Down &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;select&lt;/span&gt;-pane -D
+
+&lt;span style=&#34;color:#228b22&#34;&gt;# Set easier window split keys&lt;/span&gt;
+bind-key v split-window -h
+bind-key h split-window -v
+
+&lt;span style=&#34;color:#228b22&#34;&gt;# 如果对 vim 比较熟悉，可以将 copy mode 的快捷键换成 vi 模式&lt;/span&gt;
+set-window-option -g mode-keys vi
+&lt;span style=&#34;color:#658b00&#34;&gt;bind&lt;/span&gt; Escape copy-mode &lt;span style=&#34;color:#228b22&#34;&gt;# 绑定esc键为进入复制模式&lt;/span&gt;
+&lt;span style=&#34;color:#658b00&#34;&gt;bind&lt;/span&gt; -T copy-mode-vi v send-keys -X begin-selection
+&lt;span style=&#34;color:#658b00&#34;&gt;bind&lt;/span&gt; -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+&lt;span style=&#34;color:#658b00&#34;&gt;bind&lt;/span&gt; p pasteb &lt;span style=&#34;color:#228b22&#34;&gt;# 绑定p键为粘贴文本（p键默认用于进入上一个窗口，不建议覆盖）&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;关于copy-mode还是比较复杂操作如下&#34;&gt;关于&lt;code&gt;copy mode&lt;/code&gt;，还是比较复杂，操作如下：&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + x&lt;/code&gt; &lt;code&gt;[&lt;/code&gt; 进入复制模式&lt;/li&gt;
+&lt;li&gt;可以选择&lt;code&gt;v&lt;/code&gt; 键进入vim的visual模式，或可用vim的搜索功能&amp;rdquo;/&amp;quot;,&amp;quot;?&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;使用vim的&lt;code&gt;y&lt;/code&gt;键进行复制&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;copy mode&lt;/code&gt;里面用 &lt;code&gt;p&lt;/code&gt;键可以选择粘贴；如果不在&lt;code&gt;copy mode&lt;/code&gt;里面，那么用 &lt;code&gt;Ctrl + x&lt;/code&gt; &lt;code&gt;」&lt;/code&gt;进行粘贴&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;跟系统剪贴板打通&#34;&gt;跟系统剪贴板打通&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;按住 &lt;code&gt;shift&lt;/code&gt;，鼠标左键选择文本，&lt;code&gt;Ctrl + c&lt;/code&gt;复制&lt;/li&gt;
+&lt;li&gt;注意全程按住 &lt;code&gt;shift&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;190620-更新&#34;&gt;190620 更新&lt;/h2&gt;
+&lt;p&gt;系统剪贴板功能可以使用 &lt;code&gt;xclip -selection clipboard&lt;/code&gt; 更加方便&lt;/p&gt;
+- https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/ - copyright by Kevin.Lai</description>
+        </item>
+    
     
   </channel>
-</rss>
+</rss> 

@@ -6,6 +6,7 @@
     <description>Recent content in xclip on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>copyright by Kevin.Lai</copyright>
     <lastBuildDate>Thu, 20 Jun 2019 18:50:08 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/xclip/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,14 @@
       <pubDate>Thu, 20 Jun 2019 18:50:08 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190620-copy-to-clipboard-in-terminal/</guid>
-      <description>利用 xclip -selection clipboard 把终端内容复制到系统剪贴板 之前各种研究如何在 zsh 和 tmux 下面实现复制粘贴，参见开始使用Tmux，今天发现其实用 xclip -selection clipboard 命令就可以很简单实现</description>
+      <description>利用 xclip -selection clipboard 把终端内容复制到系统剪贴板 之前各种研究如何在 zsh 和 tmux 下面实现复制粘贴，参见开始使用Tmux，今天发现其实用 xclip -selection clipboard 命令就可以很简单实现
+举例：我要拷贝 v2Ray 的配置文件到 Google doc 备份，只需要
+cat /etc/v2ray/config.json | xclip -selection clipboard 就搞定了。比用什么摁住 shift 键拨弄鼠标简单一百倍。
+可以在 .zshrc 文件里面设置一下 alias，方便使用
+alias copytoclipboard=&amp;#34;xclip -selection clipboard&amp;#34; 之后就可以
+cat /etc/v2ray/config.json | copytoclipboard 终端内使用 如果要在终端里面实现内容复制粘贴，也非常简单
+xclip xxx xclip -o 所以如果想复制粘贴一个文件的绝对路径，只需要
+readlink -e sample.png | xclip xclip -o DONE！</description>
     </item>
     
   </channel>

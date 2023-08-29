@@ -6,6 +6,7 @@
     <description>Recent content in Zsh on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>copyright by Kevin.Lai</copyright>
     <lastBuildDate>Tue, 11 Jun 2019 19:19:36 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,11 @@
       <pubDate>Tue, 11 Jun 2019 19:19:36 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/2019-06-11-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8tmux/</guid>
-      <description>Tmux 的安装和设置 基本学习以下教程 [优雅地使用命令行：Tmux 终端复用] https://harttle.land/2015/11/06/tmux-startup.html [十分钟学会 tmux] https://www.jianshu.com/p/c217318a9380 [tmux简洁教程及config关键配置] https://www.jianshu.com/p/fd3bbdba9dc9 贴出来我的</description>
+      <description>Tmux 的安装和设置 基本学习以下教程  [优雅地使用命令行：Tmux 终端复用] https://harttle.land/2015/11/06/tmux-startup.html
+  [十分钟学会 tmux] https://www.jianshu.com/p/c217318a9380
+  [tmux简洁教程及config关键配置] https://www.jianshu.com/p/fd3bbdba9dc9
+ 贴出来我的~/.tmux.conf  ~/.tmux.conf
+ # 更改Prefix 键为 ctrl + x set-option -g prefix C-x unbind-key C-x bind-key C-x send-prefix # 开启鼠标模式 set-option -g mouse on # 不用按prefix，直接用 alt + 箭头 方式在pane之间切换 bind -n M-Left select-pane -L bind -n M-Right select-pane -R bind -n M-Up select-pane -U bind -n M-Down select-pane -D # Set easier window split keys bind-key v split-window -h bind-key h split-window -v # 如果对 vim 比较熟悉，可以将 copy mode 的快捷键换成 vi 模式 set-window-option -g mode-keys vi bind Escape copy-mode # 绑定esc键为进入复制模式 bind -T copy-mode-vi v send-keys -X begin-selection bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel bind p pasteb # 绑定p键为粘贴文本（p键默认用于进入上一个窗口，不建议覆盖） 关于copy mode，还是比较复杂，操作如下：  Ctrl + x [ 进入复制模式 可以选择v 键进入vim的visual模式，或可用vim的搜索功能&amp;rdquo;/&amp;quot;,&amp;quot;?</description>
     </item>
     
   </channel>

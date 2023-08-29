@@ -6,6 +6,7 @@
     <description>Recent content in Vim on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>copyright by Kevin.Lai</copyright>
     <lastBuildDate>Tue, 16 Jul 2019 11:02:57 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,10 @@
       <pubDate>Tue, 16 Jul 2019 11:02:57 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190716_%E8%B0%83%E6%95%B4-vim-%E5%92%8C-tmux-%E4%B8%BA-true-color/</guid>
-      <description>确认 Gnome-terminal 是支持 True color 的 这一篇已经写的很清楚了： How to enable true-color for neovim, tmux, and gnome-terminal 最终 vimrc 和 tmux.conf 配置 .vimrc 配置 set termguicolorslet &amp;amp;t_8f = &amp;#34;\&amp;lt;Esc&amp;gt;[38;2;%lu;%lu;%lum&amp;#34;let &amp;amp;t_8b = &amp;#34;\&amp;lt;Esc&amp;gt;[48;2;%lu;%lu;%lum&amp;#34;set t_Co=256set background=darkcolor molokailet g:molokai_original=1.tmux.conf 配置 set -g default-terminal &#39;screen-256color&#39; set-option -ga terminal-overrides &amp;quot;,*256col*:Tc&amp;quot;</description>
+      <description>确认 Gnome-terminal 是支持 True color 的 这一篇已经写的很清楚了： How to enable true-color for neovim, tmux, and gnome-terminal
+最终 vimrc 和 tmux.conf 配置 .vimrc 配置
+set termguicolorslet &amp;amp;t_8f = &amp;#34;\&amp;lt;Esc&amp;gt;[38;2;%lu;%lu;%lum&amp;#34;let &amp;amp;t_8b = &amp;#34;\&amp;lt;Esc&amp;gt;[48;2;%lu;%lu;%lum&amp;#34;set t_Co=256set background=darkcolor molokailet g:molokai_original=1.tmux.conf 配置
+set -g default-terminal &#39;screen-256color&#39; set-option -ga terminal-overrides &amp;quot;,*256col*:Tc&amp;quot; </description>
     </item>
     
   </channel>

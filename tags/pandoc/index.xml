@@ -6,6 +6,7 @@
     <description>Recent content in Pandoc on 卜平社</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>copyright by Kevin.Lai</copyright>
     <lastBuildDate>Mon, 22 Jul 2019 10:44:05 +0800</lastBuildDate>
     
 	<atom:link href="https://kevintus.github.io/tags/pandoc/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +18,9 @@
       <pubDate>Mon, 22 Jul 2019 10:44:05 +0800</pubDate>
       
       <guid>https://kevintus.github.io/post/190722-convert-chinese-markdown-file-to-pdf-via-pandoc/</guid>
-      <description>2023.8.8 更新 如果还是用pandoc而不是reveal-md（考虑到reveal-md更适合ppt转pdf，而pandoc更适合word），那么可以</description>
+      <description>2023.8.8 更新 如果还是用pandoc而不是reveal-md（考虑到reveal-md更适合ppt转pdf，而pandoc更适合word），那么可以生成一个 head.tex 模版文件，然后让pandoc来调用
+ vim Pandoc-md-to-pdf-head-template.tex
+ \usepackage{fancyvrb,newverbs} %% 设置页面间距 \usepackage[top=2cm, bottom=1.5cm, left=2cm, right=2cm]{geometry} % change background color for inline code in % markdown files. The following code does not work well for % long text as the text will exceed the page boundary \definecolor{bgcolor}{HTML}{E0E0E0} \let\oldtexttt\texttt \renewcommand{\texttt}[1]{ \colorbox{bgcolor}{\oldtexttt{#1}} } %% color and other settings for hyperref package \hypersetup{ bookmarksopen=true, linkcolor=blue, filecolor=magenta, urlcolor=RoyalBlue, } %% 全局中文字体 \setmainfont{Noto Sans CJK SC} %% 针对中文自动换行 \XeTeXlinebreaklocale &amp;#34;zh&amp;#34; %% 设置行间距 \linespread{1.</description>
     </item>
     
   </channel>
